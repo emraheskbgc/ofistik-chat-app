@@ -26,6 +26,9 @@ module.exports = {
       dotBg:"#06d6a0",
       messageCountBg:"#eaccdb",
       messageCountTxt:"#ed7b9a",
+      plusBtn:"#0dd6a6",
+      plusTxt:"#fff",
+      newMessage:"#030712"
     },
   },
   plugins: [],

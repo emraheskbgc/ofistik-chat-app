@@ -10,7 +10,7 @@ function MessagesList() {
 
 
   return (
-    <div  className='w-[25%] bg-messageBodyBg overflow-y-auto max-h-screen '>
+    <div  className='w-[25%] bg-messageBodyBg overflow-y-auto  max-h-screen '>
     <Header/>
     <Favourites/>
     <DirectMessages/>

@@ -27,10 +27,10 @@ function Header() {
       </div>
   
       <input
-        className="outline-none text-sm text-gray-700 pr-2 w-full  "
+        className="outline-none placeholder:italic text-sm text-gray-700 pr-2 w-full  "
         type="text"
         id="search"
-        placeholder="Search something.."
+        placeholder="Search here.."
       />
     </div>
   </div>

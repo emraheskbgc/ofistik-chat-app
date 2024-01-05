@@ -1,48 +1,51 @@
 import React from 'react'
-
+import { FaPlus } from "react-icons/fa6";
 function Channels() {
     const channels = [
         {
           id: 1,
           name: 'Emrah',
-          message: 'Merhaba, nasılsın?',
+          members: 20,
           image: '/assets/images/emrah.jpg',
           unreadMessage:18,
         },
         {
           id: 2,
           name: 'Ayşe',
-          message: 'Günaydın!',
+          members: 20,
           image: '/assets/images/avatar.jpeg',
         },
         {
           id: 3,
           name: 'Mehmet',
-          message: 'Neredesin?',
+          members: 20,
           image: '/assets/images/avatar2.jpeg',
         },
         {
           id: 4,
           name: 'Elif',
-          message: 'Akşam ne yapıyoruz?',
+          members: 20,
           image: '/assets/images/icon.jpeg',
         },
       ];
   return (
-    <div className='mt-44'>
-        <h2 className='text-favTxt text-xs font-semibold mt-14 ml-10'>CHANNELS</h2>
+    <div>
+       <div className='flex justify-between items-center  pr-7 '>
+        <div> <h2 className='text-favTxt text-xs font-semibold mt-14 ml-10'>CHANNELS</h2></div>
+        <div className='mt-14  p-2 bg-plusBtn text-plusTxt rounded-md cursor-pointer'><FaPlus/></div>
+       </div>
         <div className=' mt-5'>
         {
             channels.map((person) => (
                 <div key={person.id} className='flex justify-between items-center hover:bg-personBg pr-8 pl-10 py-3 cursor-pointer' >
                     <div className='flex'>
-                    <div className='relative'>
+                    <div>
                         <img src={person.image} alt={person.name} className='w-10 h-10 rounded-full' />
-                        <div className='absolute bg-dotBg w-3 h-3 rounded-full right-0 bottom-2 border border-[2px] border-inputbg'></div>
+                      
                     </div>
                     <div className='ml-3'>
                         <h2 className='text-ms font-semibold '>{person.name}</h2>
-                        <p className='text-personMesTxt font-[400]'>{person.message}</p>
+                        <p className='text-personMesTxt font-[400]'>{person.members} Members</p>
                     </div>
                     </div>
                     {person.unreadMessage &&
