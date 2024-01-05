@@ -3,7 +3,7 @@ import React from "react";
 
 function Header() {
   return (
-    <div className="fixed z-40 bg-messageBodyBg w-[25%] ">
+    <div className="fixed z-40 bg-messageBodyBg md:w-[25%] w-full ">
     <h2 className="text-xl ml-10 mt-6 mb-4 font-[500] ">
       Messages <span className="text-messageBg text-sm " >(128)</span>
     </h2>

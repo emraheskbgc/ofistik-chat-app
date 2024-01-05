@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <ChakraProvider>
      <div className="flex">
-    <MessagesList/>
+    <MessagesList />
     <Chat/>
    </div>
     </ChakraProvider>
