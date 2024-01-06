@@ -44,8 +44,10 @@ module.exports = {
       channleModalBtnBg:"#f6f6f9",
       channelModalBtnHoverBg:"#d1d1d4",
       channelModalBtnTxt:"#64666a",
-      channelModalCloseTxt:"#f16c8c"
-
+      channelModalCloseTxt:"#f16c8c",
+      channleModalContactBg:"#f8f8f9",
+      channelModalContactBodyBg:"#fff",
+      channelModalCheckBoxBg:"#6d75c5"
     },
   },
   plugins: [],

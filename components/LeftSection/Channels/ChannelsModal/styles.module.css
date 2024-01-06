@@ -36,14 +36,15 @@
   }
 
   .contactsContainer {
-    max-height: 400px;
+    max-height: 300px;
     overflow-y: auto;
+    width: 80%; 
   }
   
   .letterHeader {
     font-weight: bold;
     margin-top: 10px;
-    margin-left: 30px;
+    margin-left: 5px;
     font-size: 13px;
     
   }
@@ -51,7 +52,7 @@
   .userItem {
     display: flex;
     align-items: center;
-    margin-left: 90px;
+    margin-left: 50px;
     margin-top: 5px;
 
   }
