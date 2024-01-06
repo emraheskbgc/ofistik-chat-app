@@ -1,7 +1,16 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import { Tooltip } from "@chakra-ui/react";
+import DirectModal from "./DirectModal";
 function DirectMessages() {
+
+  const [isOpenModal, setIsOpenModal] = useState(false)
+
+  const handleClickOpenModal = () => {
+    setIsOpenModal(!isOpenModal)
+  }
+
   const directMessages = [
     {
       id: 1,
@@ -40,9 +49,12 @@ function DirectMessages() {
         </div>
         <Tooltip hasArrow label='New Message'  placement='top' fontSize='sm' >
         <div className="mt-14  p-2 bg-plusBtn text-plusTxt rounded-md cursor-pointer ">
-          <FaPlus />
+          <FaPlus onClick={handleClickOpenModal} />
+          
         </div>
+       
         </Tooltip>
+        <DirectModal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal}/>
         
       </div>
       <div className=" mt-5">
