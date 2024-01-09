@@ -4,32 +4,9 @@ import styles from "./styles.module.css";
 import { IoCloseOutline } from "react-icons/io5";
 import { RiUserSearchLine } from "react-icons/ri";
 import { IoSend } from "react-icons/io5";
+import PhoneBook from "@/components/PhoneBook";
 
-function DirectModal({ isOpenModal, setIsOpenModal }) {
-  const users = [
-    { id: 1, name: "Ahmet", avatar: "/assets/images/avatar.jpeg " },
-    { id: 2, name: "Ayşe", avatar: "/assets/images/avatar2.jpeg" },
-    { id: 3, name: "Berk", avatar: "/assets/images/avatar.jpeg " },
-    { id: 4, name: "Buse", avatar: "/assets/images/icon.jpeg" },
-    { id: 5, name: "Emrah", avatar: "/assets/images/emrah.jpg " },
-    { id: 6, name: "Zeliha", avatar: "/assets/images/avatar2.jpeg" },
-    { id: 7, name: "Osman", avatar: "/assets/images/avatar.jpeg" },
-    // ... diğer kullanıcılar
-  ];
-  // kullanıcıları alfabetik sıralama
-  const sortedUsers = users.sort((a, b) => a.name.localeCompare(b.name));
-
-  //alfabetik sıralamaya göre kullanıcıları harf başlıklarıyla gruplayalım:
-
-  const groupedUsers = {};
-
-  sortedUsers.forEach((user) => {
-    const firstLetter = user.name.charAt(0).toUpperCase();
-    if (!groupedUsers[firstLetter]) {
-      groupedUsers[firstLetter] = [];
-    }
-    groupedUsers[firstLetter].push(user);
-  });
+function DirectModal({ isOpenModal, setIsOpenModal, configAvatar, configCheck }) {
 
   return (
     <>
@@ -59,21 +36,7 @@ function DirectModal({ isOpenModal, setIsOpenModal }) {
             </div>
             <div className={styles.contactsContainer}>
             <h2 className="ml-11 font-[600] text-sm text-modalContactTxt">Contacts</h2>
-              {Object.keys(groupedUsers).map((letter) => (
-                <div key={letter}>
-                  <div className={`${styles.letterHeader} text-modalSendBtn flex justify-center items-center` }>{letter} <div className="w-[80%] ml-4 h-0 border"></div> </div>
-                  {groupedUsers[letter].map((user) => (
-                    <div key={user.id} className={styles.userItem}>
-                      <img
-                        src={user.avatar}
-                        alt={user.name}
-                        className={styles.avatar}
-                      />
-                      <span className= "text-modalNameTxt font-[600] text-sm">{user.name}</span>
-                    </div>
-                  ))}
-                </div>
-              ))}
+              <PhoneBook configCheck={configCheck = false} configAvatar={configAvatar} />
             </div>
             <hr/>
             <div className="flex justify-end items-center pr-8 py-5 border w-full rounded-b">

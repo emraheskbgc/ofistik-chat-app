@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import { Tooltip } from "@chakra-ui/react";
 import DirectModal from "./DirectModal";
-function DirectMessages() {
+function DirectMessages({configAvatar,configCheck}) {
 
   const [isOpenModal, setIsOpenModal] = useState(false)
 
@@ -54,7 +54,7 @@ function DirectMessages() {
         </div>
        
         </Tooltip>
-        <DirectModal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal}/>
+        <DirectModal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} configAvatar={configAvatar} configCheck={configCheck}/>
         
       </div>
       <div className=" mt-5">

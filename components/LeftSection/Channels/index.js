@@ -3,7 +3,7 @@ import React,{useState} from 'react'
 import { FaPlus } from "react-icons/fa6";
 import { Tooltip } from "@chakra-ui/react";
 import ChannelsModal from './ChannelsModal';
-function Channels() {
+function Channels({configAvatar, configCheck}) {
     const channels = [
         {
           id: 1,
@@ -48,7 +48,7 @@ function Channels() {
         </div>
        
         </Tooltip>
-        <ChannelsModal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />
+        <ChannelsModal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} configAvatar={configAvatar} configCheck={configCheck} />
        </div>
         <div className=' mt-5'>
         {

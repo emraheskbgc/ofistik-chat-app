@@ -7,14 +7,19 @@ import Channels from '../Channels'
 
 function MessagesList() {
  
-
+  const config = {
+    isCheckBox:true,
+    isAvatar:true,
+  }
+ 
+  
 
   return (
     <div  className='md:w-[50%] lg:w-[25%] w-[100%] bg-messageBodyBg overflow-y-auto  max-h-screen '>
     <Header/>
     <Favourites/>
-    <DirectMessages/>
-    <Channels/>
+    <DirectMessages configAvatar={config.isAvatar} configCheck={config.isCheckBox}/>
+    <Channels  configAvatar={config.isAvatar} configCheck={config.isCheckBox}/>
     </div>
   )
 }
