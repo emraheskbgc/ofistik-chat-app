@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useRef } from "react";
 import styles from "./styles.module.css";
 import Input from "./Input";
 
@@ -9,6 +9,12 @@ function Messages() {
   const [messages, setMessages] = useState([]); // Mesajların listesi
   const [inputValue, setInputValue] = useState(""); // Girişteki değer
 
+  const messagesEndRef = useRef(null);
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages]);
   useEffect(() => {
     // Örnek mesajları başlangıçta yükleyelim
     setMessages([
@@ -75,6 +81,7 @@ function Messages() {
             )}
           </div>
         ))}
+        <div ref={messagesEndRef}></div>
       </div>
 
 

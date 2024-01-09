@@ -5,13 +5,14 @@
     flex-direction: row;
     overflow-y: auto;
     max-height: 90vh;
-    
-    
+    height: 83vh;
   }
+
   
   .messageArea {
     flex: 1;
     padding: 20px;
+    margin-bottom: 120px;
   }
   
   .message {
@@ -44,6 +45,7 @@
     border-bottom-right-radius: 15px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
+ 
   }
   .myMessageText{
     padding: 10px;

@@ -1,19 +1,31 @@
-import React from "react";
+"use client"
+import React,{useState} from "react";
 import { IoSend } from "react-icons/io5";
 import { TiMicrophoneOutline } from "react-icons/ti";
 import { HiOutlineEmojiHappy } from "react-icons/hi";
 import { HiDotsHorizontal } from "react-icons/hi";
 import styles from "./styles.module.css";
+import { Tooltip } from "@chakra-ui/react";
+
+
+
+
 function Input({ inputValue, sendMessage, handleInputChange }) {
+
   return (
     <div className={`${styles.inputArea} border-t p-5`}>
       <div className="flex justify-center items-center space-x-10 text-chatIconBg ">
-        <div className="text-2xl">
+      <Tooltip hasArrow label='More'  placement='top' fontSize='sm' >
+        <div className="text-2xl cursor-pointer" >
           <HiDotsHorizontal />
         </div>
-        <div className="text-2xl">
+        </Tooltip>
+        <Tooltip hasArrow label='Emoji'  placement='top' fontSize='sm' >
+        <div className="text-2xl cursor-pointer">
           <HiOutlineEmojiHappy />
         </div>
+        
+        </Tooltip>
         <div className="w-full ">
           <input
             type="text"
