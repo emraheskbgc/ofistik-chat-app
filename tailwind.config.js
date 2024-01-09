@@ -47,7 +47,11 @@ module.exports = {
       channelModalCloseTxt:"#f16c8c",
       channleModalContactBg:"#f8f8f9",
       channelModalContactBodyBg:"#fff",
-      channelModalCheckBoxBg:"#6d75c5"
+      channelModalCheckBoxBg:"#6d75c5",
+      chatIconBg:"#7b7e82",
+      sendInputBg:"#f6f6f9",
+      typeingDotBg:"#06d6a0"
+
     },
   },
   plugins: [],
