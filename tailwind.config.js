@@ -50,7 +50,13 @@ module.exports = {
       channelModalCheckBoxBg:"#6d75c5",
       chatIconBg:"#7b7e82",
       sendInputBg:"#f6f6f9",
-      typeingDotBg:"#06d6a0"
+      typeingDotBg:"#06d6a0",
+      inputMoreIconBg:"#e2e3f3",
+      inputMoreBg:"#fff",
+      inputMoreIcon:"#06d6a0",
+      threeDotMenu:"#fff",
+      threeDotMenuTxt:"#595d61",
+      threeDotMenuHover:"#f8f9fa"
 
     },
   },

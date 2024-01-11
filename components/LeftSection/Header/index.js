@@ -1,7 +1,12 @@
 import React from "react";
 
 
-function Header() {
+function Header({ onSearch }) {
+
+  const handleInputChange = (e) => {
+      onSearch(e.target.value)
+  }
+
   return (
     <div className="fixed z-40 bg-messageBodyBg md:w-[25%] w-full ">
     <h2 className="text-xl ml-10 mt-6 mb-4 font-[500] ">
@@ -31,6 +36,7 @@ function Header() {
         type="text"
         id="search"
         placeholder="Search here.."
+        onChange={handleInputChange}
       />
     </div>
   </div>

@@ -1,12 +1,25 @@
-import React from "react";
+"use client"
+import React,{useState} from "react";
 import styles from "./styles.module.css";
 
 import { IoCloseOutline } from "react-icons/io5";
 import { RiUserSearchLine } from "react-icons/ri";
 import { IoSend } from "react-icons/io5";
 import PhoneBook from "@/components/PhoneBook";
+import users from "@/public/assets/data/users.json"
 
-function DirectModal({ isOpenModal, setIsOpenModal, configAvatar, configCheck }) {
+import { useContext } from "react";
+import PhoneBookContext  from "@/context/PhoneBookContext"
+
+function DirectModal({ isOpenModal, setIsOpenModal }) {
+  const {showAvatar} = useContext(PhoneBookContext)
+
+  const [searchTerm, setSearchTerm] = useState(""); // Arama terimi için state
+
+  // Filtreleme fonksiyonu
+  const filteredUsers = users.filter((user) =>
+    user.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <>
@@ -25,6 +38,8 @@ function DirectModal({ isOpenModal, setIsOpenModal, configAvatar, configCheck })
             </div>
             <div className="flex items-center w-[90%] ml-7  py-5 px-4 ">
               <input
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
                 className=" border border-modalInputBorder border-opacity-45 placeholder:italic focus-within:outline bg-inputbg text-sm text-gray-700 px-2 rounded-bl rounded-tl py-3  w-full  "
                 type="text"
                 id="searchUser"
@@ -36,7 +51,7 @@ function DirectModal({ isOpenModal, setIsOpenModal, configAvatar, configCheck })
             </div>
             <div className={styles.contactsContainer}>
             <h2 className="ml-11 font-[600] text-sm text-modalContactTxt">Contacts</h2>
-              <PhoneBook configCheck={configCheck = false} configAvatar={configAvatar} />
+              <PhoneBook  showAvatar={showAvatar} showCheckBox={false} filteredUsers={filteredUsers}/>
             </div>
             <hr/>
             <div className="flex justify-end items-center pr-8 py-5 border w-full rounded-b">

@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import styles from "./styles.module.css";
 import PhoneBook from "@/components/PhoneBook";
-function ChannelsModal({ isOpenModal, setIsOpenModal, configAvatar, configCheck }) {
+
+import { useContext } from "react";
+import PhoneBookContext  from "@/context/PhoneBookContext"
+
+function ChannelsModal({ isOpenModal, setIsOpenModal }) {
+
+  const{showCheckBox} = useContext(PhoneBookContext)
   
   const [isOpenContact, setIsOpenContact] = useState(false);
   const handleOpenContact = () => {
@@ -47,7 +53,7 @@ function ChannelsModal({ isOpenModal, setIsOpenModal, configAvatar, configCheck 
               <h2 className=" font-[600] text-sm text-modalOutBg bg-channleModalContactBg p-2 border w-full">
                 Contacts
               </h2>
-              <PhoneBook configAvatar={configAvatar=false} configCheck={configCheck} />
+              <PhoneBook showAvatar={false} showCheckBox={showCheckBox} />
             </div>
           )}
 

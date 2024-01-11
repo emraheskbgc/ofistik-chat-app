@@ -3,7 +3,12 @@ import React, { useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import { Tooltip } from "@chakra-ui/react";
 import DirectModal from "./DirectModal";
-function DirectMessages({configAvatar,configCheck}) {
+
+import users from "@/public/assets/data/users.json"
+
+function DirectMessages({filteredUser}) {
+
+ 
 
   const [isOpenModal, setIsOpenModal] = useState(false)
 
@@ -11,33 +16,7 @@ function DirectMessages({configAvatar,configCheck}) {
     setIsOpenModal(!isOpenModal)
   }
 
-  const directMessages = [
-    {
-      id: 1,
-      name: "Emrah",
-      message: "Merhaba, nasılsın?",
-      image: "/assets/images/emrah.jpg",
-      unreadMessage: 18,
-    },
-    {
-      id: 2,
-      name: "Ayşe",
-      message: "Günaydın!",
-      image: "/assets/images/avatar.jpeg",
-    },
-    {
-      id: 3,
-      name: "Mehmet",
-      message: "Neredesin?",
-      image: "/assets/images/avatar2.jpeg",
-    },
-    {
-      id: 4,
-      name: "Elif",
-      message: "Akşam ne yapıyoruz?",
-      image: "/assets/images/icon.jpeg",
-    },
-  ];
+
   return (
     <div>
       <div className="flex justify-between items-center  pr-7 ">
@@ -54,11 +33,11 @@ function DirectMessages({configAvatar,configCheck}) {
         </div>
        
         </Tooltip>
-        <DirectModal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} configAvatar={configAvatar} configCheck={configCheck}/>
+        <DirectModal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />
         
       </div>
       <div className=" mt-5">
-        {directMessages.map((person) => (
+        {filteredUser.slice(0,5).map((person) => (
           <div
             key={person.id}
             className="flex justify-between items-center hover:bg-personBg pr-8 pl-10 py-3 cursor-pointer"
@@ -66,7 +45,7 @@ function DirectMessages({configAvatar,configCheck}) {
             <div className="flex">
               <div className="relative">
                 <img
-                  src={person.image}
+                  src={person.avatar}
                   alt={person.name}
                   className="w-10 h-10 rounded-full"
                 />
@@ -74,7 +53,7 @@ function DirectMessages({configAvatar,configCheck}) {
               </div>
               <div className="ml-3">
                 <h2 className="text-ms font-semibold ">{person.name}</h2>
-                <p className="text-personMesTxt font-[400]">{person.message}</p>
+                <p className="text-personMesTxt font-[400]">{person.messages[0]}</p>
               </div>
             </div>
             {person.unreadMessage && (

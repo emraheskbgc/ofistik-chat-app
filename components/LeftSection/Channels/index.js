@@ -3,35 +3,9 @@ import React,{useState} from 'react'
 import { FaPlus } from "react-icons/fa6";
 import { Tooltip } from "@chakra-ui/react";
 import ChannelsModal from './ChannelsModal';
-function Channels({configAvatar, configCheck}) {
-    const channels = [
-        {
-          id: 1,
-          name: 'Emrah',
-          members: 20,
-          image: '/assets/images/emrah.jpg',
-          unreadMessage:18,
-        },
-        {
-          id: 2,
-          name: 'Ayşe',
-          members: 20,
-          image: '/assets/images/avatar.jpeg',
-        },
-        {
-          id: 3,
-          name: 'Mehmet',
-          members: 20,
-          image: '/assets/images/avatar2.jpeg',
-        },
-        {
-          id: 4,
-          name: 'Elif',
-          members: 20,
-          image: '/assets/images/icon.jpeg',
-        },
-      ];
-
+import channels from "@/public/assets/data/channels.json"
+function Channels({filteredChannels}) {
+    
       const [isOpenModal, setIsOpenModal] = useState(false)
 
       const handleClickOpenModal = () => {
@@ -48,11 +22,11 @@ function Channels({configAvatar, configCheck}) {
         </div>
        
         </Tooltip>
-        <ChannelsModal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} configAvatar={configAvatar} configCheck={configCheck} />
+        <ChannelsModal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />
        </div>
         <div className=' mt-5'>
         {
-            channels.map((person) => (
+          filteredChannels.slice(0,5).map((person) => (
                 <div key={person.id} className='flex justify-between items-center hover:bg-personBg pr-8 pl-10 py-3 cursor-pointer' >
                     <div className='flex'>
                     <div>
@@ -61,7 +35,7 @@ function Channels({configAvatar, configCheck}) {
                     </div>
                     <div className='ml-3'>
                         <h2 className='text-ms font-semibold '>{person.name}</h2>
-                        <p className='text-personMesTxt font-[400]'>{person.members} Members</p>
+                        <p className='text-personMesTxt font-[400]'>{person.userIds.length} Members</p>
                     </div>
                     </div>
                     {person.unreadMessage &&
