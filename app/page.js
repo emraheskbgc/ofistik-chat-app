@@ -8,19 +8,28 @@ import { useState } from "react";
 
 
 export default function Home() {
+  const [selectedUser, setSelectedUser] = useState("Emrah");
   const showAvatar = true;
-  const showCheckBox = true;
+  const showCheckBox = true;  const handleUserSelect = (user) => {
+    setSelectedUser(user);
+  };
+
   const data = {
     showCheckBox,
     showAvatar,
+    selectedUser,
+    handleUserSelect
   }
+
+
+
   return (
     <PhoneBookContext.Provider value={data}>
     
       <ChakraProvider>
      <div className="flex">
-    <MessagesList />
-    <Chat/>
+    <MessagesList  />
+    <Chat />
    </div>
     </ChakraProvider>
   

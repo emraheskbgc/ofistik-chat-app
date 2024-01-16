@@ -3,9 +3,13 @@ import { useState, useEffect,useRef } from "react";
 import styles from "./styles.module.css";
 import Input from "./Input";
 
-
+import { useContext } from "react";
+import PhoneBookContext  from "@/context/PhoneBookContext"
 
 function Messages() {
+
+  const {selectedUser} = useContext(PhoneBookContext)
+
   const [messages, setMessages] = useState([]); // Mesajların listesi
   const [inputValue, setInputValue] = useState(""); // Girişteki değer
 
@@ -69,7 +73,7 @@ function Messages() {
               <>
                 <div className={styles.avatar}>
                   <img
-                    src={message.avatar}
+                    src={selectedUser.avatar}
                     alt="Avatar"
                     className={styles.avatarImage}
                   />

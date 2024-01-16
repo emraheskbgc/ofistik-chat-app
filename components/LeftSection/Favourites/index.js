@@ -1,6 +1,12 @@
 import React from 'react'
-import users from "@/public/assets/data/users.json"
+
+
+import { useContext } from "react";
+import PhoneBookContext  from "@/context/PhoneBookContext"
+
 function Favourites({ filteredUser }) {
+
+    const {handleUserSelect} = useContext(PhoneBookContext)
 
   
   
@@ -10,7 +16,7 @@ function Favourites({ filteredUser }) {
         <div className=' mt-5'>
         {
           filteredUser.slice(0,5).map((person) => (
-                <div key={person.id} className='flex justify-between items-center hover:bg-personBg pr-8 pl-10 py-3 cursor-pointer' >
+                <div key={person.id} onClick={()=> handleUserSelect(person)} className='flex justify-between items-center hover:bg-personBg pr-8 pl-10 py-3 cursor-pointer' >
                     <div className='flex'>
                     <div className='relative'>
                         <img src={person.avatar} alt={person.name} className='w-10 h-10 rounded-full' />

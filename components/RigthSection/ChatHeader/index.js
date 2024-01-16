@@ -11,16 +11,22 @@ import { FaArchive } from "react-icons/fa";
 import { AiOutlineAudioMuted } from "react-icons/ai";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import PhoneCallModal from "./PhoneCallModal";
-
+import VideoCallModal from "./VideoCallModal";
+import { useContext } from "react";
+import PhoneBookContext  from "@/context/PhoneBookContext"
 
 
 function ChatHeader() {
+
+  const {selectedUser} = useContext(PhoneBookContext)
+
   const user = {
     userName: "Emrah Eskibağcı",
     path: "/assets/images/emrah.jpg",
     status:"Online"
   };
 
+  console.log(selectedUser);
 
   // three dot dropdownMenu
 
@@ -35,6 +41,7 @@ function ChatHeader() {
 
   const[isOpenSearch, setIsOpenSearch] = useState(false)
   const[isOpenPhoneModal, setIsOpenPhoneModal] = useState(false)
+  const[isOpenVideoCallModal, setIsOpenVideoCallModal] = useState(false)
 
   return (
     <>
@@ -43,16 +50,17 @@ function ChatHeader() {
     <div className="flex justify-between items-center w-full border">
     <div className="flex  items-center p-4" >
         <div className="relative">
+       
           <img
-            src={user.path}
-            alt={user.userName}
+            src={selectedUser.avatar}
+            alt={selectedUser.name}
             className="w-10 h-10 rounded-full"
           />
           <div className="absolute bg-dotBg w-3 h-3 rounded-full right-0 bottom-0 border border-[2px] border-inputbg"></div>
         </div>
         <div className="ml-3">
-          <h2 className="text-md font-bold ">{user.userName}</h2>
-          <p className="text-personMesTxt font-[400]">{user.status}</p>
+          <h2 className="text-md font-bold ">{selectedUser && selectedUser.name}</h2>
+          <p className="text-personMesTxt font-[400]">{selectedUser.stuation}</p>
         </div>
       </div>
       <div className="flex mr-10 text-chatIconBg space-x-10 text-2xl relative">
@@ -66,7 +74,7 @@ function ChatHeader() {
         }
         <PiPhoneCallFill onClick={()=> setIsOpenPhoneModal(!isOpenPhoneModal)} />
       
-        <PiVideoCameraFill/>
+        <PiVideoCameraFill onClick={()=>setIsOpenVideoCallModal(!isOpenVideoCallModal)} />
         <FaBookmark/>
         <MdInfo/>
         <BsThreeDotsVertical onClick={handleOpenMenu} className="cursor-pointer" />
@@ -91,6 +99,7 @@ function ChatHeader() {
       
     </div>
     <PhoneCallModal isOpenPhoneModal={isOpenPhoneModal} setIsOpenPhoneModal={setIsOpenPhoneModal} />
+    <VideoCallModal isOpenVideoCallModal={isOpenVideoCallModal} setIsOpenVideoCallModal={setIsOpenVideoCallModal}/>
     </>
    
   );

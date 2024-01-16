@@ -4,10 +4,12 @@ import { FaPlus } from "react-icons/fa6";
 import { Tooltip } from "@chakra-ui/react";
 import DirectModal from "./DirectModal";
 
-import users from "@/public/assets/data/users.json"
+import { useContext } from "react";
+import PhoneBookContext  from "@/context/PhoneBookContext"
 
 function DirectMessages({filteredUser}) {
 
+  const {handleUserSelect} = useContext(PhoneBookContext)
  
 
   const [isOpenModal, setIsOpenModal] = useState(false)
@@ -41,6 +43,7 @@ function DirectMessages({filteredUser}) {
           <div
             key={person.id}
             className="flex justify-between items-center hover:bg-personBg pr-8 pl-10 py-3 cursor-pointer"
+            onClick={()=>handleUserSelect(person)}
           >
             <div className="flex">
               <div className="relative">

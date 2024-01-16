@@ -7,13 +7,16 @@ import Channels from '../Channels'
 import users from "@/public/assets/data/users.json"
 import channels from "@/public/assets/data/channels.json"
 
-function MessagesList() {
+function MessagesList({onSelectUser}) {
  
   const [searchQuery, setSearchQuery] = useState('');
+  
 
   const handleSearch = (query) => {
     setSearchQuery(query);
   };
+
+
 
   const filteredUser = users.filter((user) => user.name.toLowerCase().includes(searchQuery.toLowerCase()));
   const filteredChannels = channels.filter((channel) => channel.name.toLowerCase().includes(searchQuery.toLowerCase()))
