@@ -10,6 +10,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaArchive } from "react-icons/fa";
 import { AiOutlineAudioMuted } from "react-icons/ai";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import PhoneCallModal from "./PhoneCallModal";
 
 
 
@@ -24,14 +25,21 @@ function ChatHeader() {
   // three dot dropdownMenu
 
   const [isOpenMenu, setIsOpenMenu]=useState(false);
+  const handleOpenSearch = () => {
+    setIsOpenSearch(!isOpenSearch)
+  }
 
   const handleOpenMenu = () => {
     setIsOpenMenu(!isOpenMenu)
   }
 
+  const[isOpenSearch, setIsOpenSearch] = useState(false)
+  const[isOpenPhoneModal, setIsOpenPhoneModal] = useState(false)
 
   return (
-    <div className="border-b border-dashed fixed top-0 bg-inputbg w-[75%]  ">
+    <>
+    
+     <div className="border-b border-dashed  fixed  top-0 bg-inputbg w-[75%]  ">
     <div className="flex justify-between items-center w-full border">
     <div className="flex  items-center p-4" >
         <div className="relative">
@@ -47,15 +55,23 @@ function ChatHeader() {
           <p className="text-personMesTxt font-[400]">{user.status}</p>
         </div>
       </div>
-      <div className="flex mr-10 text-chatIconBg space-x-10 text-2xl">
-        <IoSearch/>
-        <PiPhoneCallFill/>
+      <div className="flex mr-10 text-chatIconBg space-x-10 text-2xl relative">
+        <IoSearch onClick={handleOpenSearch} className="cursor-pointer"/>
+        {
+          isOpenSearch && <>
+          <div className="absolute w-[350px] h-15 bg-inputbg border border-messageCountBgs  top-10 right-[320px] p-3 rounded">
+           <input  type="search" placeholder="Search..." className="text-[15px] px-3 py-2 w-full border rounded focus-within:outline-personMesTxt "  />
+          </div>
+          </>
+        }
+        <PiPhoneCallFill onClick={()=> setIsOpenPhoneModal(!isOpenPhoneModal)} />
+      
         <PiVideoCameraFill/>
         <FaBookmark/>
         <MdInfo/>
         <BsThreeDotsVertical onClick={handleOpenMenu} className="cursor-pointer" />
         {isOpenMenu && (
-          <div className="absolute right-12 top-20 text-sm font-[500] text-threeDotMenuTxt bg-threeDotMenu shadow-md rounded">
+          <div className="absolute right-2 top-10 text-sm font-[500] text-threeDotMenuTxt bg-threeDotMenu shadow-md rounded">
             <div className="flex justify-between px-6 py-2 hover:bg-threeDotMenuHover cursor-pointer">
               <span>Archive</span>
               <FaArchive className="ml-6"/>
@@ -74,6 +90,9 @@ function ChatHeader() {
     </div>
       
     </div>
+    <PhoneCallModal isOpenPhoneModal={isOpenPhoneModal} setIsOpenPhoneModal={setIsOpenPhoneModal} />
+    </>
+   
   );
 }
 

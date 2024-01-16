@@ -26,7 +26,7 @@ function Input({ inputValue, sendMessage, handleInputChange }) {
   };
 
   return (
-    <div className={`${styles.inputArea} border-t p-5`}>
+    <div className={`${styles.inputArea} border- p-5`}>
       <div className="flex  justify-center items-center space-x-10 text-chatIconBg ">
       
       <div onClick={handleMoreClick}>
