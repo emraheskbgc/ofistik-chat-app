@@ -12,6 +12,7 @@ import { AiOutlineAudioMuted } from "react-icons/ai";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import PhoneCallModal from "./PhoneCallModal";
 import VideoCallModal from "./VideoCallModal";
+import Info from "./Info"
 import { useContext } from "react";
 import PhoneBookContext  from "@/context/PhoneBookContext"
 
@@ -26,7 +27,11 @@ function ChatHeader() {
     status:"Online"
   };
 
-  console.log(selectedUser);
+
+  const [isInfoPanelOpen, setIsInfoPanelOpen] = useState(false);
+  const handleInfoPanelToggle = () => {
+    setIsInfoPanelOpen(!isInfoPanelOpen);
+  };
 
   // three dot dropdownMenu
 
@@ -45,7 +50,7 @@ function ChatHeader() {
 
   return (
     <>
-    
+    <div className="flex">
      <div className="border-b border-dashed  fixed  top-0 bg-inputbg w-[75%]  ">
     <div className="flex justify-between items-center w-full border">
     <div className="flex  items-center p-4" >
@@ -76,7 +81,7 @@ function ChatHeader() {
       
         <PiVideoCameraFill onClick={()=>setIsOpenVideoCallModal(!isOpenVideoCallModal)} />
         <FaBookmark/>
-        <MdInfo/>
+        <MdInfo onClick={handleInfoPanelToggle} />
         <BsThreeDotsVertical onClick={handleOpenMenu} className="cursor-pointer" />
         {isOpenMenu && (
           <div className="absolute right-2 top-10 text-sm font-[500] text-threeDotMenuTxt bg-threeDotMenu shadow-md rounded">
@@ -98,8 +103,16 @@ function ChatHeader() {
     </div>
       
     </div>
+    
+   
+    </div>
+    
+
+
+
     <PhoneCallModal isOpenPhoneModal={isOpenPhoneModal} setIsOpenPhoneModal={setIsOpenPhoneModal} />
     <VideoCallModal isOpenVideoCallModal={isOpenVideoCallModal} setIsOpenVideoCallModal={setIsOpenVideoCallModal}/>
+    <Info isInfoPanelOpen={isInfoPanelOpen} />
     </>
    
   );
