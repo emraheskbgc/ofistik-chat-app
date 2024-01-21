@@ -7,7 +7,7 @@ import Channels from '../Channels'
 import users from "@/public/assets/data/users.json"
 import channels from "@/public/assets/data/channels.json"
 
-function MessagesList({onSelectUser}) {
+function MessagesList({selectedUser}) {
  
   const [searchQuery, setSearchQuery] = useState('');
   
@@ -25,7 +25,7 @@ function MessagesList({onSelectUser}) {
 
   return (
 
- <div className='  md:w-[50%] lg:w-[25%] w-[100%] overflow-y-auto bg-messageBodyBg  max-h-screen '>
+ <div className={`md:w-[50%] lg:w-[25%] w-[100%]  overflow-y-auto bg-messageBodyBg  max-h-screen ${selectedUser && "md:block hidden" }`}>
  <Header onSearch={handleSearch}/>
  <Favourites filteredUser={filteredUser}/>
  <DirectMessages filteredUser={filteredUser} />

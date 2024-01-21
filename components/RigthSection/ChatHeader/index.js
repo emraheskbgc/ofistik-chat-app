@@ -22,13 +22,9 @@ import { BsCameraVideo } from "react-icons/bs";
 
 
 function ChatHeader() {
-  const { selectedUser } = useContext(PhoneBookContext);
+  const { selectedUser, handleUserSelect } = useContext(PhoneBookContext);
 
-  const user = {
-    userName: "Emrah Eskibağcı",
-    path: "/assets/images/emrah.jpg",
-    status: "Online",
-  };
+  
 
   const [isInfoPanelOpen, setIsInfoPanelOpen] = useState(false);
   const handleInfoPanelToggle = () => {
@@ -44,6 +40,11 @@ function ChatHeader() {
   const handleOpenMenu = () => {
     setIsOpenMenu(!isOpenMenu);
   };
+
+  const handleBackToMessages = () => {
+    // Seçili kullanıcıyı null yaparak mesaj listesine dön
+    handleUserSelect("");
+  };
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [isOpenSearch, setIsOpenSearch] = useState(false);
   const [isOpenPhoneModal, setIsOpenPhoneModal] = useState(false);
@@ -55,7 +56,7 @@ function ChatHeader() {
         <div className="border-b border-dashed  fixed  top-0 bg-inputbg w-[100%] md:w-[75%]  ">
           <div className="flex justify-between items-center w-full border">
             <div className="flex  items-center p-4">
-              <div className="p-2 bg-backBtnBg rounded text-sm font-bold mr-5 text-backBtnTxt">
+              <div className="p-2 bg-backBtnBg rounded text-sm font-bold mr-5 md:hidden text-backBtnTxt" onClick={handleBackToMessages}>
                 <FaLessThan />
               </div>
               <div className="relative">

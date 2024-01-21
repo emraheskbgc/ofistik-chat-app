@@ -51,8 +51,8 @@ function Input({ inputValue, sendMessage, handleInputChange }) {
   };
 
   return (
-    <div className={`${styles.inputArea}  w-[100%] md:[75%] p-5`}>
-      <div className="flex  justify-center items-center  w-full space-x-3 md:space-x-10 text-chatIconBg ">
+    <div className={`${styles.inputArea} border-t w-[100%] md:w-[75%] p-5`}>
+      <div className="flex  justify-between  items-center   space-x-3 md:space-x-10 text-chatIconBg ">
       
       <div onClick={handleMoreClick}>
        <Tooltip hasArrow label='More'  placement='top' fontSize='sm' >
@@ -77,7 +77,7 @@ function Input({ inputValue, sendMessage, handleInputChange }) {
         </div>
       )}
        
-        <div className="w-full ">
+        <div className="w-full">
           <input
             type="text"
             value={inputValue}

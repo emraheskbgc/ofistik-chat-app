@@ -4,11 +4,11 @@ import ChatHeader from '../ChatHeader'
 import Messages from '../Messages'
 import Info from '../ChatHeader/Info'
 
-function Chat() {
+function Chat({selectedUser}) {
 
  
   return (
-    <div className='md:w-[50%] lg:w-[25%] w-[100%] border border-blue-500 '>
+    <div className={`md:w-[75%] w-full border border-blue-500 ${selectedUser ? "" : "md:block hidden"}`}>
     <ChatHeader />
     <Messages/>
     </div>

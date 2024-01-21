@@ -8,16 +8,10 @@ import { useState } from "react";
 
 
 export default function Home() {
-  const [selectedUser, setSelectedUser] = useState({
-    id: 1,
-  name: "Ahmet",
-    avatar: "/assets/images/avatar.jpeg ",
-    messages: ["Merhaba Ahmet!", "Nasılsın?", "İyi misin?"],
-    unreadMessages:18,
-    stuation:"online"
-  });
+  const [selectedUser, setSelectedUser] = useState("");
   const showAvatar = true;
-  const showCheckBox = true;  const handleUserSelect = (user) => {
+  const showCheckBox = true;
+    const handleUserSelect = (user) => {
     setSelectedUser(user);
   };
 
@@ -34,10 +28,11 @@ export default function Home() {
     <PhoneBookContext.Provider value={data}>
     
       <ChakraProvider>
-     <div className="flex">
-     <MessagesList/>
-     <Chat />
-   </div>
+      <div className="flex">
+        <MessagesList selectedUser={selectedUser} />
+        <Chat selectedUser={selectedUser} />
+    
+    </div>
     </ChakraProvider>
   
     </PhoneBookContext.Provider>
