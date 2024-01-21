@@ -49,7 +49,7 @@ function ChannelsModal({ isOpenModal, setIsOpenModal }) {
             </button>
           </div>
           {isOpenContact && (
-            <div className={`${styles.contactsContainer} border ml-10 `}>
+            <div className={`${styles.contactsContainer} border md:ml-10 ml-8 `}>
               <h2 className=" font-[600] text-sm text-modalOutBg bg-channleModalContactBg p-2 border w-full">
                 Contacts
               </h2>
