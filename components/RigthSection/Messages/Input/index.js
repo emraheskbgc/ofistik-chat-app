@@ -21,8 +21,7 @@ function Input({ inputValue, sendMessage, handleInputChange }) {
 
   const [showEmojiPicker, setShowEmojiPicker] = useState(false); // Emoji seçicinin görünürlüğünü kontrol etmek için bir state oluşturuyoruz.
   const [showMoreMenu, setShowMoreMenu] = useState(false); // more menü açılımı için kullanılan state
-  const [isRecording, setIsRecording] = useState(false); // ses kaydı için tutulan  state
-  const [audioChunks, setAudioChunks] = useState([]);//kadyı tutcak array
+
 
   const handleEmojiClick = () => {
     setShowEmojiPicker(!showEmojiPicker); // Emoji seçicinin görünürlüğünü tersine çeviriyoruz.
@@ -42,50 +41,18 @@ function Input({ inputValue, sendMessage, handleInputChange }) {
   };
 
  
-  let mediaRecorder;
 
-  const startRecording = async () => {
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      mediaRecorder = new MediaRecorder(stream);
-
-      mediaRecorder.ondataavailable = (e) => {
-        if (e.data.size > 0) {
-          setAudioChunks((chunks) => [...chunks, e.data]);
-        }
-      };
-
-      mediaRecorder.onstop = () => {
-        const audioBlob = new Blob(audioChunks, { type: "audio/wav" });
-        sendMessage({ audio: audioBlob });
-      };
-
-      mediaRecorder.start();
-      setIsRecording(true);
-    } catch (error) {
-      console.error("Kayıt başlatılırken hata oluştu:", error);
-    }
-  };
-
-  const stopRecording = () => {
-    if (mediaRecorder && mediaRecorder.state !== "inactive") {
-      setIsRecording(false);
-      mediaRecorder.stop();
-    }
-  };
 
   const handleSendClick = () => {
-    if (isRecording) {
-      stopRecording();
-    } else {
-      // Burada metin mesajını gönderme işlevselliğini ekleyebilirsiniz
-      sendMessage({ text: handleInputChange.target.value });
-    }
+    
+      
+    sendMessage({ text: inputValue });
+    
   };
 
   return (
-    <div className={`${styles.inputArea} border- p-5`}>
-      <div className="flex  justify-center items-center space-x-10 text-chatIconBg ">
+    <div className={`${styles.inputArea}  w-[100%] md:[75%] p-5`}>
+      <div className="flex  justify-center items-center  w-full space-x-3 md:space-x-10 text-chatIconBg ">
       
       <div onClick={handleMoreClick}>
        <Tooltip hasArrow label='More'  placement='top' fontSize='sm' >
@@ -120,18 +87,18 @@ function Input({ inputValue, sendMessage, handleInputChange }) {
             className={`${styles.inputField} bg-sendInputBg`}
           />
         </div>
-        <div className="text-2xl" onClick={isRecording ? stopRecording : startRecording}>
-        {isRecording ? "Kaydı Durdur" : <TiMicrophoneOutline />}
+        <div className="text-2xl hidden md:block">
+         <TiMicrophoneOutline />
         </div>
         <div >
           <button  onClick={handleSendClick}>
             <div className="border py-4 px-5 cursor-pointer bg-modalSendBtn text-modalSendTxt rounded">
-            {isRecording ? "Kaydı Gönder" : <IoSend />}
+           <IoSend />
             </div>
           </button>
         </div>
       </div>
-      <div className="ml-36 flex items-center">
+      <div className="md:ml-36 ml-20 flex items-center">
       <span className="mr-3 text-xs font-[400]">{selectedUser.name} is Typing </span>
       <div className={`${styles.dot} ${styles.dot1} bg-typeingDotBg`}></div>
       <div className={`${styles.dot} ${styles.dot2} bg-typeingDotBg` }></div>

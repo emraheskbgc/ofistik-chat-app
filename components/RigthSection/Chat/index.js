@@ -8,10 +8,9 @@ function Chat() {
 
  
   return (
-    <div className='md:w-[75%] hidden md:block  border border-blue-500 '>
+    <div className='md:w-[50%] lg:w-[25%] w-[100%] border border-blue-500 '>
     <ChatHeader />
     <Messages/>
-   
     </div>
   )
 }

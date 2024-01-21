@@ -59,7 +59,7 @@ function Messages() {
     }
   };
   return (
-    <div className={styles.messagesContainer}>
+    <div className={`${styles.messagesContainer} md:w-[75%]`}>
       {/* Mesajlaşma alanı */}
       <div className={styles.messageArea}>
         {messages.map((message, index) => (

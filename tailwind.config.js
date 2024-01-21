@@ -67,7 +67,20 @@ module.exports = {
       phoneModalhangHoverbg:"#cb3c5e",
       phoneModalhangTxt:"#fff",
       phoneModalMsBg:"#44e0b8",
-      phoneModalMsHoverBg:"#000"
+      phoneModalMsHoverBg:"#000",
+      infoModalBg:"#fff",
+      infoMsgBg:"#dcedfc",
+      infoMsgTxt:"#62aef2",
+      infoHrtBg:"#fcdae2",
+      infoHtrTxt:"#000",
+      infoPhnBg:"#cdf7ec",
+      infoPhnTxt:"#06d6a0",
+      infoCmrBg:"#fff6e0",
+      infoCmrTxt:"#ffda84",
+      infoDotBg:"#e2e3f3",
+      infoDotTxt:"#3edab5",
+      backBtnBg:"#06d6a0",
+      backBtnTxt:"#fff"
 
 
     },
