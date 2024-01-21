@@ -72,7 +72,7 @@ function Input({ inputValue, sendMessage, handleInputChange }) {
       </div>
        
       {showEmojiPicker && (
-        <div style={{ position: 'absolute', top: '-420px', left: '20px' ,backgroundColor: 'white'}}> {/* Stilinizi ayarlamak için style ekledim. Konumunu değiştirebilirsiniz. */}
+        <div style={{ position: 'absolute', top: '-420px', left: '20px' ,backgroundColor: 'white'}}> 
           <Picker data={data} emojiSize={20} emojiButtonSize={28} onEmojiSelect={handleEmojiSelect} maxFrequentRows={0} theme="light" />
         </div>
       )}

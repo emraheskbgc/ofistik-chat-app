@@ -21,7 +21,7 @@ function ChannelsModal({ isOpenModal, setIsOpenModal }) {
           isOpenModal ? "flex" : "hidden"
         }`}
       >
-        <div className="bg-modalBg rounded-t rounded-b shadow-md w-[40%] flex flex-col">
+        <div className="bg-modalBg rounded-t rounded-b shadow-md md:w-[40%] w-[80%] flex flex-col">
           <div className="bg-modalHeadBg rounded-t flex justify-between items-center  pl-3 py-5 top-0 w-full">
             <div className="text-plusTxt font-bold text-md">
               Create New Group
@@ -30,7 +30,7 @@ function ChannelsModal({ isOpenModal, setIsOpenModal }) {
               <IoCloseOutline onClick={() => setIsOpenModal(false)} />
             </div>
           </div>
-          <div className="flex flex-col  w-[90%] ml-7   py-5 px-4 ">
+          <div className="flex flex-col  w-[90%] md:ml-7 ml-4  py-5 px-4 ">
             <h2 className="font-semibold mb-3">Group Name</h2>
             <input
               className=" border border-modalInputBorder border-opacity-45 placeholder:italic focus-within:outline bg-inputbg text-sm text-gray-700 px-2 rounded py-3  w-full  "
@@ -39,11 +39,11 @@ function ChannelsModal({ isOpenModal, setIsOpenModal }) {
               placeholder="Enter Group Name"
             />
           </div>
-          <div className="flex  flex-col  w-[90%] ml-7   py-5 px-4 ">
+          <div className="flex  flex-col  w-[90%] md:ml-7 ml-4   py-5 px-4 ">
             <h2 className="font-semibold mb-3">Group Members</h2>
             <button
               onClick={handleOpenContact}
-              className=" p-1 rounded w-[25%] bg-channleModalBtnBg hover:bg-channelModalBtnHoverBg text-channelModalBtnTxt text-sm font-[500]"
+              className=" p-1 rounded md:w-[25%] w-[50%] bg-channleModalBtnBg hover:bg-channelModalBtnHoverBg text-channelModalBtnTxt text-sm font-[500]"
             >
               Select Members
             </button>
@@ -57,7 +57,7 @@ function ChannelsModal({ isOpenModal, setIsOpenModal }) {
             </div>
           )}
 
-          <div className="flex rounded flex-col  w-[90%] ml-7   py-5 px-4 ">
+          <div className="flex rounded flex-col  w-[90%] md:ml-7 ml-4   py-5 px-4 ">
             <h2 className="font-semibold mb-3">Description</h2>
             <textarea
               cols="10"

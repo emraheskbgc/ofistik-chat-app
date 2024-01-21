@@ -29,7 +29,7 @@ function DirectModal({ isOpenModal, setIsOpenModal }) {
             isOpenModal ? "flex" : "hidden"
           }`}
         >
-          <div className="bg-modalBg rounded-t rounded-b shadow-md w-[40%] flex flex-col">
+          <div className="bg-modalBg rounded-t rounded-b shadow-md md:w-[40%] w-[80%] flex flex-col">
             <div className="bg-modalHeadBg rounded-t flex justify-between items-center  pl-3 py-5 top-0 w-full">
               <div className="text-plusTxt font-bold text-md">Contacts</div>
               <div className="pr-3 text-xl text-modalCloseIcon cursor-pointer">
