@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { IoSearch } from "react-icons/io5";
 import { PiPhoneCallFill } from "react-icons/pi";
 import { PiVideoCameraFill } from "react-icons/pi";
@@ -22,6 +22,9 @@ import { BsCameraVideo } from "react-icons/bs";
 
 
 function ChatHeader() {
+
+  
+
   const { selectedUser, handleUserSelect } = useContext(PhoneBookContext);
 
   
@@ -49,6 +52,16 @@ function ChatHeader() {
   const [isOpenSearch, setIsOpenSearch] = useState(false);
   const [isOpenPhoneModal, setIsOpenPhoneModal] = useState(false);
   const [isOpenVideoCallModal, setIsOpenVideoCallModal] = useState(false);
+
+  useEffect(()=> {
+    let handler = () => {
+     setIsOpenMenu(false)
+     setIsOpenSearch(false)
+     setIsOpenPhoneModal(false)
+     setIsOpenVideoCallModal(false)
+    } 
+    document.addEventListener("mousedown", handler)
+   })
 
   return (
     <>

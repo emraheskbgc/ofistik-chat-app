@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./styles.module.css"
 import { IoClose } from "react-icons/io5";
 import { BsThreeDotsVertical } from "react-icons/bs";
@@ -22,6 +22,12 @@ function Info({ isInfoPanelOpen, setIsInfoPanelOpen }) {
   const handleOpenMenu = () => {
     setIsOpenMenu(!isOpenMenu);
   };
+  useEffect(()=> {
+    let handler = () => {
+     setIsInfoPanelOpen(false)
+    } 
+    document.addEventListener("mousedown", handler)
+   })
   return (
     <>
       <div
@@ -64,7 +70,7 @@ function Info({ isInfoPanelOpen, setIsInfoPanelOpen }) {
             </div>
 
              <div className="absolute flex-col bottom-6 left-8 text-sm text-inputbg">
-            <p className="font-semibold">Emrah Eskibağcı</p>
+            <p className="font-semibold">Ahmet</p>
             <div className="flex items-center">
               <div className="bg-dotBg w-3 h-3 mr-3 rounded-full "></div>
               <p className="opacity-60"> Online</p>
@@ -98,7 +104,7 @@ function Info({ isInfoPanelOpen, setIsInfoPanelOpen }) {
           <div className="p-8">
                 <h2 className=" opacity-40 uppercase mb-3">Info : </h2> 
                 <div className="flex  space-x-3 mb-5">
-                  <FiUser className="opacity-40"/> <h5 className="font-[500]">Emrah Eskibağcı</h5>
+                  <FiUser className="opacity-40"/> <h5 className="font-[500]">Ahmet</h5>
                 </div>
                 <div className="flex space-x-3 mb-5">
                   <MdOutlineMail className="opacity-40"/> <h5 className="font-[500]">emrah@emrah.com</h5>

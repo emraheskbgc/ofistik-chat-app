@@ -1,5 +1,5 @@
 "use client"
-import React,{useState} from "react";
+import React,{useState, useEffect} from "react";
 import { IoSend } from "react-icons/io5";
 import { TiMicrophoneOutline } from "react-icons/ti";
 import { HiOutlineEmojiHappy } from "react-icons/hi";
@@ -49,6 +49,15 @@ function Input({ inputValue, sendMessage, handleInputChange }) {
     sendMessage({ text: inputValue });
     
   };
+
+
+  useEffect(()=> {
+    let handler = () => {
+      setShowEmojiPicker(false)
+      setShowMoreMenu(false)
+    }
+    document.addEventListener("mousedown", handler)
+  })
 
   return (
     <div className={`${styles.inputArea} border-t w-[100%] md:w-[75%] p-5`}>
