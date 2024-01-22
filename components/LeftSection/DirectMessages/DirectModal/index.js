@@ -1,5 +1,5 @@
 "use client"
-import React,{useState} from "react";
+import React,{useState, useEffect} from "react";
 import styles from "./styles.module.css";
 
 import { IoCloseOutline } from "react-icons/io5";
@@ -21,6 +21,13 @@ function DirectModal({ isOpenModal, setIsOpenModal }) {
     user.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  useEffect(()=> {
+    let handler = () => {
+      setIsOpenModal(false)
+    }
+    document.addEventListener("mousedown", handler)
+  })
+  
   return (
     <>
       

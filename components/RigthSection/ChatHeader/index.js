@@ -15,7 +15,8 @@ import VideoCallModal from "./VideoCallModal";
 import Info from "./Info";
 import { useContext } from "react";
 import PhoneBookContext from "@/context/PhoneBookContext";
-import { FaLessThan } from "react-icons/fa6";
+import { MdKeyboardArrowLeft } from "react-icons/md";
+
 import { LuUser2 } from "react-icons/lu";
 import { MdOutlinePhoneInTalk } from "react-icons/md";
 import { BsCameraVideo } from "react-icons/bs";
@@ -69,8 +70,8 @@ function ChatHeader() {
         <div className="border-b border-dashed  fixed  top-0 bg-inputbg w-[100%] md:w-[75%]  ">
           <div className="flex justify-between items-center w-full border">
             <div className="flex  items-center p-4">
-              <div className="p-2 bg-backBtnBg rounded text-sm font-bold mr-5 md:hidden text-backBtnTxt" onClick={handleBackToMessages}>
-                <FaLessThan />
+              <div className="p-1  bg-backBtnBg rounded text-md font-bold mr-5 md:hidden text-backBtnTxt" onClick={handleBackToMessages}>
+                <MdKeyboardArrowLeft />
               </div>
               <div className="relative">
                 <img
@@ -104,17 +105,17 @@ function ChatHeader() {
               )}
               <PiPhoneCallFill
                 onClick={() => setIsOpenPhoneModal(!isOpenPhoneModal)}
-                className="hidden md:block"
+                className="hidden md:block cursor-pointer"
               />
 
               <PiVideoCameraFill
                 onClick={() => setIsOpenVideoCallModal(!isOpenVideoCallModal)}
-                className="hidden md:block"
+                className="hidden md:block cursor-pointer"
               />
-              <FaBookmark className="hidden md:block" />
+              <FaBookmark className="hidden md:block cursor-pointer" />
               <MdInfo
                 onClick={handleInfoPanelToggle}
-                className="hidden md:block"
+                className="hidden md:block cursor-pointer"
               />
               <BsThreeDotsVertical
                 onClick={handleOpenMenu}
@@ -176,6 +177,7 @@ function ChatHeader() {
       <PhoneCallModal
         isOpenPhoneModal={isOpenPhoneModal}
         setIsOpenPhoneModal={setIsOpenPhoneModal}
+        selectedUser={selectedUser}
       />
       <VideoCallModal
         isOpenVideoCallModal={isOpenVideoCallModal}

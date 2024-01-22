@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+"use client"
+import React, { useState, useEffect } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import styles from "./styles.module.css";
 import PhoneBook from "@/components/PhoneBook";
@@ -14,6 +15,12 @@ function ChannelsModal({ isOpenModal, setIsOpenModal }) {
   const handleOpenContact = () => {
     setIsOpenContact(!isOpenContact);
   };
+  useEffect(()=> { 
+    let handler = () => {
+      setIsOpenModal(false)
+    }
+    document.addEventListener("mousedown", handler)
+  })
   return (
     <>
       <div

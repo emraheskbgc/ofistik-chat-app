@@ -10,7 +10,7 @@ import { AiOutlineAudioMuted } from "react-icons/ai";
 
 
 
-function PhoneCallModal({ isOpenPhoneModal, setIsOpenPhoneModal }) {
+function PhoneCallModal({ isOpenPhoneModal, setIsOpenPhoneModal, selectedUser }) {
 
 
 
@@ -24,13 +24,13 @@ function PhoneCallModal({ isOpenPhoneModal, setIsOpenPhoneModal }) {
         <div className="bg-modalBg rounded-t rounded-b shadow-md w-[35%] flex flex-col">
           <div className="flex justify-center items-center">
             <img
-              src="/assets/images/avatar.jpeg"
-              alt=""
-              className="rounded-full w-20 m-4 h-20"
+            src={selectedUser.avatar}
+            alt={selectedUser.name}
+            className="rounded-full w-20 m-4 h-20"
             />
           </div>
           <div className="flex-col justify-center text-center">
-            <div className="text-xl font-semibold">Ali Burak</div>
+            <div className="text-xl font-semibold">{selectedUser.name}</div>
             <div className="text-md opacity-50">05:45</div>
           </div>
           <div className="relative">
