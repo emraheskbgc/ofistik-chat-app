@@ -30,6 +30,7 @@ export default function Home() {
   }
 
 
+  console.log(selectedUser);
 
   return (
     <PhoneBookContext.Provider value={data}>

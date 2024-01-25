@@ -3,7 +3,13 @@ import React from "react";
 import styles from "./styles.module.css";
 import users from "@/public/assets/data/users.json";
 
+
+import { useContext } from "react";
+import PhoneBookContext  from "@/context/PhoneBookContext"
+
 function PhoneBook({ showAvatar, showCheckBox,filteredUsers }) {
+
+  const {handleUserSelect} = useContext(PhoneBookContext)
 
 
   const usersToDisplay = filteredUsers || users;
@@ -23,6 +29,7 @@ function PhoneBook({ showAvatar, showCheckBox,filteredUsers }) {
     groupedUsers[firstLetter].push(user);
   });
 
+  
   return (
     <div>
       {Object.keys(groupedUsers).map((letter) => (
@@ -33,7 +40,7 @@ function PhoneBook({ showAvatar, showCheckBox,filteredUsers }) {
             {letter} <div className="w-[80%] ml-4 h-0 border"></div>{" "}
           </div>
           {groupedUsers[letter].map((user) => (
-            <div key={user.id} className={styles.userItem}>
+            <div onClick={()=>handleUserSelect(user)} key={user.id} className={styles.userItem}>
               {showAvatar && (
                 <img
                   src={user.avatar}
