@@ -1,8 +1,10 @@
 "use client"
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import styles from "./styles.module.css";
 import PhoneBook from "@/components/PhoneBook";
+
+import useClickOutside from "@/hook/useClickOutside";
 
 import { useContext } from "react";
 import PhoneBookContext  from "@/context/PhoneBookContext"
@@ -15,11 +17,9 @@ function ChannelsModal({ isOpenModal, setIsOpenModal }) {
   const handleOpenContact = () => {
     setIsOpenContact(!isOpenContact);
   };
-  useEffect(()=> { 
-    let handler = () => {
-      setIsOpenModal(false)
-    }
-    document.addEventListener("mousedown", handler)
+  const channalRef = useRef()
+  useClickOutside (channalRef, ()=> {
+    setIsOpenModal(false)
   })
   return (
     <>
@@ -28,7 +28,7 @@ function ChannelsModal({ isOpenModal, setIsOpenModal }) {
           isOpenModal ? "flex" : "hidden"
         }`}
       >
-        <div className="bg-modalBg rounded-t rounded-b shadow-md md:w-[40%] w-[80%] flex flex-col">
+        <div ref={channalRef} className="bg-modalBg rounded-t rounded-b shadow-md md:w-[40%] w-[80%] flex flex-col">
           <div className="bg-modalHeadBg rounded-t flex justify-between items-center  pl-3 py-5 top-0 w-full">
             <div className="text-plusTxt font-bold text-md">
               Create New Group

@@ -1,5 +1,5 @@
 "use client"
-import React,{useState, useEffect} from "react";
+import React,{useState, useRef} from "react";
 import styles from "./styles.module.css";
 
 import { IoCloseOutline } from "react-icons/io5";
@@ -7,6 +7,8 @@ import { RiUserSearchLine } from "react-icons/ri";
 import { IoSend } from "react-icons/io5";
 import PhoneBook from "@/components/PhoneBook";
 import users from "@/public/assets/data/users.json"
+
+import useClickOutside from "@/hook/useClickOutside";
 
 import { useContext } from "react";
 import PhoneBookContext  from "@/context/PhoneBookContext"
@@ -21,12 +23,11 @@ function DirectModal({ isOpenModal, setIsOpenModal }) {
     user.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  useEffect(()=> {
-    let handler = () => {
-      setIsOpenModal(false)
-    }
-    document.addEventListener("mousedown", handler)
+  const directRef = useRef()
+  useClickOutside (directRef, ()=> {
+    setIsOpenModal(false)
   })
+
   
   return (
     <>
@@ -36,7 +37,7 @@ function DirectModal({ isOpenModal, setIsOpenModal }) {
             isOpenModal ? "flex" : "hidden"
           }`}
         >
-          <div className="bg-modalBg rounded-t rounded-b shadow-md md:w-[40%] w-[80%] flex flex-col">
+          <div ref={directRef} className="bg-modalBg rounded-t rounded-b shadow-md md:w-[40%] w-[80%] flex flex-col">
             <div className="bg-modalHeadBg rounded-t flex justify-between items-center  pl-3 py-5 top-0 w-full">
               <div className="text-plusTxt font-bold text-md">Contacts</div>
               <div className="pr-3 text-xl text-modalCloseIcon cursor-pointer">
