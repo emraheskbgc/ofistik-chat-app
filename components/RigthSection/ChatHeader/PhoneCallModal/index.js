@@ -1,5 +1,5 @@
 
-import React from "react";
+import React,{useRef} from "react";
 import { HiVideoCamera } from "react-icons/hi2";
 import { HiVolumeUp } from "react-icons/hi";
 import { FaUserPlus } from "react-icons/fa6";
@@ -7,12 +7,15 @@ import { ImPhoneHangUp } from "react-icons/im";
 import { LuMessagesSquare } from "react-icons/lu";
 import { AiOutlineAudioMuted } from "react-icons/ai";
 
-
+import useClickOutside from "@/hook/useClickOutside";
 
 
 function PhoneCallModal({ isOpenPhoneModal, setIsOpenPhoneModal, selectedUser }) {
 
-
+  const phoneRef = useRef()
+  useClickOutside (phoneRef, ()=> {
+    setIsOpenPhoneModal(false)
+  })
 
   return (
     <>
@@ -21,7 +24,7 @@ function PhoneCallModal({ isOpenPhoneModal, setIsOpenPhoneModal, selectedUser })
           isOpenPhoneModal ? "flex" : "hidden"
         }`}
       >
-        <div className="bg-modalBg rounded-t rounded-b shadow-md w-[35%] flex flex-col">
+        <div ref={phoneRef} className="bg-modalBg rounded-t rounded-b shadow-md w-[35%] flex flex-col">
           <div className="flex justify-center items-center">
             <img
             src={selectedUser.avatar}

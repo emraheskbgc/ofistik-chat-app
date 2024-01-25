@@ -1,14 +1,20 @@
 
-import React from "react";
+import React,{useRef} from "react";
 import { HiOutlineVideoCameraSlash } from "react-icons/hi2";
 import { AiOutlineAudioMuted } from "react-icons/ai";
 import { ImPhoneHangUp } from "react-icons/im";
 import { BsVolumeUpFill } from "react-icons/bs";
 import { LuRefreshCcw } from "react-icons/lu";
 
+import useClickOutside from "@/hook/useClickOutside";
 
 
 function VideoCallModal({ isOpenVideoCallModal, setIsOpenVideoCallModal }) {
+
+  const videoRef = useRef()
+  useClickOutside (videoRef, ()=> {
+    setIsOpenVideoCallModal(false)
+  })
 
   return (
     <>
@@ -17,7 +23,7 @@ function VideoCallModal({ isOpenVideoCallModal, setIsOpenVideoCallModal }) {
           isOpenVideoCallModal ? "flex" : "hidden"
         }`}
       >
-        <div className="rounded-t rounded-b shadow-md  flex flex-col ">
+        <div ref={videoRef} className="rounded-t rounded-b shadow-md  flex flex-col ">
           <div
             className="bg-cover relative bg-center h-[500px] w-[500px]  "
             style={{ backgroundImage: "url('/assets/images/avatar.jpeg')" }}

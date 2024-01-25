@@ -5,11 +5,9 @@ import { PiPhoneCallFill } from "react-icons/pi";
 import { PiVideoCameraFill } from "react-icons/pi";
 import { FaBookmark } from "react-icons/fa";
 import { MdInfo } from "react-icons/md";
-import { BsThreeDotsVertical } from "react-icons/bs";
 
-import { FaArchive } from "react-icons/fa";
-import { AiOutlineAudioMuted } from "react-icons/ai";
-import { RiDeleteBin6Line } from "react-icons/ri";
+
+
 import PhoneCallModal from "./PhoneCallModal";
 import VideoCallModal from "./VideoCallModal";
 import Info from "./Info";
@@ -17,11 +15,11 @@ import { useContext } from "react";
 import PhoneBookContext from "@/context/PhoneBookContext";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 
-import { LuUser2 } from "react-icons/lu";
-import { MdOutlinePhoneInTalk } from "react-icons/md";
-import { BsCameraVideo } from "react-icons/bs";
+
 
 import useClickOutside from "@/hook/useClickOutside";
+import SearchBar from "./SearchBar";
+import DropMenu from "./DrowMenu";
 
 
 function ChatHeader() {
@@ -57,14 +55,28 @@ function ChatHeader() {
   const [isOpenPhoneModal, setIsOpenPhoneModal] = useState(false);
   const [isOpenVideoCallModal, setIsOpenVideoCallModal] = useState(false);
 
-  const infoRef = useRef()
-  useClickOutside(infoRef, ()=> {
-    setIsOpenSearch(false)
-    setIsOpenMenu(false)
-    
-  })
+  const searchRef = useRef(null);
+  const menuRef = useRef(null);
 
-
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // Eğer tıklanan alan, search barın ref'inde değilse, search barı kapat
+      if (searchRef.current && !searchRef.current.contains(event.target)) {
+        setIsOpenSearch(false);
+      }
+      // Eğer tıklanan alan, menünün ref'inde değilse, menüyü kapat
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsOpenMenu(false);
+      }
+      // Diğer komponentleri de kontrol etmek için benzer işlemleri yapabilirsin
+    };
+  
+    document.addEventListener("mousedown", handleClickOutside);
+  
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [searchRef, setIsOpenSearch, menuRef, setIsOpenMenu]);
 
   return (
     <>
@@ -75,7 +87,7 @@ function ChatHeader() {
               <div className="p-1  bg-backBtnBg rounded text-md font-bold mr-5 md:hidden text-backBtnTxt" onClick={handleBackToMessages}>
                 <MdKeyboardArrowLeft />
               </div>
-              <div className="relative">
+              <div  className="relative">
                 <img
                   src={selectedUser.avatar}
                   alt={selectedUser.name}
@@ -92,23 +104,16 @@ function ChatHeader() {
                 </p>
               </div>
             </div>
-            <div ref={infoRef} className="flex mr-10 text-chatIconBg space-x-10 text-2xl relative">
-              <IoSearch  onClick={handleOpenSearch} className="cursor-pointer" />
-              {isOpenSearch && (
-                <>
-                  <div className="absolute md:w-[350px] w-[200px] h-15 bg-inputbg border border-messageCountBgs  top-10 md:right-[320px] right-[50px] p-3 rounded">
-                    <input
-                      type="search"
-                      placeholder="Search..."
-                      className="text-[15px] px-3 py-2 w-full border rounded focus-within:outline-personMesTxt "
-                    />
-                  </div>
-                </>
-              )}
+            <div   className="flex mr-10 text-chatIconBg space-x-10 text-2xl relative">
+          
+            <SearchBar isOpenSearch={isOpenSearch} setIsOpenSearch={setIsOpenSearch} handleOpenSearch={handleOpenSearch} />
+              
               <PiPhoneCallFill
                 onClick={() => setIsOpenPhoneModal(!isOpenPhoneModal)}
                 className="hidden md:block cursor-pointer"
               />
+              
+              
 
               <PiVideoCameraFill
                 onClick={() => setIsOpenVideoCallModal(!isOpenVideoCallModal)}
@@ -119,58 +124,8 @@ function ChatHeader() {
                 onClick={handleInfoPanelToggle}
                 className="hidden md:block cursor-pointer"
               />
-              <BsThreeDotsVertical
-                onClick={handleOpenMenu}
-                className="cursor-pointer hidden md:block"
-              />
-              {isOpenMenu && (
-                <div className="absolute right-2 top-10 text-sm font-[500] text-threeDotMenuTxt bg-threeDotMenu shadow-md rounded">
-                  <div className="flex justify-between px-6 py-2 hover:bg-threeDotMenuHover cursor-pointer">
-                    <span>Archive</span>
-                    <FaArchive className="ml-6" />
-                  </div>
-                  <div className="flex justify-between px-6 py-2  hover:bg-threeDotMenuHover cursor-pointer">
-                    <span>Muted</span>
-                    <AiOutlineAudioMuted className="ml-6" />
-                  </div>
-                  <div className="flex justify-between px-6 py-2  hover:bg-threeDotMenuHover cursor-pointer">
-                    <span>Delete</span>
-                    <RiDeleteBin6Line className="ml-6" />
-                  </div>
-                </div>
-              )}
-              <BsThreeDotsVertical
-                onClick={handleOpenMenu}
-                className="cursor-pointer md:hidden "
-              />
-              {isOpenMenu && (
-                <div className="absolute right-2 top-10 text-sm  font-[500] text-threeDotMenuTxt bg-threeDotMenu shadow-md rounded">
-                <div className="flex justify-between px-6 py-2 hover:bg-threeDotMenuHover cursor-pointer">
-                <span>Profile</span>
-                <LuUser2 className="ml-6" />
-              </div>
-                  <div className="flex justify-between px-6 py-2 hover:bg-threeDotMenuHover cursor-pointer">
-                    <span>Audio</span>
-                    <MdOutlinePhoneInTalk className="ml-6" />
-                  </div>
-                  <div className="flex justify-between px-6 py-2 hover:bg-threeDotMenuHover cursor-pointer">
-                    <span>Video</span>
-                    <BsCameraVideo className="ml-6" />
-                  </div>
-                  <div className="flex justify-between px-6 py-2 hover:bg-threeDotMenuHover cursor-pointer">
-                    <span>Archive</span>
-                    <FaArchive className="ml-6" />
-                  </div>
-                  <div className="flex justify-between px-6 py-2  hover:bg-threeDotMenuHover cursor-pointer">
-                    <span>Muted</span>
-                    <AiOutlineAudioMuted className="ml-6" />
-                  </div>
-                  <div className="flex justify-between px-6 py-2  hover:bg-threeDotMenuHover cursor-pointer">
-                    <span>Delete</span>
-                    <RiDeleteBin6Line className="ml-6" />
-                  </div>
-                </div>
-              )}
+             <DropMenu isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} handleOpenMenu={handleOpenMenu} />
+             
             </div>
           </div>
         </div>
@@ -180,16 +135,18 @@ function ChatHeader() {
         isOpenPhoneModal={isOpenPhoneModal}
         setIsOpenPhoneModal={setIsOpenPhoneModal}
         selectedUser={selectedUser}
+       
       />
       <VideoCallModal
         isOpenVideoCallModal={isOpenVideoCallModal}
         setIsOpenVideoCallModal={setIsOpenVideoCallModal}
+       
       />
       <Info
         isInfoPanelOpen={isInfoPanelOpen}
         setIsInfoPanelOpen={setIsInfoPanelOpen}
         selectedUser={selectedUser}
-        infoRef={infoRef}
+        
       />
     </>
   );

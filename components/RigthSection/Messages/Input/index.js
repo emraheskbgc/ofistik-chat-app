@@ -1,5 +1,5 @@
 "use client"
-import React,{useState, useEffect} from "react";
+import React,{useState, useRef} from "react";
 import { IoSend } from "react-icons/io5";
 import { TiMicrophoneOutline } from "react-icons/ti";
 import { HiOutlineEmojiHappy } from "react-icons/hi";
@@ -11,6 +11,7 @@ import { Tooltip } from "@chakra-ui/react";
 
 import data from '@emoji-mart/data'
 import Picker from '@emoji-mart/react'
+import useClickOutside from "@/hook/useClickOutside.js";
 
 import { useContext } from "react";
 import PhoneBookContext  from "@/context/PhoneBookContext"
@@ -40,7 +41,10 @@ function Input({ inputValue, sendMessage, handleInputChange }) {
     setShowEmojiPicker(false);
   };
 
- 
+  const emojiRef = useRef()
+  useClickOutside (emojiRef, ()=> {
+    setShowEmojiPicker(false)
+  })
 
 
   const handleSendClick = () => {
@@ -51,13 +55,7 @@ function Input({ inputValue, sendMessage, handleInputChange }) {
   };
 
 
-  useEffect(()=> {
-    let handler = () => {
-      setShowEmojiPicker(false)
-      setShowMoreMenu(false)
-    }
-    document.addEventListener("mousedown", handler)
-  })
+
 
   return (
     <div className={`${styles.inputArea} border-t w-[100%] md:w-[75%] p-5`}>
@@ -70,9 +68,9 @@ function Input({ inputValue, sendMessage, handleInputChange }) {
         </div>
         </Tooltip>
       </div>
-      {showMoreMenu && <MoreItems showMoreMenu={showMoreMenu} />}
+      {showMoreMenu && <MoreItems showMoreMenu={showMoreMenu} setShowMoreMenu={setShowMoreMenu} />}
         
-      <div onClick={handleEmojiClick}>
+      <div ref={emojiRef} onClick={handleEmojiClick}>
        <Tooltip hasArrow label='Emoji'  placement='top' fontSize='sm' >
         <div className="text-2xl cursor-pointer">
           <HiOutlineEmojiHappy />
@@ -81,7 +79,7 @@ function Input({ inputValue, sendMessage, handleInputChange }) {
       </div>
        
       {showEmojiPicker && (
-        <div style={{ position: 'absolute', top: '-420px', left: '20px' ,backgroundColor: 'white'}}> 
+        <div ref={emojiRef} style={{ position: 'absolute', top: '-420px', left: '20px' ,backgroundColor: 'white'}}> 
           <Picker data={data} emojiSize={20} emojiButtonSize={28} onEmojiSelect={handleEmojiSelect} maxFrequentRows={0} theme="light" />
         </div>
       )}
