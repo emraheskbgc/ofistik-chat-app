@@ -59,7 +59,7 @@ function DirectModal({ isOpenModal, setIsOpenModal }) {
             </div>
             <div className={styles.contactsContainer}>
             <h2 className="ml-11 font-[600] text-sm text-modalContactTxt">Contacts</h2>
-              <PhoneBook  showAvatar={showAvatar} showCheckBox={false} filteredUsers={filteredUsers}/>
+              <PhoneBook  showAvatar={showAvatar} showCheckBox={false} filteredUsers={filteredUsers} setIsOpenModal={setIsOpenModal}/>
             </div>
             <hr/>
             <div className="flex justify-end items-center pr-8 py-5 border w-full rounded-b">
