@@ -83,7 +83,7 @@ function Info({ isInfoPanelOpen, setIsInfoPanelOpen, selectedUser }) {
           </div>
           </div>
           <div className="border border-solid w-full"></div>
-          <div className="overflow-y-auto overflow-hidden md:min-h-[500px] md:max-h-[500px]  min-h-[700px] max-h-[700px]">
+          <div className="overflow-y-auto overflow-hidden md:min-h-[400px] md:max-h-[500px]  min-h-[500px] max-h-[500px]">
            <div className="flex justify-center items-center py-6 space-x-3">
             <div className="bg-infoMsgBg text-infoMsgTxt text-xl cursor-pointer p-3 rounded ">
               <BiMessageAltDetail />
