@@ -8,7 +8,14 @@ import { useState } from "react";
 
 
 export default function Home() {
-  const [selectedUser, setSelectedUser] = useState("");
+  const [selectedUser, setSelectedUser] = useState(
+{    id: 1,
+    name: "Ahmet",
+    avatar: "/assets/images/avatar.jpeg ",
+    messages: ["Merhaba Ahmet!", "Nasılsın?", "İyi misin?"],
+    unreadMessages:18,
+    stuation:"online"}
+  );
   const showAvatar = true;
   const showCheckBox = true;
     const handleUserSelect = (user) => {

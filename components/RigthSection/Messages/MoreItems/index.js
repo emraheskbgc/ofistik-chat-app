@@ -8,12 +8,12 @@ import { IoMdContact } from "react-icons/io";
 import { motion } from 'framer-motion';
 function MoreItems({showMoreMenu}) {
   return (
-    <motion.div
+     <motion.div
     initial={{ y: "10%", opacity: 0 }}
     animate={showMoreMenu ? { y: "-10%", opacity: 1 } : { y: "10%", opacity: 0 }}
     transition={{ duration: 0.3, ease: "easeInOut" }}
-    className="flex justify-between items-center absolute left-[-40px] top-[-120px] border p-5 bg-inputMoreBg w-full"
-  >
+    className="flex justify-between items-center absolute md:left-[-40px] left-[-12px]  overflow-x-auto md:overflow-x-hidden top-[-120px]
+     border p-5 bg-inputMoreBg w-[100%] space-x-24 md:space-x-0 snap-x-mandatory snap-type-x-[mandatory]">
     <div className="flex flex-col items-center">
     <div className="bg-inputMoreIconBg  text-inputMoreIcon rounded-full p-3 text-xl">
     <MdAttachment/>
@@ -52,6 +52,9 @@ function MoreItems({showMoreMenu}) {
     <p className="uppercase text-sm font-[600] mt-6">Contacts</p>
     </div>
     </motion.div>
+    
+
+   
   )
 }
 

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { IoSearch } from "react-icons/io5";
 import { PiPhoneCallFill } from "react-icons/pi";
 import { PiVideoCameraFill } from "react-icons/pi";
@@ -21,6 +21,8 @@ import { LuUser2 } from "react-icons/lu";
 import { MdOutlinePhoneInTalk } from "react-icons/md";
 import { BsCameraVideo } from "react-icons/bs";
 
+import useClickOutside from "@/hook/useClickOutside";
+
 
 function ChatHeader() {
 
@@ -31,6 +33,7 @@ function ChatHeader() {
   
 
   const [isInfoPanelOpen, setIsInfoPanelOpen] = useState(false);
+
   const handleInfoPanelToggle = () => {
     setIsInfoPanelOpen(!isInfoPanelOpen);
   };
@@ -54,15 +57,14 @@ function ChatHeader() {
   const [isOpenPhoneModal, setIsOpenPhoneModal] = useState(false);
   const [isOpenVideoCallModal, setIsOpenVideoCallModal] = useState(false);
 
-  useEffect(()=> {
-    let handler = () => {
-     setIsOpenMenu(false)
-     setIsOpenSearch(false)
-     setIsOpenPhoneModal(false)
-     setIsOpenVideoCallModal(false)
-    } 
-    document.addEventListener("mousedown", handler)
-   })
+  const infoRef = useRef()
+  useClickOutside(infoRef, ()=> {
+    setIsOpenSearch(false)
+    setIsOpenMenu(false)
+    
+  })
+
+
 
   return (
     <>
@@ -90,11 +92,11 @@ function ChatHeader() {
                 </p>
               </div>
             </div>
-            <div className="flex mr-10 text-chatIconBg space-x-10 text-2xl relative">
-              <IoSearch onClick={handleOpenSearch} className="cursor-pointer" />
+            <div ref={infoRef} className="flex mr-10 text-chatIconBg space-x-10 text-2xl relative">
+              <IoSearch  onClick={handleOpenSearch} className="cursor-pointer" />
               {isOpenSearch && (
                 <>
-                  <div className="absolute w-[350px] h-15 bg-inputbg border border-messageCountBgs  top-10 right-[320px] p-3 rounded">
+                  <div className="absolute md:w-[350px] w-[200px] h-15 bg-inputbg border border-messageCountBgs  top-10 md:right-[320px] right-[50px] p-3 rounded">
                     <input
                       type="search"
                       placeholder="Search..."
@@ -186,6 +188,8 @@ function ChatHeader() {
       <Info
         isInfoPanelOpen={isInfoPanelOpen}
         setIsInfoPanelOpen={setIsInfoPanelOpen}
+        selectedUser={selectedUser}
+        infoRef={infoRef}
       />
     </>
   );

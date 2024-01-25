@@ -2,57 +2,92 @@
   {
     "id": 1,
     "name": "Ahmet",
+    "email":"ahmet@ahmet.com",
+    "phone":"05385186969",
     "avatar": "/assets/images/avatar.jpeg ",
     "messages": ["Merhaba Ahmet!", "Nasılsın?", "İyi misin?"],
     "unreadMessages":18,
-    "stuation":"online"
+    "stuation":"Online",
+    "status":"A professional profile is a brief summary of your skills, strengths, and key experiences",
+    "locationCity":"Ankara",
+    "locationCountry":"TR"
   },
   {
     "id": 2,
     "name": "Ayşe",
+    "email":"ayse@ayse.com",
+    "phone":"053495216969",
     "avatar": "/assets/images/avatar2.jpeg",
     "messages": ["Merhaba Ayşe!", "Nasılsın?", "Bugün ne yapıyorsun?"],
     "unreadMessages":0,
-    "stuation":"online"
+    "stuation":"Online",
+    "status":"A professional profile is a brief summary of my and  your  skills, strengths, and key experiences",
+    "locationCity":"Mersin",
+    "locationCountry":"TR"
   },
   {
     "id": 3,
     "name": "Berk",
+    "email":"berk@berk.com",
+    "phone":"053497865879",
     "avatar": "/assets/images/avatar.jpeg ",
     "messages": ["Merhaba Berk!", "Nasılsın?", "Neredesin?"],
     "unreadMessages":0,
-    "stuation":"online"
+    "stuation":"Online",
+    "status":"A professional profile is a brief summary of your ummary of your ummary of your skills, strengths, and key experiences",
+    "locationCity":"Çanakkale",
+    "locationCountry":"TR"
   },
   {
     "id": 4,
     "name": "Buse",
+    "email":"buse@buse.com",
+    "phone":"05349786989",
     "avatar": "/assets/images/icon.jpeg",
     "messages": ["Merhaba Buse!", "Nasılsın?", "Akşam ne yapıyoruz?"],
     "unreadMessages":0,
-    "stuation":"online"
+    "stuation":"Online",
+    "status":"A professional profile is a brief summary of your skills, strengths, and key experiences",
+    "locationCity":"Hatay",
+    "locationCountry":"TR"
   },
   {
     "id": 5,
     "name": "Emrah",
+    "email":"emrah@emrah.com",
+    "phone":"05349786969",
     "avatar": "/assets/images/emrah.jpg ",
     "messages": ["Merhaba Veli!", "heyy?", "Akşam plan varmı?"],
     "unreadMessages":0,
-    "stuation":"online"
+    "stuation":"Online",
+    "status":"A professional profile is a brief summary of your skills, strengths, and key experiences",
+    "locationCity":"Ankara",
+    "locationCountry":"TR"
   },
   {
     "id": 6,
     "name": "Zeliha",
+    "email":"zeliha@zeliha.com",
+    "phone":"05345686969",
     "avatar": "/assets/images/avatar2.jpeg",
     "messages": ["Merhaba Şükrü!", "Nasılsın?", "Futbol oynarmısın"],
     "unreadMessages":0,
-    "stuation":"online"
+    "stuation":"Online",
+    "status":"A professional profile is a brief summary of your skills, strengths, and key experiences",
+    "locationCity":"Muğla",
+    "locationCountry":"TR"
   },
   {
     "id": 7,
     "name": "Osman",
+    "email":"osman@osman.com",
+    "phone":"053496526969",
     "avatar": "/assets/images/avatar.jpeg",
     "messages": ["Merhaba Buse!", "Nasılsın?", "Akşam ne yapıyoruz?"],
     "unreadMessages":0,
-    "stuation":"online"
+    "stuation":"Online",
+    "status":"A professional profile is a brief summary of your skills, strengths, and key experiences",
+    "locationCity":"İzmir",
+    "locationCountry":"TR"
   }
 ]
