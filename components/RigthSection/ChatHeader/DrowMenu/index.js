@@ -9,7 +9,7 @@ import { BsCameraVideo } from "react-icons/bs";
 
 import useClickOutside from '@/hook/useClickOutside';
 
-function DropMenu({handleOpenMenu, isOpenMenu, setIsOpenMenu}) {
+function DropMenu({handleOpenMenu, isOpenMenu, setIsOpenMenu,handleInfoPanelToggle}) {
 
     const menuRef = useRef()
   useClickOutside (menuRef, ()=> {
@@ -24,7 +24,7 @@ function DropMenu({handleOpenMenu, isOpenMenu, setIsOpenMenu}) {
  />
  {isOpenMenu && (
    <div className="absolute right-2 top-10 text-sm  font-[500] text-threeDotMenuTxt bg-threeDotMenu shadow-md rounded">
-   <div className="flex justify-between px-6 py-2 hover:bg-threeDotMenuHover cursor-pointer">
+   <div onClick={handleInfoPanelToggle} className="flex justify-between px-6 py-2 hover:bg-threeDotMenuHover cursor-pointer">
    <span>Profile</span>
    <LuUser2 className="ml-6" />
  </div>

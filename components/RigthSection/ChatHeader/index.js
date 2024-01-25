@@ -113,8 +113,6 @@ function ChatHeader() {
                 className="hidden md:block cursor-pointer"
               />
               
-              
-
               <PiVideoCameraFill
                 onClick={() => setIsOpenVideoCallModal(!isOpenVideoCallModal)}
                 className="hidden md:block cursor-pointer"
@@ -124,7 +122,7 @@ function ChatHeader() {
                 onClick={handleInfoPanelToggle}
                 className="hidden md:block cursor-pointer"
               />
-             <DropMenu isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} handleOpenMenu={handleOpenMenu} />
+             <DropMenu isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} handleOpenMenu={handleOpenMenu} handleInfoPanelToggle={handleInfoPanelToggle} />
              
             </div>
           </div>
