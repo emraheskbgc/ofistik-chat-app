@@ -40,13 +40,13 @@ function ChannelsModal({ isOpenModal, setIsOpenModal }) {
           <div className="flex flex-col  w-[90%] md:ml-7 ml-4  py-5 px-4 ">
             <h2 className="font-semibold mb-3">Group Name</h2>
             <input
-              className=" border border-modalInputBorder border-opacity-45 placeholder:italic focus-within:outline bg-inputbg text-sm text-gray-700 px-2 rounded py-3  w-full  "
+              className=" border border-modalInputBorder border-opacity-45 placeholder:italic focus-within:outline bg-inputbg text-sm text-gray-700 px-2 rounded py-2  w-full  "
               type="text"
               id="groupName"
               placeholder="Enter Group Name"
             />
           </div>
-          <div className="flex  flex-col  w-[90%] md:ml-7 ml-4   py-5 px-4 ">
+          <div className="flex  flex-col  w-[90%] md:ml-7 ml-4  px-4 ">
             <h2 className="font-semibold mb-3">Group Members</h2>
             <button
               onClick={handleOpenContact}
@@ -64,11 +64,11 @@ function ChannelsModal({ isOpenModal, setIsOpenModal }) {
             </div>
           )}
 
-          <div className="flex rounded flex-col  w-[90%] md:ml-7 ml-4   py-5 px-4 ">
+          <div className="flex rounded flex-col  w-[90%] md:ml-7 ml-4    my-4 px-4 ">
             <h2 className="font-semibold mb-3">Description</h2>
             <textarea
-              cols="10"
-              rows="5"
+              cols="2"
+              rows="2"
               placeholder="Enter Description"
               className="p-3 placeholder:italic focus-within::outline border-modalInputBorder bg-inputbg border-opacity-45"
             ></textarea>

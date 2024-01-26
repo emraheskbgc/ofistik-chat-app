@@ -84,24 +84,7 @@ function Info({ isInfoPanelOpen, setIsInfoPanelOpen, selectedUser }) {
           </div>
           <div className="border border-solid w-full"></div>
           <div className="overflow-y-auto overflow-hidden md:min-h-[400px] md:max-h-[500px]  min-h-[500px] max-h-[500px]">
-           <div className="flex justify-center items-center py-6 space-x-3">
-            <div className="bg-infoMsgBg text-infoMsgTxt text-xl cursor-pointer p-3 rounded ">
-              <BiMessageAltDetail />
-            </div>
-            <div className="bg-infoHrtBg text-infoHrtTxt text-xl cursor-pointer p-3 rounded ">
-              <FaRegHeart />
-            </div>
-            <div className="bg-infoPhnBg text-infoPhnTxt text-xl cursor-pointer p-3 rounded ">
-              <FaPhoneVolume />
-            </div>
-            <div className="bg-infoCmrBg text-infoCmrTxt text-xl cursor-pointer p-3 rounded ">
-              <BsCameraVideoFill />
-            </div>
-            <div className="bg-infoDotBg text-infoFotTxt text-xl cursor-pointer p-3 rounded ">
-              <BsThreeDots />
-            </div>
-          </div>
-         <div className="w-[75%] my-3 mx-11 border border-dotted " ></div>
+          
          <div className="p-5">
           <h2 className="opacity-40 uppercase text-sm font-semibold mb-3">Status :</h2>
           <p className="opacity-45 font-[500]">{selectedUser.status}</p>

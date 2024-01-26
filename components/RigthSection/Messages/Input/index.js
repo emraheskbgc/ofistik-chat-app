@@ -1,10 +1,8 @@
 "use client"
 import React,{useState, useRef} from "react";
 import { IoSend } from "react-icons/io5";
-import { TiMicrophoneOutline } from "react-icons/ti";
 import { HiOutlineEmojiHappy } from "react-icons/hi";
-import { HiDotsHorizontal } from "react-icons/hi";
-import MoreItems from "../MoreItems/index.js"
+import { MdAttachment } from "react-icons/md";
 
 import styles from "./styles.module.css";
 import { Tooltip } from "@chakra-ui/react";
@@ -13,23 +11,17 @@ import data from '@emoji-mart/data'
 import Picker from '@emoji-mart/react'
 import useClickOutside from "@/hook/useClickOutside.js";
 
-import { useContext } from "react";
-import PhoneBookContext  from "@/context/PhoneBookContext"
+
 
 
 function Input({ inputValue, sendMessage, handleInputChange }) {
-  const {selectedUser} = useContext(PhoneBookContext)
+  
 
   const [showEmojiPicker, setShowEmojiPicker] = useState(false); // Emoji seçicinin görünürlüğünü kontrol etmek için bir state oluşturuyoruz.
-  const [showMoreMenu, setShowMoreMenu] = useState(false); // more menü açılımı için kullanılan state
-
+ 
 
   const handleEmojiClick = () => {
     setShowEmojiPicker(!showEmojiPicker); // Emoji seçicinin görünürlüğünü tersine çeviriyoruz.
-  };
-
-  const handleMoreClick = () => {
-    setShowMoreMenu(!showMoreMenu); // DotsHorizontal ikonuna tıklanınca görünürlüğü değiştir
   };
 
   const handleEmojiSelect = (emoji) => {
@@ -48,10 +40,7 @@ function Input({ inputValue, sendMessage, handleInputChange }) {
 
 
   const handleSendClick = () => {
-    
-      
     sendMessage({ text: inputValue });
-    
   };
 
 
@@ -61,14 +50,14 @@ function Input({ inputValue, sendMessage, handleInputChange }) {
     <div className={`${styles.inputArea} border-t w-[100%] md:w-[75%] p-5`}>
       <div className="flex  justify-between  items-center   space-x-3 md:space-x-10 text-chatIconBg ">
       
-      <div onClick={handleMoreClick}>
+      
        <Tooltip hasArrow label='More'  placement='top' fontSize='sm' >
         <div className="text-2xl cursor-pointer" >
-          <HiDotsHorizontal />
+          <MdAttachment />
         </div>
         </Tooltip>
-      </div>
-      {showMoreMenu && <MoreItems showMoreMenu={showMoreMenu} setShowMoreMenu={setShowMoreMenu} />}
+      
+     
         
       <div ref={emojiRef} onClick={handleEmojiClick}>
        <Tooltip hasArrow label='Emoji'  placement='top' fontSize='sm' >
@@ -94,9 +83,7 @@ function Input({ inputValue, sendMessage, handleInputChange }) {
             className={`${styles.inputField} bg-sendInputBg`}
           />
         </div>
-        <div className="text-2xl hidden md:block">
-         <TiMicrophoneOutline />
-        </div>
+       
         <div >
           <button  onClick={handleSendClick}>
             <div className="border py-4 px-5 cursor-pointer bg-modalSendBtn text-modalSendTxt rounded">
@@ -105,13 +92,7 @@ function Input({ inputValue, sendMessage, handleInputChange }) {
           </button>
         </div>
       </div>
-      <div className="md:ml-36 ml-20 flex items-center">
-      <span className="mr-3 text-xs font-[400]">{selectedUser.name} is Typing </span>
-      <div className={`${styles.dot} ${styles.dot1} bg-typeingDotBg`}></div>
-      <div className={`${styles.dot} ${styles.dot2} bg-typeingDotBg` }></div>
-      <div className={`${styles.dot} ${styles.dot3} bg-typeingDotBg`}></div>
-   
-    </div>
+  
     </div>
   );
 }

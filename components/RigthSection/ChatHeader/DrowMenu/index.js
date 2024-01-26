@@ -28,14 +28,7 @@ function DropMenu({handleOpenMenu, isOpenMenu, setIsOpenMenu,handleInfoPanelTogg
    <span>Profile</span>
    <LuUser2 className="ml-6" />
  </div>
-     <div className="flex justify-between px-6 py-2 hover:bg-threeDotMenuHover cursor-pointer">
-       <span>Audio</span>
-       <MdOutlinePhoneInTalk className="ml-6" />
-     </div>
-     <div className="flex justify-between px-6 py-2 hover:bg-threeDotMenuHover cursor-pointer">
-       <span>Video</span>
-       <BsCameraVideo className="ml-6" />
-     </div>
+    
      <div className="flex justify-between px-6 py-2 hover:bg-threeDotMenuHover cursor-pointer">
        <span>Archive</span>
        <FaArchive className="ml-6" />

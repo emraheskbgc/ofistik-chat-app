@@ -108,15 +108,7 @@ function ChatHeader() {
           
             <SearchBar isOpenSearch={isOpenSearch} setIsOpenSearch={setIsOpenSearch} handleOpenSearch={handleOpenSearch} />
               
-              <PiPhoneCallFill
-                onClick={() => setIsOpenPhoneModal(!isOpenPhoneModal)}
-                className="hidden md:block cursor-pointer"
-              />
-              
-              <PiVideoCameraFill
-                onClick={() => setIsOpenVideoCallModal(!isOpenVideoCallModal)}
-                className="hidden md:block cursor-pointer"
-              />
+            
               <FaBookmark className="hidden md:block cursor-pointer" />
               <MdInfo
                 onClick={handleInfoPanelToggle}
