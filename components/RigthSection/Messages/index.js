@@ -58,6 +58,12 @@ function Messages() {
       setInputValue(""); // Input değerini sıfırla
     }
   };
+  const sendImage = (image) => {
+    if (image) {
+      
+      setMessages([...messages, { image: image, sender: "me" }]);
+    }
+  };
   return (
     <div className={`${styles.messagesContainer}  md:h-[83vh] h-[87vh]`}>
       {/* Mesajlaşma alanı */}
@@ -78,10 +84,17 @@ function Messages() {
                     className={styles.avatarImage}
                   />
                 </div>
-                <div className={styles.messageText}>{message.text}</div>
+                
               </>
-            ) : (
-              <div className={styles.myMessageText}>{message.text}</div>
+            ) : (<>
+              {message.image ? (
+                <img src={message.image.image} alt="Sent" className={styles.sentImage} />
+              ) : (
+                <div className={styles.messageText}>{message.text}</div>
+              )}
+               
+              </>
+            
             )}
           </div>
         ))}
@@ -90,7 +103,7 @@ function Messages() {
 
 
       
-        <Input inputValue={inputValue} handleInputChange={handleInputChange} sendMessage={sendMessage} />
+        <Input inputValue={inputValue} handleInputChange={handleInputChange} sendMessage={sendMessage} sendImage={sendImage} />
     
    
     </div>

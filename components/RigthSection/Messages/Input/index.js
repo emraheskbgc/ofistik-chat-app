@@ -15,7 +15,7 @@ import File from "../File";
 
 
 
-function Input({ inputValue, sendMessage, handleInputChange }) {
+function Input({ inputValue, sendMessage, handleInputChange, sendImage }) {
   
 
   const [showEmojiPicker, setShowEmojiPicker] = useState(false); // Emoji seçicinin görünürlüğünü kontrol etmek için bir state oluşturuyoruz.
@@ -49,8 +49,11 @@ function Input({ inputValue, sendMessage, handleInputChange }) {
     sendMessage({ text: inputValue });
   };
 
-
-
+  const handleSendFile = (image) => {
+    sendImage({
+      image:image
+    })
+  }
 
   return (
     <>
@@ -101,7 +104,7 @@ function Input({ inputValue, sendMessage, handleInputChange }) {
       </div>
   
     </div>
-    <File fileOpenModal={fileOpenModal} setFileOpenModal={setFileOpenModal}/>
+    <File fileOpenModal={fileOpenModal} setFileOpenModal={setFileOpenModal}  onSendClick={handleSendFile} />
     </>
    
   );

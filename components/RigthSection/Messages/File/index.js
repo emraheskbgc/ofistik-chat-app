@@ -7,13 +7,21 @@ import { IoSend } from "react-icons/io5";
 import useClickOutside from "@/hook/useClickOutside";
 
 
-function File({ fileOpenModal, setFileOpenModal }) {
+function File({ fileOpenModal, setFileOpenModal,onSendClick }) {
+    
     const fileRef = useRef();
     useClickOutside(fileRef,()=>{
         setFileOpenModal(false)
     })
   const [image, setImage] = useState(null);
   const [fileName, setFileName] = useState("No selected file");
+  const handleSendClick = () => {
+    onSendClick(image);
+    setFileOpenModal(false); // Gönderildikten sonra modal'ı kapat
+    setImage(null)
+    setFileName("No selected file")
+  };
+
   return (
     <>
       <div
@@ -55,7 +63,7 @@ function File({ fileOpenModal, setFileOpenModal }) {
             <span className="flex justify-center space-x-2 items-center" ><div>{fileName}</div> <div className="border p-1 cursor-pointer bg-fileUploudDlt rounded"><MdDelete className="  text-modalSendTxt  " onClick={() => {
                 setFileName("No selected File")
                 setImage(null)
-            }} /> </div> <div className="border p-1 cursor-pointer bg-modalSendBtn text-modalSendTxt rounded">
+            }} /> </div> <div className="border p-1 cursor-pointer bg-modalSendBtn text-modalSendTxt rounded" onClick={handleSendClick}>
             <IoSend />
              </div></span>
             
