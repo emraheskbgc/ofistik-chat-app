@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styles from "./styles.module.css";
 
 import { MdCloudUpload, MdDelete } from "react-icons/md";
 import { AiFillFileImage } from "react-icons/ai";
 import { IoSend } from "react-icons/io5";
+import useClickOutside from "@/hook/useClickOutside";
 
 
-function File({ fileOpenModal }) {
+function File({ fileOpenModal, setFileOpenModal }) {
+    const fileRef = useRef();
+    useClickOutside(fileRef,()=>{
+        setFileOpenModal(false)
+    })
   const [image, setImage] = useState(null);
   const [fileName, setFileName] = useState("No selected file");
   return (
@@ -16,11 +21,13 @@ function File({ fileOpenModal }) {
           fileOpenModal ? "flex" : "hidden"
         }`}
       >
-        <div className="bg-modalBg rounded-t rounded-b shadow-md md:w-[500px] w-[300px] flex flex-col">
+        <div ref={fileRef} className="bg-modalBg rounded-t p-2 rounded-b shadow-md md:w-[500px] w-[300px] flex flex-col justify-center items-center" >
+         <div  onClick={()=>setFileOpenModal(false) } className=" flex cursor-pointer justify-end mb-2 font-semibold  w-full pr-5">X</div>
           <form
-            className={`${styles.form} md:w-[500px] w-[300px] `}
+            className={`${styles.form} md:w-[450px] w-[300px]  `}
             onClick={() => document.querySelector(".input-field").click()}
           >
+         
             <input
               type="file"
               accept="image/*"
@@ -43,7 +50,7 @@ function File({ fileOpenModal }) {
             )}
           </form>
 
-          <section className="flex mx-2 my-2 justify-between items-center px-5 py-4 rounded-sm bg-fileUploudBg">
+          <section className="flex w-full mx-2 my-2 justify-between items-center px-5 py-4 rounded-sm bg-fileUploudBg">
             <AiFillFileImage color="#1475cf" />
             <span className="flex justify-center space-x-2 items-center" ><div>{fileName}</div> <div className="border p-1 cursor-pointer bg-fileUploudDlt rounded"><MdDelete className="  text-modalSendTxt  " onClick={() => {
                 setFileName("No selected File")

@@ -101,7 +101,7 @@ function Input({ inputValue, sendMessage, handleInputChange }) {
       </div>
   
     </div>
-    <File fileOpenModal={fileOpenModal}/>
+    <File fileOpenModal={fileOpenModal} setFileOpenModal={setFileOpenModal}/>
     </>
    
   );
