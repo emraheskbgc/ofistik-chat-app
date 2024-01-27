@@ -34,7 +34,7 @@ function File({ fileOpenModal }) {
               }}
             />
             {image ? (
-              <img src={image} width={250} height={250} alt={fileName} />
+              <img src={image} width={200} height={200} alt={fileName} />
             ) : (
               <>
                 <MdCloudUpload color="#1475cf" size={60} />
