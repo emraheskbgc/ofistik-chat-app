@@ -16,9 +16,9 @@ function File({ fileOpenModal }) {
           fileOpenModal ? "flex" : "hidden"
         }`}
       >
-        <div className="bg-modalBg rounded-t rounded-b shadow-md w-[500px] flex flex-col">
+        <div className="bg-modalBg rounded-t rounded-b shadow-md md:w-[500px] w-[300px] flex flex-col">
           <form
-            className={styles.form}
+            className={`${styles.form} md:w-[500px] w-[300px] `}
             onClick={() => document.querySelector(".input-field").click()}
           >
             <input
@@ -34,7 +34,7 @@ function File({ fileOpenModal }) {
               }}
             />
             {image ? (
-              <img src={image} width={150} height={150} alt={fileName} />
+              <img src={image} width={250} height={250} alt={fileName} />
             ) : (
               <>
                 <MdCloudUpload color="#1475cf" size={60} />
