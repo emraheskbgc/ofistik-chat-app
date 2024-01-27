@@ -10,6 +10,7 @@ import { Tooltip } from "@chakra-ui/react";
 import data from '@emoji-mart/data'
 import Picker from '@emoji-mart/react'
 import useClickOutside from "@/hook/useClickOutside.js";
+import File from "../File";
 
 
 
@@ -18,7 +19,12 @@ function Input({ inputValue, sendMessage, handleInputChange }) {
   
 
   const [showEmojiPicker, setShowEmojiPicker] = useState(false); // Emoji seçicinin görünürlüğünü kontrol etmek için bir state oluşturuyoruz.
- 
+  const [fileOpenModal, setFileOpenModal] = useState(false)
+
+  const handleFileClick = () => {
+    setFileOpenModal(!fileOpenModal)
+  }
+  
 
   const handleEmojiClick = () => {
     setShowEmojiPicker(!showEmojiPicker); // Emoji seçicinin görünürlüğünü tersine çeviriyoruz.
@@ -47,13 +53,14 @@ function Input({ inputValue, sendMessage, handleInputChange }) {
 
 
   return (
-    <div className={`${styles.inputArea} border-t w-[100%] md:w-[75%] p-5`}>
+    <>
+     <div className={`${styles.inputArea} border-t w-[100%] md:w-[75%] p-5`}>
       <div className="flex  justify-between  items-center   space-x-3 md:space-x-10 text-chatIconBg ">
       
       
        <Tooltip hasArrow label='More'  placement='top' fontSize='sm' >
         <div className="text-2xl cursor-pointer" >
-          <MdAttachment />
+          <MdAttachment onClick={handleFileClick} />
         </div>
         </Tooltip>
       
@@ -94,6 +101,9 @@ function Input({ inputValue, sendMessage, handleInputChange }) {
       </div>
   
     </div>
+    <File fileOpenModal={fileOpenModal}/>
+    </>
+   
   );
 }
 

@@ -80,7 +80,9 @@ module.exports = {
       infoDotBg:"#e2e3f3",
       infoDotTxt:"#3edab5",
       backBtnBg:"#06d6a0",
-      backBtnTxt:"#fff"
+      backBtnTxt:"#fff",
+      fileUploudBg:"#e9f0ff",
+      fileUploudDlt:"#ef4444"
 
 
     },
