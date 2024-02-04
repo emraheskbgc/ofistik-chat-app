@@ -3,6 +3,8 @@ import React,{useState, useRef} from "react";
 import { IoSend } from "react-icons/io5";
 import { HiOutlineEmojiHappy } from "react-icons/hi";
 import { MdAttachment } from "react-icons/md";
+import { BsThreeDotsVertical } from "react-icons/bs";
+
 
 import styles from "./styles.module.css";
 import { Tooltip } from "@chakra-ui/react";
@@ -11,6 +13,8 @@ import data from '@emoji-mart/data'
 import Picker from '@emoji-mart/react'
 import useClickOutside from "@/hook/useClickOutside.js";
 import File from "../File";
+import MoreItems from "../MoreItems";
+
 
 
 
@@ -20,6 +24,11 @@ function Input({ inputValue, sendMessage, handleInputChange, sendImage }) {
 
   const [showEmojiPicker, setShowEmojiPicker] = useState(false); // Emoji seçicinin görünürlüğünü kontrol etmek için bir state oluşturuyoruz.
   const [fileOpenModal, setFileOpenModal] = useState(false)
+  const [showMoreMenu, setShowMoreMenu] = useState(false);
+
+  const handleShowMoreMenu = () => {
+    setShowMoreMenu(!showMoreMenu)
+  }
 
   const handleFileClick = () => {
     setFileOpenModal(!fileOpenModal)
@@ -54,16 +63,23 @@ function Input({ inputValue, sendMessage, handleInputChange, sendImage }) {
       image:image
     })
   }
+ 
 
   return (
     <>
-     <div className={`${styles.inputArea} border-t w-[100%] md:w-[75%] p-5`}>
+     <div className={`${styles.inputArea} border-t w-[100%] md:w-[75%] p-5 `}>
       <div className="flex  justify-between  items-center   space-x-3 md:space-x-10 text-chatIconBg ">
       
       
        <Tooltip hasArrow label='More'  placement='top' fontSize='sm' >
         <div className="text-2xl cursor-pointer" >
-          <MdAttachment onClick={handleFileClick} />
+        <BsThreeDotsVertical onClick={handleShowMoreMenu}/>
+        {
+          showMoreMenu && (
+            <MoreItems setShowMoreMenu={setShowMoreMenu} showMoreMenu={showMoreMenu} handleFileClick={handleFileClick} />
+          )
+        }
+         
         </div>
         </Tooltip>
       
@@ -104,6 +120,7 @@ function Input({ inputValue, sendMessage, handleInputChange, sendImage }) {
       </div>
   
     </div>
+        
     <File fileOpenModal={fileOpenModal} setFileOpenModal={setFileOpenModal}  onSendClick={handleSendFile} />
     </>
    
