@@ -1,20 +1,27 @@
 import React,{useRef} from 'react'
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaArchive } from "react-icons/fa";
-import { AiOutlineAudioMuted } from "react-icons/ai";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { LuUser2 } from "react-icons/lu";
-import { MdOutlinePhoneInTalk } from "react-icons/md";
-import { BsCameraVideo } from "react-icons/bs";
+import { PiSpeakerSimpleXLight } from "react-icons/pi";
+
 
 import useClickOutside from '@/hook/useClickOutside';
+import { useContext } from 'react';
+import PhoneBookContext  from "@/context/PhoneBookContext"
 
 function DropMenu({handleOpenMenu, isOpenMenu, setIsOpenMenu,handleInfoPanelToggle}) {
+  const {handleIsMutedChange} = useContext(PhoneBookContext)
 
     const menuRef = useRef()
   useClickOutside (menuRef, ()=> {
     setIsOpenMenu(false)
   })
+
+  const handleMutedClick = () => {
+    handleIsMutedChange(); // isMuted değerini değiştiren fonksiyonu çağır
+    setIsOpenMenu(false); // menüyü kapat
+  };
 
   return (
    <div ref={menuRef}>
@@ -33,9 +40,9 @@ function DropMenu({handleOpenMenu, isOpenMenu, setIsOpenMenu,handleInfoPanelTogg
        <span>Archive</span>
        <FaArchive className="ml-6" />
      </div>
-     <div className="flex justify-between px-6 py-2  hover:bg-threeDotMenuHover cursor-pointer">
+     <div className="flex justify-between px-6 py-2  hover:bg-threeDotMenuHover cursor-pointer" onClick={handleMutedClick} >
        <span>Muted</span>
-       <AiOutlineAudioMuted className="ml-6" />
+       <PiSpeakerSimpleXLight className="ml-6 font-bold" />
      </div>
      <div className="flex justify-between px-6 py-2  hover:bg-threeDotMenuHover cursor-pointer">
        <span>Delete</span>

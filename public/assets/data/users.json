@@ -10,7 +10,8 @@
     "stuation":"Online",
     "status":"A professional profile is a brief summary of your skills, strengths, and key experiences",
     "locationCity":"Ankara",
-    "locationCountry":"TR"
+    "locationCountry":"TR",
+    "isMuted":true
   },
   {
     "id": 2,
@@ -23,7 +24,8 @@
     "stuation":"Online",
     "status":"A professional profile is a brief summary of my and  your  skills, strengths, and key experiences",
     "locationCity":"Mersin",
-    "locationCountry":"TR"
+    "locationCountry":"TR",
+    "isMuted":true
   },
   {
     "id": 3,
@@ -36,7 +38,8 @@
     "stuation":"Online",
     "status":"A professional profile is a brief summary of your ummary of your ummary of your skills, strengths, and key experiences",
     "locationCity":"Çanakkale",
-    "locationCountry":"TR"
+    "locationCountry":"TR",
+    "isMuted":false
   },
   {
     "id": 4,
@@ -49,7 +52,8 @@
     "stuation":"Online",
     "status":"A professional profile is a brief summary of your skills, strengths, and key experiences",
     "locationCity":"Hatay",
-    "locationCountry":"TR"
+    "locationCountry":"TR",
+    "isMuted": false
   },
   {
     "id": 5,
@@ -62,7 +66,8 @@
     "stuation":"Online",
     "status":"A professional profile is a brief summary of your skills, strengths, and key experiences",
     "locationCity":"Ankara",
-    "locationCountry":"TR"
+    "locationCountry":"TR",
+    "isMuted":false
   },
   {
     "id": 6,
@@ -75,7 +80,8 @@
     "stuation":"Online",
     "status":"A professional profile is a brief summary of your skills, strengths, and key experiences",
     "locationCity":"Muğla",
-    "locationCountry":"TR"
+    "locationCountry":"TR",
+    "isMuted":false
   },
   {
     "id": 7,
@@ -88,6 +94,7 @@
     "stuation":"Online",
     "status":"A professional profile is a brief summary of your skills, strengths, and key experiences",
     "locationCity":"İzmir",
-    "locationCountry":"TR"
+    "locationCountry":"TR",
+    "isMuted":false
   }
 ]

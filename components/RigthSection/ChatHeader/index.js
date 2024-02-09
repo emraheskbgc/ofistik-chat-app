@@ -114,7 +114,7 @@ function ChatHeader() {
                 onClick={handleInfoPanelToggle}
                 className="hidden md:block cursor-pointer"
               />
-             <DropMenu isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} handleOpenMenu={handleOpenMenu} handleInfoPanelToggle={handleInfoPanelToggle} />
+             <DropMenu isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} handleOpenMenu={handleOpenMenu} handleInfoPanelToggle={handleInfoPanelToggle} selectedUser={selectedUser}/>
              
             </div>
           </div>

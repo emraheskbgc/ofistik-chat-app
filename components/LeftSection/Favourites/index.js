@@ -1,4 +1,5 @@
 import React from 'react'
+import { PiSpeakerSimpleXLight } from "react-icons/pi";
 
 
 import { useContext } from "react";
@@ -8,7 +9,10 @@ function Favourites({ filteredUser }) {
 
     const {handleUserSelect} = useContext(PhoneBookContext)
 
-  
+
+   
+
+ 
   
   return (
     <div className='mt-44'>
@@ -29,11 +33,20 @@ function Favourites({ filteredUser }) {
                         <p className='text-personMesTxt font-[400]'>{person.messages[person.messages.length - 1 ]}</p>
                     </div>
                     </div>
-                    {person.unreadMessages > 0 &&
+                    <div className='flex space-x-3'>
+                     {person.unreadMessages > 0 &&
                     <div className='w-5 h-5 bg-messageCountBg text-xs text-messageCountTxt font-bold flex items-center rounded-md p-3  justify-center'>
                         <span>{person.unreadMessages}</span>
+                        
                     </div>
                     }
+                        {person.isMuted &&
+                        <div>
+                            <span><PiSpeakerSimpleXLight /></span>
+                        </div>}
+                    
+                    </div>
+                   
                     
                 </div>
             ))

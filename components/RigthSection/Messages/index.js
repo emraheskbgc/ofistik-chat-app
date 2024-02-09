@@ -2,6 +2,8 @@
 import { useState, useEffect,useRef } from "react";
 import styles from "./styles.module.css";
 import Input from "./Input";
+import { BsFiletypePdf } from "react-icons/bs";
+
 
 import { useContext } from "react";
 import PhoneBookContext  from "@/context/PhoneBookContext"
@@ -66,7 +68,14 @@ function Messages() {
       setMessages([...messages, { image: image, sender: "me" }]);
     }
   };
-  
+  const sendDocument = (document) => {
+    if(document){
+      setMessages([...messages, {document:document, sender:"me"}])
+    }
+  }
+
+
+  console.log(messages);
   return (
     <div className={`${styles.messagesContainer}  md:h-[83vh] h-[87vh]`}>
       {/* Mesajlaşma alanı */}
@@ -88,13 +97,22 @@ function Messages() {
             </div>
           )}
           
-          {
+          {message.document ? (
+            <a
+            href={message.document.blobUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.documentLink}
+          >
+            <BsFiletypePdf className="mr-3 text-3xl text-pdfBg"/> <h2>{message.document.document.name}</h2>
+          </a>
+          ) : (
             message.image ? (
               <img src={message.image.image} alt="Sent" className={styles.sentImage} />
             ) : (
               <div className={message.sender === "me" ? styles.myMessageText : styles.messageText}>{message.text}</div>
             )
-          }
+          )}
         </div>
       ))}
       
@@ -103,7 +121,7 @@ function Messages() {
 
 
       
-        <Input inputValue={inputValue} handleInputChange={handleInputChange} sendMessage={sendMessage} sendImage={sendImage}  />
+        <Input inputValue={inputValue} handleInputChange={handleInputChange} sendMessage={sendMessage} sendImage={sendImage}  sendDocument={sendDocument} />
     
    
     </div>

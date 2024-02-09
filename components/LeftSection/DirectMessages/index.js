@@ -1,22 +1,16 @@
-"use client"
-import React, { useState } from "react";
-import { FaPlus } from "react-icons/fa6";
-import { Tooltip } from "@chakra-ui/react";
-import DirectModal from "./DirectModal";
 
+import React from "react";
 import { useContext } from "react";
 import PhoneBookContext  from "@/context/PhoneBookContext"
+import { PiSpeakerSimpleXLight } from "react-icons/pi";
+
 
 function DirectMessages({filteredUser}) {
 
   const {handleUserSelect} = useContext(PhoneBookContext)
  
 
-  const [isOpenModal, setIsOpenModal] = useState(false)
-
-  const handleClickOpenModal = () => {
-    setIsOpenModal(!isOpenModal)
-  }
+  
 
 
   return (
@@ -28,14 +22,8 @@ function DirectMessages({filteredUser}) {
             DIRECT MESSAGE
           </h2>
         </div>
-        <Tooltip hasArrow label='New Message'  placement='top' fontSize='sm' >
-        <div className="mt-14  p-2 bg-plusBtn text-plusTxt rounded-md cursor-pointer ">
-          <FaPlus onClick={handleClickOpenModal} />
-          
-        </div>
        
-        </Tooltip>
-        <DirectModal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />
+        
         
       </div>
       <div className=" mt-5">
@@ -64,6 +52,10 @@ function DirectMessages({filteredUser}) {
                 <span>{person.unreadMessage}</span>
               </div>
             )}
+            {person.isMuted &&
+              <div>
+                  <span><PiSpeakerSimpleXLight /></span>
+              </div>}
           </div>
         ))}
       </div>

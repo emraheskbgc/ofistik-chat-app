@@ -4,12 +4,16 @@ import Header from '../Header'
 import Favourites from '../Favourites'
 import DirectMessages from '../DirectMessages'
 import Channels from '../Channels'
-import users from "@/public/assets/data/users.json"
+
 import channels from "@/public/assets/data/channels.json"
+import { useContext } from "react";
+import PhoneBookContext  from "@/context/PhoneBookContext"
 
 function MessagesList({selectedUser}) {
  
   const [searchQuery, setSearchQuery] = useState('');
+  const {users} = useContext(PhoneBookContext)
+
   
 
   const handleSearch = (query) => {

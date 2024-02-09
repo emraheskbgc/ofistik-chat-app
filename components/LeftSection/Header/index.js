@@ -1,4 +1,9 @@
-import React from "react";
+"use client"
+import React,{useState} from "react";
+import { BiSupport } from "react-icons/bi";
+import { RiContactsBookFill } from "react-icons/ri";
+import { Tooltip } from "@chakra-ui/react";
+import DirectModal from "../DirectMessages/DirectModal";
 
 
 function Header({ onSearch }) {
@@ -6,9 +11,24 @@ function Header({ onSearch }) {
   const handleInputChange = (e) => {
       onSearch(e.target.value)
   }
+  const [isOpenModal, setIsOpenModal] = useState(false)
+
+  const handleClickOpenModal = () => {
+    setIsOpenModal(!isOpenModal)
+  }
 
   return (
     <div className="fixed z-40 bg-messageBodyBg md:w-[25%] w-full ">
+    <div className="flex text-3xl space-x-3 justify-end mr-5 mt-2 opacity-80">
+    <Tooltip hasArrow label='Support'  placement='bottom' fontSize='sm' >
+        <div className="cursor-pointer "><BiSupport className="hover:text-dotBg duration-300"/></div>
+    </Tooltip>
+    <Tooltip hasArrow label='New Message'  placement='bottom' fontSize='sm' >
+     <div className="cursor-pointer"><RiContactsBookFill className="hover:text-dotBg duration-300" onClick={handleClickOpenModal}/></div>
+     </Tooltip>
+    
+    </div>
+    <DirectModal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />
     <h2 className="text-xl ml-10 mt-6 mb-4 font-[500] ">
       Messages <span className="text-messageBg text-sm " >(128)</span>
     </h2>

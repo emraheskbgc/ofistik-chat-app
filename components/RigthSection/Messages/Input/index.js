@@ -2,7 +2,6 @@
 import React,{useState, useRef} from "react";
 import { IoSend } from "react-icons/io5";
 import { HiOutlineEmojiHappy } from "react-icons/hi";
-import { MdAttachment } from "react-icons/md";
 import { BsThreeDotsVertical } from "react-icons/bs";
 
 
@@ -14,20 +13,26 @@ import Picker from '@emoji-mart/react'
 import useClickOutside from "@/hook/useClickOutside.js";
 import File from "../File";
 import MoreItems from "../MoreItems";
+import DocumentUpload from "../DocumentUpload";
 
 
 
 
 
-function Input({ inputValue, sendMessage, handleInputChange, sendImage }) {
+function Input({ inputValue, sendMessage, handleInputChange, sendImage, sendDocument }) {
   
 
   const [showEmojiPicker, setShowEmojiPicker] = useState(false); // Emoji seçicinin görünürlüğünü kontrol etmek için bir state oluşturuyoruz.
   const [fileOpenModal, setFileOpenModal] = useState(false)
   const [showMoreMenu, setShowMoreMenu] = useState(false);
+  const [documentOpenModal, setIsDocumentModal] = useState(false)
 
   const handleShowMoreMenu = () => {
     setShowMoreMenu(!showMoreMenu)
+  }
+
+  const handleDocumentClick = () => {
+    setIsDocumentModal(!documentOpenModal)
   }
 
   const handleFileClick = () => {
@@ -63,26 +68,29 @@ function Input({ inputValue, sendMessage, handleInputChange, sendImage }) {
       image:image
     })
   }
+  const handleSendDocument = (document,blobUrl) => {
+    sendDocument({document:document,blobUrl:blobUrl})
+  }
  
 
   return (
     <>
-     <div className={`${styles.inputArea} border-t w-[100%] md:w-[75%] p-5 `}>
+     <div className={`${styles.inputArea} border-t w-[100%]   md:w-[75%] p-5 `}>
       <div className="flex  justify-between  items-center   space-x-3 md:space-x-10 text-chatIconBg ">
       
       
        <Tooltip hasArrow label='More'  placement='top' fontSize='sm' >
         <div className="text-2xl cursor-pointer" >
         <BsThreeDotsVertical onClick={handleShowMoreMenu}/>
-        {
-          showMoreMenu && (
-            <MoreItems setShowMoreMenu={setShowMoreMenu} showMoreMenu={showMoreMenu} handleFileClick={handleFileClick} />
-          )
-        }
+       
          
         </div>
         </Tooltip>
-      
+       {
+          showMoreMenu && (
+            <MoreItems setShowMoreMenu={setShowMoreMenu} showMoreMenu={showMoreMenu} handleFileClick={handleFileClick} handleDocumentClick={handleDocumentClick} />
+          )
+        }
      
         
       <div ref={emojiRef} onClick={handleEmojiClick}>
@@ -122,6 +130,7 @@ function Input({ inputValue, sendMessage, handleInputChange, sendImage }) {
     </div>
         
     <File fileOpenModal={fileOpenModal} setFileOpenModal={setFileOpenModal}  onSendClick={handleSendFile} />
+    <DocumentUpload documentOpenModal={documentOpenModal} setIsDocumentModal={setIsDocumentModal} onSendClick={handleSendDocument} />
     </>
    
   );

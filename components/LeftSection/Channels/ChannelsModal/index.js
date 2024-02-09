@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState, useRef } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import styles from "./styles.module.css";
@@ -7,34 +7,50 @@ import PhoneBook from "@/components/PhoneBook";
 import useClickOutside from "@/hook/useClickOutside";
 
 import { useContext } from "react";
-import PhoneBookContext  from "@/context/PhoneBookContext"
+import PhoneBookContext from "@/context/PhoneBookContext";
 
-function ChannelsModal({ isOpenModal, setIsOpenModal }) {
+function ChannelsModal({
+  channelOpenModal,
+  setChannelOpenModal,
+  setIsOpenModal,
+  isOpenModal,
+}) {
+  const { showCheckBox } = useContext(PhoneBookContext);
 
-  const{showCheckBox} = useContext(PhoneBookContext)
-  
-  const [isOpenContact, setIsOpenContact] = useState(false);
-  const handleOpenContact = () => {
-    setIsOpenContact(!isOpenContact);
+  const channalRef = useRef();
+  useClickOutside(channalRef, () => {
+    setChannelOpenModal(false);
+  });
+  const handleClickOpenNewMessageModal = () => {
+    setIsOpenModal(!isOpenModal);
+    setChannelOpenModal(false);
   };
-  const channalRef = useRef()
-  useClickOutside (channalRef, ()=> {
-    setIsOpenModal(false)
-  })
+
   return (
     <>
       <div
         className={`fixed z-50  left-0 top-0 bg-modalOutBg bg-opacity-50 w-screen h-screen   justify-center items-center ${
-          isOpenModal ? "flex" : "hidden"
+          channelOpenModal ? "flex flex-col" : "hidden"
         }`}
       >
-        <div ref={channalRef} className="bg-modalBg rounded-t rounded-b shadow-md md:w-[40%] w-[80%] flex flex-col">
-          <div className="bg-modalHeadBg rounded-t flex justify-between items-center  pl-3 py-5 top-0 w-full">
+        <div className="bg-modalBg rounded-t rounded-b shadow-md md:w-[40%] w-[80%] flex flex-col">
+          <div className="bg-dotBg p-2  text-plusTxt  shadow-md md:w-[100%] w-[80%] flex ">
+            <div
+              className="p-2 cursor-pointer"
+              onClick={handleClickOpenNewMessageModal}
+            >
+              New Message
+            </div>
+            <div className="bg-modalChangeBg p-2 rounded-full cursor-pointer duration-500 ">
+              New Channel
+            </div>
+          </div>
+          <div className="bg-modalHeadBg rounded-tr flex justify-between items-center  pl-3 py-5 top-0 w-full">
             <div className="text-plusTxt font-bold text-md">
               Create New Group
             </div>
             <div className="pr-3 text-xl text-modalCloseIcon cursor-pointer">
-              <IoCloseOutline onClick={() => setIsOpenModal(false)} />
+              <IoCloseOutline onClick={() => setChannelOpenModal(false)} />
             </div>
           </div>
           <div className="flex flex-col  w-[90%] md:ml-7 ml-4  py-5 px-4 ">
@@ -47,22 +63,15 @@ function ChannelsModal({ isOpenModal, setIsOpenModal }) {
             />
           </div>
           <div className="flex  flex-col  w-[90%] md:ml-7 ml-4  px-4 ">
-            <h2 className="font-semibold mb-3">Group Members</h2>
-            <button
-              onClick={handleOpenContact}
-              className=" p-1 rounded md:w-[25%] w-[50%] bg-channleModalBtnBg hover:bg-channelModalBtnHoverBg text-channelModalBtnTxt text-sm font-[500]"
-            >
-              Select Members
-            </button>
+            <h2 className="font-semibold mb-1">Group Members</h2>
           </div>
-          {isOpenContact && (
-            <div className={`${styles.contactsContainer} border md:ml-10 ml-8 `}>
-              <h2 className=" font-[600] text-sm text-modalOutBg bg-channleModalContactBg p-2 border w-full">
-                Contacts
-              </h2>
-              <PhoneBook showAvatar={false} showCheckBox={showCheckBox} />
-            </div>
-          )}
+
+          <div className={`${styles.contactsContainer} border md:ml-10 ml-8 `}>
+            <h2 className=" font-[600] text-sm text-modalOutBg bg-channleModalContactBg p-2 border w-full">
+              Contacts
+            </h2>
+            <PhoneBook showAvatar={false} showCheckBox={showCheckBox} />
+          </div>
 
           <div className="flex rounded flex-col  w-[90%] md:ml-7 ml-4    my-4 px-4 ">
             <h2 className="font-semibold mb-3">Description</h2>
@@ -78,7 +87,7 @@ function ChannelsModal({ isOpenModal, setIsOpenModal }) {
           <div className="flex justify-end items-center pr-8 py-5 border w-full rounded-b">
             <div
               className="flex justify-center items-center mr-5 text-channelModalCloseTxt font-[600] cursor-pointer"
-              onClick={() => setIsOpenModal(false)}
+              onClick={() => setChannelOpenModal(false)}
             >
               <IoCloseOutline className="text-xl" /> <span>Cancel</span>
             </div>

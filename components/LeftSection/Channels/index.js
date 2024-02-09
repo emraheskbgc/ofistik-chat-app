@@ -6,23 +6,13 @@ import ChannelsModal from './ChannelsModal';
 import channels from "@/public/assets/data/channels.json"
 function Channels({filteredChannels}) {
     
-      const [isOpenModal, setIsOpenModal] = useState(false)
-
-      const handleClickOpenModal = () => {
-        setIsOpenModal(!isOpenModal)
-      }
+   
   return (
     <div>
        <div className='flex justify-between items-center  pr-7 '>
         <div> <h2 className='text-favTxt text-xs font-semibold mt-14 ml-10'>CHANNELS</h2></div>
-        <Tooltip hasArrow label='Create group'  placement='top' fontSize='sm' >
-        <div className="mt-14  p-2 bg-plusBtn text-plusTxt rounded-md cursor-pointer ">
-          <FaPlus onClick={handleClickOpenModal}/>
-          
-        </div>
        
-        </Tooltip>
-        <ChannelsModal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />
+       
        </div>
         <div className=' mt-5'>
         {

@@ -18,7 +18,6 @@ function File({ fileOpenModal, setFileOpenModal, onSendClick }) {
     setFileOpenModal(false); // Gönderildikten sonra modal'ı kapat
     setFile(null);
   };
-console.log(file);
   return (
     <>
       <div

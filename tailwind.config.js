@@ -82,7 +82,9 @@ module.exports = {
       backBtnBg:"#06d6a0",
       backBtnTxt:"#fff",
       fileUploudBg:"#e9f0ff",
-      fileUploudDlt:"#ef4444"
+      fileUploudDlt:"#ef4444",
+      modalChangeBg:"#10b981",
+      pdfBg:"#ef4444"
 
 
     },
