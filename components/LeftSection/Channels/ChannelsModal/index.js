@@ -34,7 +34,7 @@ function ChannelsModal({
         }`}
       >
         <div className="bg-modalBg rounded-t rounded-b shadow-md md:w-[40%] w-[80%] flex flex-col">
-          <div className="bg-dotBg p-2  text-plusTxt  shadow-md md:w-[100%] w-[80%] flex ">
+          <div className="bg-dotBg p-2  text-plusTxt  shadow-md  w-[100%] flex ">
             <div
               className="p-2 cursor-pointer"
               onClick={handleClickOpenNewMessageModal}
