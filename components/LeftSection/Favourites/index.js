@@ -22,20 +22,22 @@ function Favourites({ filteredUser }) {
           filteredUser.slice(0,5).map((person) => (
                 <div key={person.id} onClick={()=> handleUserSelect(person)} className='flex justify-between items-center hover:bg-personBg pr-8 pl-10 py-3 cursor-pointer' >
                     <div className='flex'>
-                    <div className='relative'>
-                        <img src={person.avatar} alt={person.name} className='w-10 h-10 rounded-full' />
-                       {
-                        person.stuation === "online" &&  <div className='absolute bg-dotBg w-3 h-3 rounded-full right-0 bottom-2 border border-[2px] border-inputbg'></div>
-                       }
-                    </div>
-                    <div className='ml-3'>
+                    <div className="relative">
+                    <img
+                      src={person.avatar}
+                      alt={person.name}
+                      className="w-14 h-14 rounded-full"
+                    />
+                    <div className="absolute bg-dotBg w-3 h-3 rounded-full right-0 bottom-2 border border-[2px] border-inputbg"></div>
+                  </div>
+                    <div className='ml-5'>
                         <h2 className='text-ms font-semibold '>{person.name}</h2>
                         { person.messages.length > 0 && (
-                            <div className='flex flex-col text-personMesTxt font-[400] text-sm '>
-                            <span>
+                            <div className='flex flex-col text-personMesTxt font-[400] '>
+                            <span className='text-md '>
                                 {person.messages[person.messages.length - 1].message}
                             </span>
-                            <span>
+                            <span className='text-xs'>
                                 {person.messages[person.messages.length - 1].time}
                             </span>
                             </div>
