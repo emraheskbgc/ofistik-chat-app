@@ -84,7 +84,8 @@ module.exports = {
       fileUploudBg:"#e9f0ff",
       fileUploudDlt:"#ef4444",
       modalChangeBg:"#10b981",
-      pdfBg:"#ef4444"
+      pdfBg:"#ef4444",
+      docxBg:"#2563eb"
 
 
     },

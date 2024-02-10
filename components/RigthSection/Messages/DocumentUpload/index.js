@@ -68,7 +68,7 @@ function DocumentUpload({ documentOpenModal, setIsDocumentModal, onSendClick }) 
                   {uploadedFile && (
                     <div className={styles.showFileBox}>
                       <div className={styles.left}>
-                        <span className={styles.fileType}>{uploadedFile.type.split('/')[1].toUpperCase()}</span>
+                       
                         <h3 className={styles.leftText}>{uploadedFile.name}</h3>
                       </div>
                       <div className={styles.right}>

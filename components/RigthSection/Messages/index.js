@@ -4,6 +4,9 @@ import styles from "./styles.module.css";
 import Input from "./Input";
 import { BsFiletypePdf } from "react-icons/bs";
 import { IoMdDownload } from "react-icons/io";
+import { BsFiletypeDocx } from "react-icons/bs";
+import { BsFiletypeDoc } from "react-icons/bs";
+
 
 
 import { useContext } from "react";
@@ -101,14 +104,20 @@ function Messages() {
 
             {message.document ? (
               <a
-                href={message.document.blobUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.documentLink}
-              >
-                <BsFiletypePdf className="mr-3 text-3xl text-pdfBg" />{" "}
-                <h2>{message.document.document.name}</h2>
-              </a>
+    href={message.document.blobUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    className={styles.documentLink}
+  >
+    {message.document.document.name.endsWith('.pdf') ? (
+      <BsFiletypePdf className="mr-3 text-3xl text-pdfBg" />
+    ) : message.document.document.name.endsWith('.docx') ? (
+      <BsFiletypeDocx className="mr-3 text-3xl text-docxBg" />
+    ) : (
+      <BsFiletypeDoc className="mr-3 text-3xl text-docBg" />
+    )}
+    <h2>{message.document.document.name}</h2>
+  </a>
             ) : message.image ? (
               <div className={styles.sentImageContainer}>
                 <div className={styles.imageWithDownload}>
