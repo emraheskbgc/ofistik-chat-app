@@ -44,7 +44,6 @@ function DirectMessages({filteredUser}) {
               </div>
               <div className="ml-3">
                 <h2 className="text-ms font-semibold ">{person.name}</h2>
-                <p className="text-personMesTxt font-[400]">{person.messages[0]}</p>
               </div>
             </div>
             {person.unreadMessage && (

@@ -10,7 +10,7 @@ function Favourites({ filteredUser }) {
     const {handleUserSelect} = useContext(PhoneBookContext)
 
 
-   
+   console.log(filteredUser);
 
  
   
@@ -30,7 +30,16 @@ function Favourites({ filteredUser }) {
                     </div>
                     <div className='ml-3'>
                         <h2 className='text-ms font-semibold '>{person.name}</h2>
-                        <p className='text-personMesTxt font-[400]'>{person.messages[person.messages.length - 1 ]}</p>
+                        { person.messages.length > 0 && (
+                            <div className='flex flex-col text-personMesTxt font-[400] text-sm '>
+                            <span>
+                                {person.messages[person.messages.length - 1].message}
+                            </span>
+                            <span>
+                                {person.messages[person.messages.length - 1].time}
+                            </span>
+                            </div>
+                        )}
                     </div>
                     </div>
                     <div className='flex space-x-3'>
