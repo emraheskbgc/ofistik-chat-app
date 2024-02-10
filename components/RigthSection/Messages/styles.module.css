@@ -75,3 +75,26 @@
   justify-content: center;
   align-items: center;
 }
+/* Yeni bir stil oluşturuyoruz */
+.imageWithDownload {
+  position: relative; /* Bağlantıyı resmin içinde konumlandırmak için */
+  display: inline-block; /* Resim ve bağlantıyı yan yana getirmek için */
+}
+
+/* İndirme bağlantısının varsayılan stilini gizliyoruz */
+.downloadLink {
+  display: none;
+  position: absolute; /* Bağlantıyı resmin içinde konumlandırmak için */
+  top: 5px; /* Resmin alt kısmından biraz yukarıda olacak şekilde ayarlıyoruz */
+  right: 5px; /* Resmin solundan biraz sağa kaydırıyoruz */
+  background-color: rgba(0, 0, 0, 0.5); /* Arka plan rengi ve saydamlık */
+  color: #fff; /* Yazı rengi */
+  padding: 5px; /* İçerik ile kenar arasındaki mesafe */
+  border-radius: 5px; /* Köşeleri yuvarlaklaştırma */
+  text-decoration: none; /* Altçizgi kaldırma */
+}
+
+/* Resmin üzerine gelindiğinde indirme bağlantısını gösteriyoruz */
+.imageWithDownload:hover .downloadLink {
+  display: block;
+}

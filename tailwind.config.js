@@ -51,7 +51,7 @@ module.exports = {
       chatIconBg:"#7b7e82",
       sendInputBg:"#f6f6f9",
       typeingDotBg:"#06d6a0",
-      inputMoreIconBg:"#e2e3f3",
+      inputMoreIconBg:"#f3f4f6",
       inputMoreBg:"#fff",
       inputMoreIcon:"#06d6a0",
       threeDotMenu:"#fff",

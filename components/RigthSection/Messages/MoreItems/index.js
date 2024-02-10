@@ -12,15 +12,16 @@ function MoreItems({ showMoreMenu, setShowMoreMenu, handleFileClick, handleDocum
   });
 
   return (
-    <div ref={moreRef} className={` ${styles.animate} z-10 rounded-md flex flex-col items-center absolute md:left-[-40px] left-[-12px] overflow-x-auto md:overflow-x-hidden top-[-205px] border p-5 bg-inputMoreBg w-[25%] space-x-12 md:space-x-0 snap-x-mandatory snap-type-x-[mandatory]`}>
+    <div ref={moreRef} className={` ${styles.animate} z-10 rounded-md flex flex-col items-center absolute md:left-[-40px] left-[-12px]  top-[-205px] border p-5 bg-inputMoreBg md:w-[25%] w-[40%]  `}>
       <div className="flex flex-col items-center cursor-pointer">
         <div className="bg-inputMoreIconBg text-inputMoreIcon rounded-full p-3 text-xl">
           <GrGallery onClick={handleFileClick} />
         </div>
         <p className="uppercase text-sm font-[600] mt-2">Gallery</p>
       </div>
+      
 
-      <div className="flex flex-col items-center cursor-pointer mt-4">
+      <div className="flex flex-col items-center cursor-pointer mt-4 ">
         <div className="bg-inputMoreIconBg text-inputMoreIcon rounded-full p-3 text-xl">
           <MdAttachment onClick={handleDocumentClick} />
         </div>
