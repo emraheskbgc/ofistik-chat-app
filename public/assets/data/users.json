@@ -15,7 +15,10 @@
     "status": "A professional profile is a brief summary of your skills, strengths, and key experiences",
     "locationCity": "Ankara",
     "locationCountry": "TR",
-    "isMuted": true
+    "isMuted": true,
+    "sendMessage":true,
+    "unsendMessage":false,
+    "readMessage":false
   },
   {
     "id": 2,
@@ -33,7 +36,10 @@
     "status": "A professional profile is a brief summary of my and  your  skills, strengths, and key experiences",
     "locationCity": "Mersin",
     "locationCountry": "TR",
-    "isMuted": true
+    "isMuted": true,
+    "sendMessage":false,
+    "unsendMessage":false,
+    "readMessage":true
   },
   {
     "id": 3,
@@ -51,7 +57,10 @@
     "status": "A professional profile is a brief summary of your ummary of your ummary of your skills, strengths, and key experiences",
     "locationCity": "Çanakkale",
     "locationCountry": "TR",
-    "isMuted": false
+    "isMuted": false,
+    "sendMessage":false,
+    "unsendMessage":false,
+    "readMessage":true
   },
   {
     "id": 4,
@@ -69,7 +78,10 @@
     "status": "A professional profile is a brief summary of your skills, strengths, and key experiences",
     "locationCity": "Hatay",
     "locationCountry": "TR",
-    "isMuted": false
+    "isMuted": false,
+    "sendMessage":true,
+    "unsendMessage":false,
+    "readMessage":false
   },
   {
     "id": 5,
@@ -87,7 +99,10 @@
     "status": "A professional profile is a brief summary of your skills, strengths, and key experiences",
     "locationCity": "Ankara",
     "locationCountry": "TR",
-    "isMuted": false
+    "isMuted": false,
+    "sendMessage":false,
+    "unsendMessage":true,
+    "readMessage":false
   },
   {
     "id": 6,
@@ -105,7 +120,10 @@
     "status": "A professional profile is a brief summary of your skills, strengths, and key experiences",
     "locationCity": "Muğla",
     "locationCountry": "TR",
-    "isMuted": false
+    "isMuted": false,
+    "sendMessage":false,
+    "unsendMessage":false,
+    "readMessage":true
   },
   {
     "id": 7,
@@ -123,6 +141,9 @@
     "status": "A professional profile is a brief summary of your skills, strengths, and key experiences",
     "locationCity": "İzmir",
     "locationCountry": "TR",
-    "isMuted": false
+    "isMuted": false,
+    "sendMessage":true,
+    "unsendMessage":false,
+    "readMessage":false
   }
 ]

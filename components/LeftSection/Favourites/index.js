@@ -1,5 +1,7 @@
 import React from "react";
 import { PiSpeakerSimpleXLight } from "react-icons/pi";
+import { MdCheck } from "react-icons/md";
+import { IoCheckmarkDoneSharp } from "react-icons/io5";
 
 import { useContext } from "react";
 import PhoneBookContext from "@/context/PhoneBookContext";
@@ -14,6 +16,7 @@ function Favourites({ filteredUser }) {
       </h2>
       <div className=" mt-5">
         {filteredUser.slice(0, 5).map((person) => (
+          <>
           <div
             key={person.id}
             onClick={() => handleUserSelect(person)}
@@ -56,9 +59,21 @@ function Favourites({ filteredUser }) {
                   </div>
                 )}
                 <div>{person.messages[person.messages.length - 1].hour}</div>
+                <div>
+                  {person.sendMessage && (
+                    <IoCheckmarkDoneSharp className="text-favTxt" />
+                  )}
+                  {person.unsendMessage && <MdCheck />}
+                  {person.readMessage && <IoCheckmarkDoneSharp className="text-dotBg" />}
+                </div>
               </div>
             </div>
           </div>
+          <div className="flex justify-center">
+          <div className="opacity-10 w-[90%] border border-messageBg" />
+          </div>
+          </>
+          
         ))}
       </div>
     </div>

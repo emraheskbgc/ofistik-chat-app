@@ -68,6 +68,7 @@ function Header({ onSearch }) {
         id="search"
         placeholder="Search here.."
         onChange={handleInputChange}
+        autoComplete="off"
       />
     </div>
   </div>

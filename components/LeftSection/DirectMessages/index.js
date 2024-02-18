@@ -2,6 +2,8 @@ import React from "react";
 import { useContext } from "react";
 import PhoneBookContext from "@/context/PhoneBookContext";
 import { PiSpeakerSimpleXLight } from "react-icons/pi";
+import { MdCheck } from "react-icons/md";
+import { IoCheckmarkDoneSharp } from "react-icons/io5";
 
 function DirectMessages({ filteredUser }) {
   const { handleUserSelect } = useContext(PhoneBookContext);
@@ -18,7 +20,8 @@ function DirectMessages({ filteredUser }) {
       </div>
       <div className=" mt-5">
         {filteredUser.slice(0, 5).map((person) => (
-          <div
+          <>
+           <div
             key={person.id}
             className="flex justify-between items-center hover:bg-inputbg pr-8 pl-10 py-3 cursor-pointer"
             onClick={() => handleUserSelect(person)}
@@ -60,8 +63,20 @@ function DirectMessages({ filteredUser }) {
                 </div>
               )}
               <div>{person.messages[person.messages.length - 1].hour}</div>
+              <div>
+              {person.sendMessage && (
+                <IoCheckmarkDoneSharp className="text-favTxt" />
+              )}
+              {person.unsendMessage && <MdCheck />}
+              {person.readMessage && <IoCheckmarkDoneSharp className="text-dotBg" />}
+            </div>
             </div>
           </div>
+          <div className="flex justify-center">
+          <div className="opacity-10 w-[90%] border border-messageBg" />
+          </div>
+          </>
+         
         ))}
       </div>
     </div>

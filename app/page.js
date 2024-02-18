@@ -47,7 +47,7 @@ export default function Home() {
     <PhoneBookContext.Provider value={data}>
     
       <ChakraProvider>
-      <div className="flex">
+      <div className="flex bg-inputbg">
         <MessagesList selectedUser={selectedUser} />
         <Chat selectedUser={selectedUser} />
     

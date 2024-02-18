@@ -6,8 +6,8 @@ import { BsFiletypePdf } from "react-icons/bs";
 import { IoMdDownload } from "react-icons/io";
 import { BsFiletypeDocx } from "react-icons/bs";
 import { BsFiletypeDoc } from "react-icons/bs";
-
-
+import { MdCheck } from "react-icons/md";
+import { IoCheckmarkDoneSharp } from "react-icons/io5";
 
 import { useContext } from "react";
 import PhoneBookContext from "@/context/PhoneBookContext";
@@ -31,27 +31,41 @@ function Messages() {
         text: "Merhaba e",
         sender: "Emrah",
         avatar: "/assets/images/emrah.jpg",
+        hour: "11:20",
       },
-      { text: "Nasılsın?", sender: "me", timestamp: Date.now() }, // Zaman damgası eklendi
+      {
+        text: "Nasılsın?",
+        sender: "me",
+        hour: "11:20",
+        sendMessage: false,
+        unsendMessage: false,
+        readMessage: true,
+      }, // Zaman damgası eklendi
       {
         text: "İyiyim, teşekkürler e.",
         sender: "Emrah",
         avatar: "/assets/images/emrah.jpg",
+        hour: "11:20",
       },
       {
         text: "Sen nasılsın? e",
         sender: "Emrah",
         avatar: "/assets/images/emrah.jpg",
+        hour: "11:20",
       },
       {
         text: "Ben de iyiyim, teşekkürler.",
         sender: "me",
-        timestamp: Date.now(),
-      }, // Zaman damgası eklendi
+        hour: "11:20",
+        sendMessage: false,
+        unsendMessage: false,
+        readMessage: true,
+      },
       {
         text: "Ben de iyiyim e, teşekkürler.",
         sender: "Emrah",
         avatar: "/assets/images/emrah.jpg",
+        hour: "11:20",
       },
       // Daha fazla mesaj eklemek isterseniz buraya ekleyebilirsiniz.
     ]);
@@ -103,20 +117,20 @@ function Messages() {
 
             {message.document ? (
               <a
-    href={message.document.blobUrl}
-    target="_blank"
-    rel="noopener noreferrer"
-    className={styles.documentLink}
-  >
-    {message.document.document.name.endsWith('.pdf') ? (
-      <BsFiletypePdf className="mr-3 text-3xl text-pdfBg" />
-    ) : message.document.document.name.endsWith('.docx') ? (
-      <BsFiletypeDocx className="mr-3 text-3xl text-docxBg" />
-    ) : (
-      <BsFiletypeDoc className="mr-3 text-3xl text-docBg" />
-    )}
-    <h2>{message.document.document.name}</h2>
-  </a>
+                href={message.document.blobUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.documentLink}
+              >
+                {message.document.document.name.endsWith(".pdf") ? (
+                  <BsFiletypePdf className="mr-3 text-3xl text-pdfBg" />
+                ) : message.document.document.name.endsWith(".docx") ? (
+                  <BsFiletypeDocx className="mr-3 text-3xl text-docxBg" />
+                ) : (
+                  <BsFiletypeDoc className="mr-3 text-3xl text-docBg" />
+                )}
+                <h2>{message.document.document.name}</h2>
+              </a>
             ) : message.image ? (
               <div className={styles.sentImageContainer}>
                 <div className={styles.imageWithDownload}>
@@ -131,20 +145,32 @@ function Messages() {
                       download="image"
                       className={styles.downloadLink}
                     >
-                      <IoMdDownload/>
+                      <IoMdDownload />
                     </a>
                   )}
                 </div>
               </div>
             ) : (
               <div
-                className={
+                className={`${
                   message.sender === "me"
                     ? styles.myMessageText
                     : styles.messageText
-                }
+                } flex flex-col `}
               >
-                {message.text}
+                <div> {message.text}</div>
+                <div className=" flex  justify-end items-center space-x-2 text-xs mt-1 opacity-70">
+                  <div >{message.hour}</div>
+                  <div>
+                    {message.sendMessage && (
+                      <IoCheckmarkDoneSharp className="text-favTxt" />
+                    )}
+                    {message.unsendMessage && <MdCheck />}
+                    {message.readMessage && (
+                      <IoCheckmarkDoneSharp className="text-dotBg" />
+                    )}
+                  </div>
+                </div>
               </div>
             )}
           </div>
