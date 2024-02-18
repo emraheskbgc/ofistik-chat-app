@@ -6,9 +6,9 @@
     "phone": "05385186969",
     "avatar": "/assets/images/avatar.jpeg ",
     "messages": [
-      { "message": "Merhaba Nasılsın", "time": "02/02/24" },
-      { "message": "Merhaba ", "time": "03/02/24" },
-      { "message": " Nasılsın", "time": "04/02/24" }
+      { "message": "Merhaba Nasılsın", "time": "02/02/24","hour":"10:22" },
+      { "message": "Merhaba ", "time": "03/02/24","hour":"10:22" },
+      { "message": " Nasılsın", "time": "04/02/24","hour":"10:22" }
     ],
     "unreadMessages": 18,
     "stuation": "Online",
@@ -24,9 +24,9 @@
     "phone": "053495216969",
     "avatar": "/assets/images/avatar2.jpeg",
     "messages": [
-      { "message": "Merhaba Nasılsın", "time": "02/02/24" },
-      { "message": "Merhaba ", "time": "03/02/24" },
-      { "message": " Nasılsın", "time": "04/02/24" }
+      { "message": "Merhaba Nasılsın", "time": "02/02/24","hour":"10:22" },
+      { "message": "Merhaba ", "time": "03/02/24","hour":"10:22" },
+      { "message": " Nasılsın", "time": "04/02/24","hour":"10:22" }
     ],
     "unreadMessages": 0,
     "stuation": "Online",
@@ -42,9 +42,9 @@
     "phone": "053497865879",
     "avatar": "/assets/images/avatar.jpeg ",
     "messages": [
-      { "message": "Merhaba Nasılsın", "time": "02/02/24" },
-      { "message": "Merhaba ", "time": "03/02/24" },
-      { "message": " Nasılsın", "time": "04/02/24" }
+      { "message": "Merhaba Nasılsın", "time": "02/02/24","hour":"10:22" },
+      { "message": "Merhaba ", "time": "03/02/24","hour":"10:22" },
+      { "message": " Nasılsın", "time": "04/02/24","hour":"10:22" }
     ],
     "unreadMessages": 0,
     "stuation": "Online",
@@ -60,9 +60,9 @@
     "phone": "05349786989",
     "avatar": "/assets/images/icon.jpeg",
     "messages": [
-      { "message": "Merhaba Nasılsın", "time": "02/02/24" },
-      { "message": "Merhaba ", "time": "03/02/24" },
-      { "message": " Nasılsın", "time": "04/02/24" }
+      { "message": "Merhaba Nasılsın", "time": "02/02/24","hour":"10:22" },
+      { "message": "Merhaba ", "time": "03/02/24","hour":"10:22"},
+      { "message": " Nasılsın", "time": "04/02/24","hour":"10:22" }
     ],
     "unreadMessages": 0,
     "stuation": "Online",
@@ -78,9 +78,9 @@
     "phone": "05349786969",
     "avatar": "/assets/images/emrah.jpg ",
     "messages": [
-      { "message": "Merhaba Nasılsın", "time": "02/02/24" },
-      { "message": "Merhaba ", "time": "03/02/24" },
-      { "message": " Nasılsın", "time": "04/02/24" }
+      { "message": "Merhaba Nasılsın", "time": "02/02/24","hour":"10:22" },
+      { "message": "Merhaba ", "time": "03/02/24","hour":"10:22" },
+      { "message": " Nasılsın", "time": "04/02/24","hour":"10:22" }
     ],
     "unreadMessages": 0,
     "stuation": "Online",
@@ -96,9 +96,9 @@
     "phone": "05345686969",
     "avatar": "/assets/images/avatar2.jpeg",
     "messages": [
-      { "message": "Merhaba Nasılsın", "time": "02/02/24" },
-      { "message": "Merhaba ", "time": "03/02/24" },
-      { "message": " Nasılsın", "time": "04/02/24" }
+      { "message": "Merhaba Nasılsın", "time": "02/02/24","hour":"10:22" },
+      { "message": "Merhaba ", "time": "03/02/24","hour":"10:22" },
+      { "message": " Nasılsın", "time": "04/02/24","hour":"10:22" }
     ],
     "unreadMessages": 0,
     "stuation": "Online",
@@ -114,9 +114,9 @@
     "phone": "053496526969",
     "avatar": "/assets/images/avatar.jpeg",
     "messages": [
-      { "message": "Merhaba Nasılsın", "time": "02/02/24" },
-      { "message": "Merhaba ", "time": "03/02/24" },
-      { "message": " Nasılsın", "time": "04/02/24" }
+      { "message": "Merhaba Nasılsın", "time": "02/02/24","hour":"10:22" },
+      { "message": "Merhaba ", "time": "03/02/24" ,"hour":"10:22"},
+      { "message": " Nasılsın", "time": "04/02/24","hour":"10:22" }
     ],
     "unreadMessages": 0,
     "stuation": "Online",

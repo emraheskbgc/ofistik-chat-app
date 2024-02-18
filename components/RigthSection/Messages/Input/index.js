@@ -102,8 +102,8 @@ function Input({ inputValue, sendMessage, handleInputChange, sendImage, sendDocu
       </div>
        
       {showEmojiPicker && (
-        <div ref={emojiRef} style={{ position: 'absolute', top: '-420px', left: '20px' ,backgroundColor: 'white'}}> 
-          <Picker data={data} emojiSize={20} emojiButtonSize={28} onEmojiSelect={handleEmojiSelect} maxFrequentRows={0} theme="light" />
+        <div ref={emojiRef} style={{ position: 'absolute', top: '-420px', left: '20px' ,backgroundColor: 'black'}}> 
+          <Picker data={data} emojiSize={20} emojiButtonSize={28} onEmojiSelect={handleEmojiSelect} maxFrequentRows={0} theme="dark" />
         </div>
       )}
        

@@ -4,6 +4,8 @@ import { BiSupport } from "react-icons/bi";
 import { RiContactsBookFill } from "react-icons/ri";
 import { Tooltip } from "@chakra-ui/react";
 import DirectModal from "../DirectMessages/DirectModal";
+import { useContext } from "react";
+import PhoneBookContext  from "@/context/PhoneBookContext"
 
 
 function Header({ onSearch }) {
@@ -16,12 +18,21 @@ function Header({ onSearch }) {
   const handleClickOpenModal = () => {
     setIsOpenModal(!isOpenModal)
   }
+  const {handleUserSelect} = useContext(PhoneBookContext)
+
+  const handleSupportOfistik = () =>{
+    const supportObj = {
+      name: " Ofistik Support Team", // İsim
+      avatar: "/assets/images/support.jpg", // Resim URL'si
+    };
+    handleUserSelect(supportObj)
+  }
 
   return (
     <div className="fixed z-40 bg-messageBodyBg md:w-[25%] w-full ">
     <div className="flex text-3xl text-messageBg space-x-3 justify-end mr-5 mt-2 opacity-80">
     <Tooltip hasArrow label='Support'  placement='bottom' fontSize='sm' >
-        <div className="cursor-pointer "><BiSupport className="hover:text-dotBg duration-300"/></div>
+        <div className="cursor-pointer " onClick={handleSupportOfistik}><BiSupport className="hover:text-dotBg duration-300"/></div>
     </Tooltip>
     <Tooltip hasArrow label='New Message'  placement='bottom' fontSize='sm' >
      <div className="cursor-pointer"><RiContactsBookFill className="hover:text-dotBg duration-300" onClick={handleClickOpenModal}/></div>
