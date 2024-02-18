@@ -19,7 +19,7 @@ function Header({ onSearch }) {
 
   return (
     <div className="fixed z-40 bg-messageBodyBg md:w-[25%] w-full ">
-    <div className="flex text-3xl space-x-3 justify-end mr-5 mt-2 opacity-80">
+    <div className="flex text-3xl text-messageBg space-x-3 justify-end mr-5 mt-2 opacity-80">
     <Tooltip hasArrow label='Support'  placement='bottom' fontSize='sm' >
         <div className="cursor-pointer "><BiSupport className="hover:text-dotBg duration-300"/></div>
     </Tooltip>
@@ -29,17 +29,17 @@ function Header({ onSearch }) {
     
     </div>
     <DirectModal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />
-    <h2 className="text-xl ml-10 mt-6 mb-4 font-[500] ">
+    <h2 className="text-xl ml-10 mt-6 mb-4 font-[500] text-messageBg ">
       Messages <span className="text-messageBg text-sm " >(128)</span>
     </h2>
   
     <div className="flex  items-center w-[80%] h-12 rounded-sm focus-within:shadow-lg focus-within:outline container bg-inputbg">
-      <div className="grid place-items-center h-full w-12 text-gray-300">
+      <div className="grid place-items-center h-full w-12 text-favTxt">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-6 w-6"
           fill="none"
-          viewBox="0 0 24 24"
+          viewBox="0 0 24 24" 
           stroke="currentColor"
         >
           <path
@@ -52,7 +52,7 @@ function Header({ onSearch }) {
       </div>
   
       <input
-        className="outline-none placeholder:italic text-sm text-gray-700 pr-2 w-full  "
+        className="outline-none placeholder:italic bg-inputbg text-sm text-gray-700 pr-2 w-full  "
         type="text"
         id="search"
         placeholder="Search here.."

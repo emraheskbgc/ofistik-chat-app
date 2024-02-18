@@ -1,9 +1,4 @@
-"use client"
-import React,{useState} from 'react'
-import { FaPlus } from "react-icons/fa6";
-import { Tooltip } from "@chakra-ui/react";
-import ChannelsModal from './ChannelsModal';
-import channels from "@/public/assets/data/channels.json"
+import React from 'react'
 function Channels({filteredChannels}) {
     
    
@@ -24,7 +19,7 @@ function Channels({filteredChannels}) {
                       
                     </div>
                     <div className='ml-3'>
-                        <h2 className='text-ms font-semibold '>{person.name}</h2>
+                        <h2 className='text-ms font-semibold text-favTxt'>{person.name}</h2>
                         <p className='text-personMesTxt font-[400]'>{person.userIds.length} Members</p>
                     </div>
                     </div>

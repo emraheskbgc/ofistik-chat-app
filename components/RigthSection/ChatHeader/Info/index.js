@@ -47,12 +47,12 @@ function Info({ isInfoPanelOpen, setIsInfoPanelOpen, selectedUser }) {
               className="w-full h-72 p-3 rounded-2xl"
               alt=""
             />
-            <div className="absolute flex top-6 left-6 text-inputbg">
+            <div className="absolute flex top-6 left-6 text-textInfo">
               <div>
                 <IoClose onClick={() => setIsInfoPanelOpen(false)} className="cursor-pointer" />
               </div>
             </div>
-            <div className="absolute flex top-6 right-6 text-inputbg">
+            <div className="absolute flex top-6 right-6 text-textInfo">
               <div>
                 <BsThreeDotsVertical onClick={handleOpenMenu} className="cursor-pointer"/>
               </div>
@@ -74,7 +74,7 @@ function Info({ isInfoPanelOpen, setIsInfoPanelOpen, selectedUser }) {
               )}
             </div>
 
-             <div className="absolute flex-col bottom-6 left-8 text-sm text-inputbg">
+             <div className="absolute flex-col bottom-6 left-8 text-sm text-textInfo">
             <p className="font-semibold">{selectedUser.name}</p>
             <div className="flex items-center">
               <div className="bg-dotBg w-3 h-3 mr-3 rounded-full "></div>
@@ -82,26 +82,26 @@ function Info({ isInfoPanelOpen, setIsInfoPanelOpen, selectedUser }) {
             </div>
           </div>
           </div>
-          <div className="border border-solid w-full"></div>
-          <div className="overflow-y-auto overflow-hidden md:min-h-[400px] md:max-h-[500px]  min-h-[500px] max-h-[500px]">
+          <div className="border border-solid border-messageBodyBg opacity-35 w-full"></div>
+          <div className="overflow-y-auto overflow-hidden md:min-h-[400px] md:max-h-[500px] text-textInfo  min-h-[500px] max-h-[500px]">
           
-         <div className="p-5">
-          <h2 className="opacity-40 uppercase text-sm font-semibold mb-3">Status :</h2>
+         <div className="p-5 ">
+          <h2 className="opacity-60 uppercase text-sm font-semibold  mb-3">Status :</h2>
           <p className="opacity-45 font-[500]">{selectedUser.status}</p>
           </div>
           <div className="p-8">
-                <h2 className=" opacity-40 uppercase mb-3">Info : </h2> 
+                <h2 className=" opacity-60 uppercase mb-3 ">Info : </h2> 
                 <div className="flex  space-x-3 mb-5">
-                  <FiUser className="opacity-40"/> <h5 className="font-[500]">{selectedUser.name}</h5>
+                  <FiUser className="opacity-60"/> <h5 className="font-[500]">{selectedUser.name}</h5>
                 </div>
                 <div className="flex space-x-3 mb-5">
-                  <MdOutlineMail className="opacity-40"/> <h5 className="font-[500]">{selectedUser.email}</h5>
+                  <MdOutlineMail className="opacity-60"/> <h5 className="font-[500]">{selectedUser.email}</h5>
                 </div>
                 <div className="flex space-x-3 mb-5">
-                  <MdOutlineLocalPhone className="opacity-40"/> <h5 className="font-[500]">{selectedUser.phone}</h5>
+                  <MdOutlineLocalPhone className="opacity-60"/> <h5 className="font-[500]">{selectedUser.phone}</h5>
                 </div>
                 <div className="flex space-x-3 mb-5">
-                  <IoLocationOutline className="opacity-40"/> <h5 className="font-[500]">{selectedUser.locationCity}, {selectedUser.locationCountry} </h5>
+                  <IoLocationOutline className="opacity-60"/> <h5 className="font-[500]">{selectedUser.locationCity}, {selectedUser.locationCountry} </h5>
                 </div>
           </div>
          

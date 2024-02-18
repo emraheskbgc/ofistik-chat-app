@@ -8,7 +8,7 @@ function Chat({selectedUser}) {
 
  
   return (
-    <div className={`md:w-[75%] w-full border border-blue-500 ${selectedUser ? "" : "md:block hidden"}`}>
+    <div className={`md:w-[75%] w-full  ${selectedUser ? "" : "md:block hidden"} bg-messageBodyBg`}>
     <ChatHeader />
     <Messages/>
     </div>

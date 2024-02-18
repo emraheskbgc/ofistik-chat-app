@@ -31,7 +31,7 @@ function DropMenu({handleOpenMenu, isOpenMenu, setIsOpenMenu,handleInfoPanelTogg
  />
  {isOpenMenu && (
    <div className="absolute right-2 top-10 text-sm  font-[500] text-threeDotMenuTxt bg-threeDotMenu shadow-md rounded">
-   <div onClick={handleInfoPanelToggle} className="flex justify-between px-6 py-2 hover:bg-threeDotMenuHover cursor-pointer">
+   <div onClick={handleInfoPanelToggle} className="flex md:hidden justify-between px-6 py-2 hover:bg-threeDotMenuHover cursor-pointer">
    <span>Profile</span>
    <LuUser2 className="ml-6" />
  </div>

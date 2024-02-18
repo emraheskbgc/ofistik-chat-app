@@ -10,7 +10,6 @@ function Favourites({ filteredUser }) {
     const {handleUserSelect} = useContext(PhoneBookContext)
 
 
-   console.log(filteredUser);
 
  
   
@@ -31,7 +30,7 @@ function Favourites({ filteredUser }) {
                     <div className="absolute bg-dotBg w-3 h-3 rounded-full right-0 bottom-2 border border-[2px] border-inputbg"></div>
                   </div>
                     <div className='ml-5'>
-                        <h2 className='text-ms font-semibold '>{person.name}</h2>
+                        <h2 className='text-ms text-favTxt font-semibold '>{person.name}</h2>
                         { person.messages.length > 0 && (
                             <div className='flex flex-col text-personMesTxt font-[400] '>
                             <span className='text-md '>
@@ -52,7 +51,7 @@ function Favourites({ filteredUser }) {
                     </div>
                     }
                         {person.isMuted &&
-                        <div>
+                        <div className='text-muted'>
                             <span><PiSpeakerSimpleXLight /></span>
                         </div>}
                     

@@ -81,13 +81,13 @@ function ChatHeader() {
   return (
     <>
       <div className="flex  ">
-        <div className="border-b border-dashed  fixed  top-0 bg-inputbg w-[100%] md:w-[75%]  ">
-          <div className="flex justify-between items-center w-full border">
+        <div className="fixed  top-0 bg-inputbg text-favTxt w-[100%] md:w-[75%]  ">
+          <div className="flex justify-between items-center w-full ">
             <div className="flex  items-center p-4">
               <div className="p-1  bg-backBtnBg rounded text-md font-bold mr-5 md:hidden text-backBtnTxt" onClick={handleBackToMessages}>
                 <MdKeyboardArrowLeft />
               </div>
-              <div  className="relative">
+              <div  className="relative"  onClick={handleInfoPanelToggle}>
                 <img
                   src={selectedUser.avatar}
                   alt={selectedUser.name}
@@ -96,7 +96,7 @@ function ChatHeader() {
                 <div className="absolute bg-dotBg w-3 h-3 rounded-full right-0 bottom-0 border border-[2px] border-inputbg"></div>
               </div>
               <div className="ml-3">
-                <h2 className="text-md font-bold ">
+                <h2 className="text-md font-bold "  onClick={handleInfoPanelToggle}>
                   {selectedUser && selectedUser.name}
                 </h2>
                 <p className="text-personMesTxt font-[400]">
@@ -109,11 +109,8 @@ function ChatHeader() {
             <SearchBar isOpenSearch={isOpenSearch} setIsOpenSearch={setIsOpenSearch} handleOpenSearch={handleOpenSearch} />
               
             
-              <FaBookmark className="hidden md:block cursor-pointer" />
-              <MdInfo
-                onClick={handleInfoPanelToggle}
-                className="hidden md:block cursor-pointer"
-              />
+              
+             
              <DropMenu isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} handleOpenMenu={handleOpenMenu} handleInfoPanelToggle={handleInfoPanelToggle} selectedUser={selectedUser}/>
              
             </div>

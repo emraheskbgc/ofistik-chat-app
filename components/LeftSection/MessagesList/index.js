@@ -33,7 +33,7 @@ function MessagesList({selectedUser}) {
  <Header onSearch={handleSearch}/>
  <Favourites filteredUser={filteredUser}/>
  <DirectMessages filteredUser={filteredUser} />
- <Channels filteredChannels={filteredChannels} />
+ {/*<Channels filteredChannels={filteredChannels} />*/}
  </div>
  
   )

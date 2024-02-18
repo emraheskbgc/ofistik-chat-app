@@ -75,7 +75,7 @@ function Input({ inputValue, sendMessage, handleInputChange, sendImage, sendDocu
 
   return (
     <>
-     <div className={`${styles.inputArea} border-t w-[100%]   md:w-[75%] p-5 `}>
+     <div className={`${styles.inputArea} border-t border-threeDotMenuTxt w-[100%]   md:w-[75%] p-5 `}>
       <div className="flex  justify-between  items-center   space-x-3 md:space-x-10 text-chatIconBg ">
       
       
@@ -114,13 +114,13 @@ function Input({ inputValue, sendMessage, handleInputChange, sendImage, sendDocu
             onChange={handleInputChange}
             onKeyPress={(e) => e.key === "Enter" && sendMessage()}
             placeholder="Type your message..."
-            className={`${styles.inputField} bg-sendInputBg`}
+            className={`${styles.inputField} bg-inputbg`}
           />
         </div>
        
         <div >
           <button  onClick={handleSendClick}>
-            <div className="border py-4 px-5 cursor-pointer bg-modalSendBtn text-modalSendTxt rounded">
+            <div className=" py-4 px-5 cursor-pointer bg-modalSendBtn text-modalSendTxt rounded">
            <IoSend />
             </div>
           </button>
