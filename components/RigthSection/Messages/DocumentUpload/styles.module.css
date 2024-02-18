@@ -22,24 +22,25 @@
     margin-bottom: 20px;
     font-size: 20px;
     font-weight: 600;
+    color: #a5a5a5;
+    
 }
 .uploadLabel{
     width: 100%;
-    min-height: 100px;
-    background: #18a7ff0d;
+    min-height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 3px dashed #18a7ff82;
+    border: 3px dashed #005246;
     cursor: pointer;
 }
 .uploadIcon{
     font-size: 70px;
-    color: #18a7ff;
+    color: #005246;
 }
 .text{
-    color: #18a7ff;
+    color: #005246;
     font-size: 20px;
     font-weight: 800;
     font-family: cursive;
@@ -80,11 +81,11 @@
 .leftText{
     font-weight: 600;
     font-size: 18px;
-    color: #292F42;
+    color: #a5a5a5;
     margin: 0;
 }
 .rightSpan{
-    background: #18a7ff;
+    background: #005246;
     color: #fff;
     width: 25px;
     height: 25px;

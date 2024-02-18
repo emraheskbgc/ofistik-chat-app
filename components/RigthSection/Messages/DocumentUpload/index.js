@@ -3,6 +3,7 @@ import React, { useRef, useState } from 'react';
 import styles from "./styles.module.css";
 import { MdCloudUpload } from "react-icons/md";
 import { IoSend } from "react-icons/io5";
+
 import useClickOutside from '@/hook/useClickOutside';
 
 
@@ -45,14 +46,14 @@ function DocumentUpload({ documentOpenModal, setIsDocumentModal, onSendClick }) 
     <>
       {documentOpenModal && (
         <div   className="fixed z-50 left-0 top-0 bg-modalOutBg bg-opacity-50 w-screen h-screen justify-center items-center flex">
-          <div ref={docRef} className="bg-modalBg rounded-t p-2 rounded-b shadow-md md:w-[500px] w-[300px] flex flex-col justify-center items-center">
-            <div onClick={() => setIsDocumentModal(false)} className="flex cursor-pointer justify-end mb-2 font-semibold w-full pr-5">
+          <div ref={docRef} className="bg-inputbg rounded-t p-2 rounded-b shadow-md md:w-[500px] w-[300px] flex flex-col justify-center items-center">
+            <div onClick={() => setIsDocumentModal(false)} className="flex text-messageBg cursor-pointer justify-end mb-2 font-semibold w-full pr-5">
               X
             </div>
             <div className={styles.wrapper}>
               <div className={styles.box}>
                 <div className={styles.inputBox}>
-                  <h2 className={styles.uploadAreatitle}>Upload File</h2>
+                  <h2 className={styles.uploadAreatitle}>Upload Document</h2>
                   <form>
                     {/* Dosya seçme inputu */}
                     <input type="file" id="upload" accept=".doc, .docx,.pdf" hidden onChange={handleFileChange} />
@@ -83,6 +84,9 @@ function DocumentUpload({ documentOpenModal, setIsDocumentModal, onSendClick }) 
                       </div>
                     </div>
                   )}
+                  <div>
+                    <input type="text" placeholder='enter message' className='w-full bg-messageBodyBg py-2 px-3 rounded-3xl mt-3' />
+                  </div>
                 </div>
               </div>
             </div>

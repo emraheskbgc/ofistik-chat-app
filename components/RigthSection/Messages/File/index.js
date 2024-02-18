@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import styles from "./styles.module.css";
-import { MdCloudUpload, MdDelete } from "react-icons/md";
-import { AiFillFileImage } from "react-icons/ai";
+import { MdCloudUpload } from "react-icons/md";
 import { IoSend } from "react-icons/io5";
 import useClickOutside from "@/hook/useClickOutside";
 
@@ -27,11 +26,11 @@ function File({ fileOpenModal, setFileOpenModal, onSendClick }) {
       >
         <div
           ref={fileRef}
-          className="bg-modalBg rounded-t p-2 rounded-b shadow-md md:w-[500px] w-[300px] flex flex-col justify-center items-center"
+          className="bg-inputbg rounded-t p-2 rounded-b shadow-md md:w-[500px] w-[300px] flex flex-col justify-center items-center"
         >
           <div
             onClick={() => setFileOpenModal(false)}
-            className="flex cursor-pointer justify-end mb-2 font-semibold w-full pr-5"
+            className="flex cursor-pointer justify-end mb-2 font-semibold w-full pr-5 text-messageBg"
           >
             X
           </div>
@@ -63,31 +62,25 @@ function File({ fileOpenModal, setFileOpenModal, onSendClick }) {
               </>
             ) : (
               <>
-                <MdCloudUpload color="#1475cf" size={60} />
-                <p>Browse Files to upload</p>
+                <MdCloudUpload color="#005246" size={60} />
+                <p className="text-messageBg">click to choose image</p>
               </>
             )}
           </form>
 
-          <section className="flex w-full mx-2 my-2 justify-between items-center px-5 py-4 rounded-sm bg-fileUploudBg">
-            <AiFillFileImage color="#1475cf" />
-            <span className="flex justify-center space-x-2 items-center">
-              <div>{file ? file.name : "No selected File"}</div>
-              <div className="border p-1 cursor-pointer bg-fileUploudDlt rounded">
-                <MdDelete
-                  className="text-modalSendTxt"
-                  onClick={() => {
-                    setFile(null);
-                  }}
-                />
+          <section className="flex w-full space-x-2 mx-2 my-2 justify-between items-center px-5 py-4 rounded-sm bg-inputbg text-messageBg">
+              
+              <div className="w-full">
+                <input  placeholder="enter message" type="text" className="w-full bg-messageBodyBg text-sm py-2 px-3 rounded-3xl"  />
               </div>
+           
+            
               <div
-                className="border p-1 cursor-pointer bg-modalSendBtn text-modalSendTxt rounded"
+                className=" p-1 cursor-pointer bg-modalSendBtn text-modalSendTxt rounded"
                 onClick={handleSendClick}
               >
                 <IoSend />
               </div>
-            </span>
           </section>
         </div>
       </div>
