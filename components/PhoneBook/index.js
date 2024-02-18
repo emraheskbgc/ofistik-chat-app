@@ -42,7 +42,7 @@ function PhoneBook({ showAvatar, showCheckBox,filteredUsers, setIsOpenModal }) {
           <div
             className={`${styles.letterHeader} text-modalSendBtn flex justify-center items-center`}
           >
-            {letter} <div className="w-[80%] ml-4 h-0 border"></div>{" "}
+            {letter} <div className="w-[80%] ml-4 h-0 opacity-15 border"></div>
           </div>
           {groupedUsers[letter].map((user) => (
             <div onClick={()=>handleSelectPerson(user)} key={user.id} className={styles.userItem}>
@@ -59,7 +59,7 @@ function PhoneBook({ showAvatar, showCheckBox,filteredUsers, setIsOpenModal }) {
                   className="mr-3 accent-channelModalCheckBoxBg "
                 />
               )}
-              <span className="text-modalNameTxt font-[600] text-sm">
+              <span className="text-personMesTxt hover:text-plusTxt font-[600] text-sm">
                 {user.name}
               </span>
             </div>

@@ -41,32 +41,36 @@ function DirectModal({ isOpenModal, setIsOpenModal }) {
         }`}
       >
         <div className="bg-modalBg rounded-t rounded-b shadow-md md:w-[40%] w-[80%] flex flex-col">
-          <div className="bg-dotBg p-2  text-plusTxt  shadow-md  w-[100%] flex ">
-            <div className="bg-modalChangeBg p-2 rounded-full cursor-pointer ">
+          <div className="bg-inputbg p-2   text-plusTxt  shadow-md  w-[100%] flex justify-between">
+          <div className="flex">
+          <div className="bg-inputMoreBg p-2 rounded-full cursor-pointer ">
               New Message
             </div>
             <div className="p-2 cursor-pointer" onClick={handleClickOpenModal}>
-              New Channel
+              New Mass Message
             </div>
           </div>
-          <div className="bg-modalHeadBg rounded-tr flex justify-between items-center  pl-3 py-5 top-0 w-full">
-            <div className="text-plusTxt font-bold text-md">Contacts</div>
-            <div className="pr-3 text-xl text-modalCloseIcon cursor-pointer">
+          <div >
+          <div className="pr-3 pt-3 text-xl text-modalCloseIcon cursor-pointer">
               <IoCloseOutline onClick={() => setIsOpenModal(false)} />
             </div>
           </div>
-          <div className="flex items-center w-[90%] ml-7  py-5 px-4 ">
+            
+          </div>
+          <div className="bg-inputbg  flex justify-between items-center  pl-3 py-5 top-0 w-full">
+            <div className="text-plusTxt font-bold text-md">Contacts</div>
+            
+          </div>
+          <div className="flex  w-[100%] bg-messageBodyBg py-5 px-4 ">
             <input
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className=" border border-modalInputBorder border-opacity-45 placeholder:italic focus-within:outline bg-inputbg text-sm text-gray-700 px-2 rounded-bl rounded-tl py-3  w-full  "
+              className=" border border-modalInputBorder border-opacity-45 placeholder:italic focus-within:outline bg-inputbg text-sm text-gray-700 px-2 rounded py-3  w-full  "
               type="text"
               id="searchUser"
               placeholder="Search here.."
             />
-            <div className="p-3.5 rounded-r  left-0 bg-modalSearchBg hover:bg-modalSearchHoverBg cursor-pointer text-inputbg text-lg ">
-              <RiUserSearchLine />
-            </div>
+         
           </div>
           <div className={styles.contactsContainer}>
             <h2 className="ml-11 font-[600] text-sm text-modalContactTxt">
@@ -79,8 +83,8 @@ function DirectModal({ isOpenModal, setIsOpenModal }) {
               setIsOpenModal={setIsOpenModal}
             />
           </div>
-          <hr />
-          <div className="flex justify-end items-center pr-8 py-5 border w-full rounded-b">
+         
+          <div className="flex justify-end bg-messageBodyBg items-center pr-8 py-5   w-full rounded-b">
             <div
               className="flex justify-center items-center mr-5 text-modalCloseTxt font-[600] cursor-pointer"
               onClick={() => setIsOpenModal(false)}

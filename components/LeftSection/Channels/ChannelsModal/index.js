@@ -33,65 +33,67 @@ function ChannelsModal({
           channelOpenModal ? "flex flex-col" : "hidden"
         }`}
       >
-        <div className="bg-modalBg rounded-t rounded-b shadow-md md:w-[40%] w-[80%] flex flex-col">
-          <div className="bg-dotBg p-2  text-plusTxt  shadow-md  w-[100%] flex ">
-            <div
-              className="p-2 cursor-pointer"
-              onClick={handleClickOpenNewMessageModal}
-            >
+        <div className="bg-messageBodyBg rounded-t rounded-b shadow-md md:w-[40%] w-[80%] flex flex-col">
+      
+
+
+
+          <div className="bg-inputbg p-2   text-plusTxt  shadow-md  w-[100%] flex justify-between">
+          <div className="flex">
+          <div className="p-2 cursor-pointer" onClick={handleClickOpenNewMessageModal} >
               New Message
             </div>
-            <div className="bg-modalChangeBg p-2 rounded-full cursor-pointer duration-500 ">
-              New Channel
+            <div className="bg-inputMoreBg p-2 rounded-full cursor-pointer ">
+              New Mass Message
             </div>
           </div>
-          <div className="bg-modalHeadBg rounded-tr flex justify-between items-center  pl-3 py-5 top-0 w-full">
+          <div >
+          <div className="pr-3 pt-3 text-xl text-modalCloseIcon cursor-pointer">
+              <IoCloseOutline onClick={() => setIsOpenModal(false)} />
+            </div>
+          </div>
+            
+          </div>
+          <div className="bg-inputbg rounded-tr flex justify-between items-center  pl-3 py-5 top-0 w-full">
             <div className="text-plusTxt font-bold text-md">
               Create New Group
             </div>
-            <div className="pr-3 text-xl text-modalCloseIcon cursor-pointer">
-              <IoCloseOutline onClick={() => setChannelOpenModal(false)} />
-            </div>
+            
           </div>
-          <div className="flex flex-col  w-[90%] md:ml-7 ml-4  py-5 px-4 ">
+          <div className="flex flex-col bg-messageBodyBg text-plusTxt  w-[100%]  py-5 px-4 ">
             <h2 className="font-semibold mb-3">Group Name</h2>
-            <input
-              className=" border border-modalInputBorder border-opacity-45 placeholder:italic focus-within:outline bg-inputbg text-sm text-gray-700 px-2 rounded py-2  w-full  "
-              type="text"
-              id="groupName"
-              placeholder="Enter Group Name"
-            />
+            users
           </div>
-          <div className="flex  flex-col  w-[90%] md:ml-7 ml-4  px-4 ">
-            <h2 className="font-semibold mb-1">Group Members</h2>
+          <div className="flex  flex-col bg-messageBodyBg text-plusTxt  w-[100%]   px-4 ">
+            <h2 className="font-semibold mb-1">Select Members</h2>
           </div>
 
           <div className={`${styles.contactsContainer} border md:ml-10 ml-8 `}>
-            <h2 className=" font-[600] text-sm text-modalOutBg bg-channleModalContactBg p-2 border w-full">
+            <h2 className=" font-[600] text-sm text-modalOutBg bg-inputbg p-2  w-full">
               Contacts
             </h2>
             <PhoneBook showAvatar={false} showCheckBox={showCheckBox} />
           </div>
 
-          <div className="flex rounded flex-col  w-[90%] md:ml-7 ml-4    my-4 px-4 ">
-            <h2 className="font-semibold mb-3">Description</h2>
+          <div className="flex rounded flex-col bg-messageBodyBg    w-[90%] md:ml-7 ml-4    my-4 px-4 ">
+            <h2 className="font-semibold mb-3">Message</h2>
             <textarea
               cols="2"
               rows="2"
-              placeholder="Enter Description"
+              placeholder="Enter Message"
               className="p-3 placeholder:italic focus-within::outline border-modalInputBorder bg-inputbg border-opacity-45"
             ></textarea>
           </div>
 
-          <hr />
-          <div className="flex justify-end items-center pr-8 py-5 border w-full rounded-b">
+       
+          <div className="flex justify-end items-center pr-8 py-5  w-full rounded-b">
             <div
               className="flex justify-center items-center mr-5 text-channelModalCloseTxt font-[600] cursor-pointer"
               onClick={() => setChannelOpenModal(false)}
             >
               <IoCloseOutline className="text-xl" /> <span>Cancel</span>
             </div>
-            <div className="border py-4 px-5 cursor-pointer bg-modalSendBtn text-modalSendTxt rounded">
+            <div className=" py-4 px-5 cursor-pointer bg-modalSendBtn text-modalSendTxt rounded">
               Create Groups
             </div>
           </div>
