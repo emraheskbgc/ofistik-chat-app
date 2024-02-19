@@ -75,7 +75,7 @@ function Input({ inputValue, sendMessage, handleInputChange, sendImage, sendDocu
 
   return (
     <>
-     <div className={`${styles.inputArea} border-t border-threeDotMenuTxt w-[100%]   md:w-[75%] p-5 `}>
+     <div className={`${styles.inputArea} bg-messageBodyBg border-t border-messageBodyBg w-[100%]   md:w-[75%] p-5 `}>
       <div className="flex  justify-between  items-center   space-x-3 md:space-x-10 text-chatIconBg ">
       
       

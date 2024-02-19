@@ -93,9 +93,9 @@ function Messages() {
       setMessages([...messages, { document: document, sender: "me" }]);
     }
   };
-
+  console.log(messages);
   return (
-    <div className={`${styles.messagesContainer}  md:h-[83vh] h-[87vh]`}>
+    <div className={`${styles.messagesContainer}  md:h-[83vh]  h-[87vh]`}>
       {/* Mesajlaşma alanı */}
       <div className={styles.messageArea}>
         {messages.map((message, index) => (
@@ -132,22 +132,31 @@ function Messages() {
                 <h2>{message.document.document.name}</h2>
               </a>
             ) : message.image ? (
-              <div className={styles.sentImageContainer}>
-                <div className={styles.imageWithDownload}>
-                  <img
-                    src={message.image.image}
-                    alt="Sent"
-                    className={styles.sentImage}
-                  />
-                  {message.download && (
-                    <a
-                      href={message.image.image}
-                      download="image"
-                      className={styles.downloadLink}
-                    >
-                      <IoMdDownload />
-                    </a>
-                  )}
+              <div className="flex flex-col">
+                {message.image.image.files.map((img, index) => (
+                  <div key={index} className="mx-1">
+                    <div className={styles.imageWithDownload}>
+                      <img src={img} alt="Sent" className={styles.sentImage} />
+                      {message.download && (
+                        <a
+                          href={message.image.image}
+                          download="image"
+                          className={styles.downloadLink}
+                        >
+                          <IoMdDownload />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                ))}
+                <div
+                  className={`${
+                    message.sender === "me"
+                      ? styles.myMessageText
+                      : styles.messageText
+                  } flex flex-col `}
+                >
+                  <div> {message.image.image.message}</div>
                 </div>
               </div>
             ) : (
@@ -160,7 +169,7 @@ function Messages() {
               >
                 <div> {message.text}</div>
                 <div className=" flex  justify-end items-center space-x-2 text-xs mt-1 opacity-70">
-                  <div >{message.hour}</div>
+                  <div>{message.hour}</div>
                   <div>
                     {message.sendMessage && (
                       <IoCheckmarkDoneSharp className="text-favTxt" />

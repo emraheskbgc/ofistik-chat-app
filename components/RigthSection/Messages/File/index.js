@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import styles from "./styles.module.css";
 import { MdCloudUpload } from "react-icons/md";
-import { IoSend } from "react-icons/io5";
+import { IoSend, IoAddCircle } from "react-icons/io5"; // Ekledim: IoAddCircle
 import useClickOutside from "@/hook/useClickOutside";
 
 function File({ fileOpenModal, setFileOpenModal, onSendClick }) {
@@ -10,13 +10,37 @@ function File({ fileOpenModal, setFileOpenModal, onSendClick }) {
     setFileOpenModal(false);
   });
 
-  const [file, setFile] = useState(null);
+  const [files, setFiles] = useState([]); // Dosya dizisi oluşturuldu
+  const [message, setMessage] = useState(""); // Kullanıcının girdiği mesaj
+
+  const handleInputChange = (event) => {
+    setMessage(event.target.value);
+  };
+  const handleFileChange = (event) => {
+    const selectedFile = event.target.files[0];
+    setFiles([
+      ...files,
+      {
+        // Yeni seçilen dosyayı dosya dizisine ekler
+        name: selectedFile.name,
+        type: selectedFile.type,
+        data: URL.createObjectURL(selectedFile),
+      },
+    ]);
+  };
 
   const handleSendClick = () => {
-    onSendClick(file.data);
-    setFileOpenModal(false); // Gönderildikten sonra modal'ı kapat
-    setFile(null);
+    const filesData = files.map((file) => file.data); // Tüm dosyaların veri kısmını alır
+    const dataToSend = {
+      message: message,
+      files: filesData
+    };
+    onSendClick(dataToSend); 
+    setFileOpenModal(false);
+    setFiles([]); // Gönderildikten sonra dosya dizisini sıfırla
+    setMessage(""); // mesaj inputu sıfırlama
   };
+
   return (
     <>
       <div
@@ -43,24 +67,22 @@ function File({ fileOpenModal, setFileOpenModal, onSendClick }) {
               accept="image/*"
               className="input-field"
               hidden
-              onChange={({ target: { files } }) => {
-                if (files && files.length > 0) {
-                  const selectedFile = files[0];
-                  setFile({
-                    name: selectedFile.name,
-                    type: selectedFile.type,
-                    data: URL.createObjectURL(selectedFile),
-                  });
-                }
-              }}
+              onChange={handleFileChange}
             />
-            {file ? (
-              <>
-               
-                  <img src={file.data} width={200} height={200} alt={file.name} />
-               
-              </>
-            ) : (
+            <div className="flex flex-wrap justify-center">
+              {files.map((file, index) => (
+                <div key={index} className="m-1">
+                  <img
+                    src={file.data}
+                    width={100}
+                    height={100}
+                    alt={file.name}
+                    className="w-20 h-20"
+                  />
+                </div>
+              ))}
+            </div>
+            {files.length === 0 && (
               <>
                 <MdCloudUpload color="#005246" size={60} />
                 <p className="text-messageBg">click to choose image</p>
@@ -69,18 +91,36 @@ function File({ fileOpenModal, setFileOpenModal, onSendClick }) {
           </form>
 
           <section className="flex w-full space-x-2 mx-2 my-2 justify-between items-center px-5 py-4 rounded-sm bg-inputbg text-messageBg">
-              
-              <div className="w-full">
-                <input  placeholder="enter message" type="text" className="w-full bg-messageBodyBg text-sm py-2 px-3 rounded-3xl"  />
-              </div>
-           
-            
+            <div className="w-full">
+              <input
+                placeholder="enter message"
+                type="text"
+                className="w-full bg-messageBodyBg text-sm py-2 px-3 rounded-3xl"
+                value={message}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="flex items-center">
               <div
-                className=" p-1 cursor-pointer bg-modalSendBtn text-modalSendTxt rounded"
+                className="p-1 cursor-pointer bg-modalSendBtn text-modalSendTxt rounded mr-2"
                 onClick={handleSendClick}
               >
                 <IoSend />
               </div>
+              <label
+                htmlFor="file-upload"
+                className="p-1 cursor-pointer bg-modalSendBtn text-modalSendTxt rounded"
+              >
+                <IoAddCircle />
+              </label>
+              <input
+                id="file-upload"
+                type="file"
+                accept="image/*"
+                className="hidden"
+                onChange={handleFileChange}
+              />
+            </div>
           </section>
         </div>
       </div>
