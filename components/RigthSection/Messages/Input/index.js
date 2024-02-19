@@ -75,8 +75,8 @@ function Input({ inputValue, sendMessage, handleInputChange, sendImage, sendDocu
 
   return (
     <>
-     <div className={`${styles.inputArea} bg-messageBodyBg border-t border-messageBodyBg w-[100%]   md:w-[75%] p-5 `}>
-      <div className="flex  justify-between  items-center   space-x-3 md:space-x-10 text-chatIconBg ">
+     <div className={`${styles.inputArea} bg-messageBodyBg border-t border-messageBodyBg w-[100%] md:h-[107px] h-[121px]   md:w-[75%] p-5 `}>
+      <div className="flex  justify-between mt-3 items-center   space-x-3 md:space-x-10 text-chatIconBg ">
       
       
        <Tooltip hasArrow label='More'  placement='top' fontSize='sm' >
