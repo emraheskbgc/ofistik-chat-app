@@ -97,11 +97,11 @@ function Messages() {
   return (
     <div className={`${styles.messagesContainer} ${styles.scrollStyles}  md:h-[83vh]  h-[87vh]`}>
       {/* Mesajlaşma alanı */}
-      <div className={styles.messageArea}>
+      <div className={`${styles.messageArea} `}>
         {messages.map((message, index) => (
           <div
             key={index}
-            className={`${styles.message} ${
+            className={`${styles.message}  ${
               message.sender === "me" ? styles.myMessage : styles.notMyMessage
             }`}
           >
