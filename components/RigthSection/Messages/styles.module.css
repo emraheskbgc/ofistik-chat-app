@@ -5,6 +5,8 @@
     flex-direction: row;
     overflow-y: auto;
     max-height: 90vh;
+    min-height: 90vh;
+    margin-bottom: 121px;
     
   }
   .scrollStyles{
