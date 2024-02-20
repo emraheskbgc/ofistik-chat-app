@@ -29,7 +29,7 @@ function MessagesList({selectedUser}) {
 
   return (
 
- <div className={`md:w-[50%] lg:w-[25%] w-[100%]  overflow-y-auto bg-messageBodyBg  min-h-screen  max-h-screen ${selectedUser && "md:block hidden" }`}>
+ <div className={`md:w-[50%] lg:w-[50%] xl:w-[25%] w-[100%]  overflow-y-auto bg-messageBodyBg  min-h-screen  max-h-screen ${selectedUser && "md:block hidden" }`}>
  <Header onSearch={handleSearch}/>
  <Favourites filteredUser={filteredUser}/>
  <DirectMessages filteredUser={filteredUser} />
