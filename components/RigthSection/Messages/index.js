@@ -95,7 +95,7 @@ function Messages() {
   };
   console.log(messages);
   return (
-    <div className={`${styles.messagesContainer}  md:h-[83vh]  h-[87vh]`}>
+    <div className={`${styles.messagesContainer} ${styles.scrollStyles}  md:h-[83vh]  h-[87vh]`}>
       {/* Mesajlaşma alanı */}
       <div className={styles.messageArea}>
         {messages.map((message, index) => (

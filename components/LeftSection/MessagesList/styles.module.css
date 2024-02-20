@@ -1,0 +1,9 @@
+.scrollStyle{
+   scrollbar-width: thin;
+   scrollbar-color: #1e1e1e #1e1e1e;
+}
+.scrollStyle:hover{
+    scrollbar-width: thin;
+    scrollbar-color: #363638 #1e1e1e;   
+    scrollbar-width: thin;
+}

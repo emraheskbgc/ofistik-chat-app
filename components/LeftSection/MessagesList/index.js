@@ -4,7 +4,7 @@ import Header from '../Header'
 import Favourites from '../Favourites'
 import DirectMessages from '../DirectMessages'
 import Channels from '../Channels'
-
+import styles from "./styles.module.css"
 import channels from "@/public/assets/data/channels.json"
 import { useContext } from "react";
 import PhoneBookContext  from "@/context/PhoneBookContext"
@@ -29,7 +29,7 @@ function MessagesList({selectedUser}) {
 
   return (
 
- <div className={`md:w-[50%] lg:w-[50%] xl:w-[25%] w-[100%]  overflow-y-auto bg-messageBodyBg  min-h-screen  max-h-screen ${selectedUser && "md:block hidden" }`}>
+ <div className={`${styles.scrollStyle} md:w-[50%] lg:w-[50%] xl:w-[25%] w-[100%]  overflow-y-auto bg-messageBodyBg  min-h-screen  max-h-screen ${selectedUser && "md:block hidden" }`}>
  <Header onSearch={handleSearch}/>
  <Favourites filteredUser={filteredUser}/>
  <DirectMessages filteredUser={filteredUser} />
