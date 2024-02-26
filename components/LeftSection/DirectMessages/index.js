@@ -9,7 +9,7 @@ function DirectMessages({ filteredUser }) {
   const { handleUserSelect } = useContext(PhoneBookContext);
 
   return (
-    <div className="mt-[390px]" >
+    <div className="mt[340px] md:mt-[390px]" >
       <div className="flex justify-between items-center  pr-7  ">
         
           
