@@ -17,10 +17,10 @@ module.exports = {
       },
     },
     colors:{
-      messageBg:"#dfdfdf",
-      messageBodyBg:"#1e1e1e",
-      inputbg:"#363638",
-      favTxt:"#dfdfdf",
+      messageBg:"#020617",
+      messageBodyBg:"#f3f4f6",
+      inputbg:"#e5e7eb",
+      favTxt:"#020617",
       personBg:"#e9e9f3",
       personMesTxt:"#7d7d81",
       dotBg:"#06d6a0",
@@ -51,9 +51,9 @@ module.exports = {
       chatIconBg:"#7b7e82",
       sendInputBg:"#f6f6f9",
       typeingDotBg:"#06d6a0",
-      inputMoreIconBg:"#363638",
-      inputMoreBg:"#1e1e1e",
-      inputMoreIcon:"#fff",
+      inputMoreIconBg:"#cbd5e1",
+      inputMoreBg:"#e5e7eb",
+      inputMoreIcon:"#94a3b8",
       threeDotMenu:"#fff",
       threeDotMenuTxt:"#595d61",
       threeDotMenuHover:"#f8f9fa",
@@ -77,7 +77,8 @@ module.exports = {
       modalChangeBg:"#10b981",
       pdfBg:"#ef4444",
       docxBg:"#2563eb",
-      muted:"#7d7d81"
+      muted:"#7d7d81",
+      checktxt:"#9ca3af"
 
 
     },

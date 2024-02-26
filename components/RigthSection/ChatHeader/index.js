@@ -81,7 +81,7 @@ function ChatHeader() {
   return (
     <>
       <div className="flex  ">
-        <div className="fixed  top-0 bg-inputbg text-favTxt w-[100%] md:w-[75%]  ">
+        <div className="fixed z-10 top-0 bg-inputbg text-favTxt w-[100%] md:w-[75%]  ">
           <div className="flex justify-between items-center w-full ">
             <div className="flex  items-center p-4">
               <div className="p-1  bg-backBtnBg rounded text-md font-bold mr-5 md:hidden text-backBtnTxt" onClick={handleBackToMessages}>

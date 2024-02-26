@@ -31,7 +31,6 @@ function MessagesList({selectedUser}) {
 
  <div className={`${styles.scrollStyle} md:w-[50%] lg:w-[50%] xl:w-[25%] w-[100%]  overflow-y-auto bg-messageBodyBg  min-h-[100vh] pb-10 max-h-[120vh] ${selectedUser && "md:block hidden" }`}>
  <Header onSearch={handleSearch}/>
- <Favourites filteredUser={filteredUser}/>
  <DirectMessages filteredUser={filteredUser} />
  {/*<Channels filteredChannels={filteredChannels} />*/}
  </div>

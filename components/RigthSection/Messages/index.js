@@ -76,7 +76,8 @@ function Messages() {
 
   const sendMessage = () => {
     if (inputValue.trim() !== "") {
-      setMessages([...messages, { text: inputValue, sender: "me" }]);
+      const currentTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+      setMessages([...messages, { text: inputValue, sender: "me", hour: currentTime, sent: true }]);
       setInputValue(""); // Input değerini sıfırla
     }
   };
@@ -170,6 +171,7 @@ function Messages() {
                 <div> {message.text}</div>
                 <div className=" flex  justify-end items-center space-x-2 text-xs mt-1 opacity-70">
                   <div>{message.hour}</div>
+                  {message.sent && <IoCheckmarkDoneSharp className="text-dotBg" />}
                   <div>
                     {message.sendMessage && (
                       <IoCheckmarkDoneSharp className="text-favTxt" />

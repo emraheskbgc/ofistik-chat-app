@@ -41,7 +41,7 @@ function Header({ onSearch }) {
     </div>
     <DirectModal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />
     <h2 className="text-xl ml-10 mt-6 mb-4 font-[500] text-messageBg ">
-      Messages <span className="text-messageBg text-sm " >(128)</span>
+      Mesajlar <span className="text-messageBg text-sm " >(128)</span>
     </h2>
   
     <div className="flex  items-center w-[80%] h-12 rounded-sm focus-within:shadow-lg focus-within:outline container bg-inputbg">
@@ -66,7 +66,7 @@ function Header({ onSearch }) {
         className="outline-none placeholder:italic bg-inputbg text-sm text-gray-700 pr-2 w-full  "
         type="text"
         id="search"
-        placeholder="Search here.."
+        placeholder="Sohbet ara.."
         onChange={handleInputChange}
         autoComplete="off"
       />

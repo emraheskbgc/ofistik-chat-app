@@ -5,12 +5,12 @@
     flex-direction: row;
     overflow-y: auto;
     max-height: 90vh;
-    min-height: 90vh;
+    min-height: 104vh;
     margin-bottom: 120px;
   }
   .scrollStyles{
     scrollbar-width: thin;
-    scrollbar-color: #363638 #1e1e1e;
+    scrollbar-color: #6b7280 #e5e7eb;
   }
   
   .messageArea {
@@ -44,8 +44,8 @@
   
   .messageText {
     padding: 10px;
-    background-color: #363638;
-    color:#cfcfd0;
+    background-color: #d1d5db;
+    color:#020617;
     border-radius: 15px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 15px;

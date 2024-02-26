@@ -9,21 +9,21 @@ function DirectMessages({ filteredUser }) {
   const { handleUserSelect } = useContext(PhoneBookContext);
 
   return (
-    <div>
-      <div className="flex justify-between items-center  pr-7 ">
+    <>
+      <div className="flex justify-between items-center  pr-7 mt-72 ">
         <div>
-          {" "}
+          
           <h2 className="text-favTxt text-xs font-semibold mt-14 ml-10">
-            DIRECT MESSAGE
+            Sohbet Listesi
           </h2>
         </div>
       </div>
       <div className=" mt-5">
-        {filteredUser.slice(0, 5).map((person) => (
+        {filteredUser.slice(0, 12).map((person) => (
           <>
            <div
             key={person.id}
-            className="flex justify-between items-center hover:bg-inputbg pr-8 pl-10 py-3 cursor-pointer"
+            className="flex justify-between items-center hover:bg-inputbg pr-8 pl-10 py-3  cursor-pointer"
             onClick={() => handleUserSelect(person)}
           >
             <div className="flex">
@@ -65,7 +65,7 @@ function DirectMessages({ filteredUser }) {
               <div>{person.messages[person.messages.length - 1].hour}</div>
               <div>
               {person.sendMessage && (
-                <IoCheckmarkDoneSharp className="text-favTxt" />
+                <IoCheckmarkDoneSharp className="text-checktxt" />
               )}
               {person.unsendMessage && <MdCheck />}
               {person.readMessage && <IoCheckmarkDoneSharp className="text-dotBg" />}
@@ -79,7 +79,7 @@ function DirectMessages({ filteredUser }) {
          
         ))}
       </div>
-    </div>
+    </>
   );
 }
 

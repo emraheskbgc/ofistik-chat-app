@@ -145,5 +145,85 @@
     "sendMessage":true,
     "unsendMessage":false,
     "readMessage":false
+  },{
+    "id": 8,
+    "name": "Osman",
+    "email": "osman@osman.com",
+    "phone": "053496526969",
+    "avatar": "/assets/images/avatar.jpeg",
+    "messages": [
+      { "message": "Merhaba Nasılsın", "time": "02/02/24","hour":"10:22" },
+      { "message": "Merhaba ", "time": "03/02/24" ,"hour":"10:22"},
+      { "message": " Nasılsın", "time": "04/02/24","hour":"10:22" }
+    ],
+    "unreadMessages": 0,
+    "stuation": "Online",
+    "status": "A professional profile is a brief summary of your skills, strengths, and key experiences",
+    "locationCity": "İzmir",
+    "locationCountry": "TR",
+    "isMuted": false,
+    "sendMessage":true,
+    "unsendMessage":false,
+    "readMessage":false
+  },{
+    "id": 9,
+    "name": "Osman",
+    "email": "osman@osman.com",
+    "phone": "053496526969",
+    "avatar": "/assets/images/avatar.jpeg",
+    "messages": [
+      { "message": "Merhaba Nasılsın", "time": "02/02/24","hour":"10:22" },
+      { "message": "Merhaba ", "time": "03/02/24" ,"hour":"10:22"},
+      { "message": " Nasılsın", "time": "04/02/24","hour":"10:22" }
+    ],
+    "unreadMessages": 0,
+    "stuation": "Online",
+    "status": "A professional profile is a brief summary of your skills, strengths, and key experiences",
+    "locationCity": "İzmir",
+    "locationCountry": "TR",
+    "isMuted": false,
+    "sendMessage":true,
+    "unsendMessage":false,
+    "readMessage":false
+  },{
+    "id": 10,
+    "name": "Osman",
+    "email": "osman@osman.com",
+    "phone": "053496526969",
+    "avatar": "/assets/images/avatar.jpeg",
+    "messages": [
+      { "message": "Merhaba Nasılsın", "time": "02/02/24","hour":"10:22" },
+      { "message": "Merhaba ", "time": "03/02/24" ,"hour":"10:22"},
+      { "message": " Nasılsın", "time": "04/02/24","hour":"10:22" }
+    ],
+    "unreadMessages": 0,
+    "stuation": "Online",
+    "status": "A professional profile is a brief summary of your skills, strengths, and key experiences",
+    "locationCity": "İzmir",
+    "locationCountry": "TR",
+    "isMuted": false,
+    "sendMessage":true,
+    "unsendMessage":false,
+    "readMessage":false
+  },{
+    "id": 11,
+    "name": "Osman",
+    "email": "osman@osman.com",
+    "phone": "053496526969",
+    "avatar": "/assets/images/avatar.jpeg",
+    "messages": [
+      { "message": "Merhaba Nasılsın", "time": "02/02/24","hour":"10:22" },
+      { "message": "Merhaba ", "time": "03/02/24" ,"hour":"10:22"},
+      { "message": " Nasılsın", "time": "04/02/24","hour":"10:22" }
+    ],
+    "unreadMessages": 0,
+    "stuation": "Online",
+    "status": "A professional profile is a brief summary of your skills, strengths, and key experiences",
+    "locationCity": "İzmir",
+    "locationCountry": "TR",
+    "isMuted": false,
+    "sendMessage":true,
+    "unsendMessage":false,
+    "readMessage":false
   }
 ]
