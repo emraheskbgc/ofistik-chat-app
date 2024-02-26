@@ -32,7 +32,7 @@ function Header({ onSearch }) {
   };
 
   return (
-    <div className="fixed z-40 bg-messageBodyBg md:w-[40%] lg:w-[25%] w-full ">
+    <div className="fixed z-40 h-[200px] bg-messageBodyBg md:w-[40%] lg:w-[25%] w-full  ">
       <div className="flex text-3xl text-messageBg space-x-3 justify-end mr-5 mt-2 opacity-80">
         <Tooltip hasArrow label="Support" placement="bottom" fontSize="sm">
           <div className="cursor-pointer " onClick={handleSupportOfistik}>

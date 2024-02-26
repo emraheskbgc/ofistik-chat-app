@@ -9,17 +9,17 @@ function DirectMessages({ filteredUser }) {
   const { handleUserSelect } = useContext(PhoneBookContext);
 
   return (
-    <>
-      <div className="flex justify-between items-center  pr-7 mt-80 ">
-        <div>
+    <div className="mt-[390px]" >
+      <div className="flex justify-between items-center  pr-7  ">
+        
           
-          <h2 className="text-favTxt text-xs font-semibold mt-14 ml-10">
+          <div className="text-favTxt text-xs font-semibold ml-10">
             Sohbet Listesi
-          </h2>
-        </div>
+          </div>
+        
       </div>
       <div className=" mt-5">
-        {filteredUser.slice(0, 11).map((person) => (
+        {filteredUser.map((person) => (
           <>
            <div
             key={person.id}
@@ -79,7 +79,7 @@ function DirectMessages({ filteredUser }) {
          
         ))}
       </div>
-    </>
+    </div>
   );
 }
 
