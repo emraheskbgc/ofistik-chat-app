@@ -1,10 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import { IoSearch } from "react-icons/io5";
-import { PiPhoneCallFill } from "react-icons/pi";
-import { PiVideoCameraFill } from "react-icons/pi";
-import { FaBookmark } from "react-icons/fa";
-import { MdInfo } from "react-icons/md";
+
 
 
 

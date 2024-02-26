@@ -10,7 +10,7 @@ function DirectMessages({ filteredUser }) {
 
   return (
     <>
-      <div className="flex justify-between items-center  pr-7 mt-72 ">
+      <div className="flex justify-between items-center  pr-7 mt-80 ">
         <div>
           
           <h2 className="text-favTxt text-xs font-semibold mt-14 ml-10">
@@ -19,7 +19,7 @@ function DirectMessages({ filteredUser }) {
         </div>
       </div>
       <div className=" mt-5">
-        {filteredUser.slice(0, 12).map((person) => (
+        {filteredUser.slice(0, 11).map((person) => (
           <>
            <div
             key={person.id}
