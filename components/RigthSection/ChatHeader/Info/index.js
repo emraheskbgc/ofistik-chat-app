@@ -6,11 +6,6 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaArchive } from "react-icons/fa";
 import { AiOutlineAudioMuted } from "react-icons/ai";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { BiMessageAltDetail } from "react-icons/bi";
-import { FaRegHeart } from "react-icons/fa";
-import { FaPhoneVolume } from "react-icons/fa6";
-import { BsCameraVideoFill } from "react-icons/bs";
-import { BsThreeDots } from "react-icons/bs";
 import { FiUser } from "react-icons/fi";
 import { MdOutlineMail } from "react-icons/md";
 import { MdOutlineLocalPhone } from "react-icons/md";
@@ -47,12 +42,12 @@ function Info({ isInfoPanelOpen, setIsInfoPanelOpen, selectedUser }) {
               className="w-full h-72 p-3 rounded-2xl"
               alt=""
             />
-            <div className="absolute flex top-6 left-6 text-textInfo">
+            <div className="absolute flex top-6 left-6 text-plusTxt">
               <div>
                 <IoClose onClick={() => setIsInfoPanelOpen(false)} className="cursor-pointer" />
               </div>
             </div>
-            <div className="absolute flex top-6 right-6 text-textInfo">
+            <div className="absolute flex top-6 right-6 text-plusTxt">
               <div>
                 <BsThreeDotsVertical onClick={handleOpenMenu} className="cursor-pointer"/>
               </div>
@@ -74,7 +69,7 @@ function Info({ isInfoPanelOpen, setIsInfoPanelOpen, selectedUser }) {
               )}
             </div>
 
-             <div className="absolute flex-col bottom-6 left-8 text-sm text-textInfo">
+             <div className="absolute flex-col bottom-6 left-8 text-sm text-plusTxt">
             <p className="font-semibold">{selectedUser.name}</p>
             <div className="flex items-center">
               <div className="bg-dotBg w-3 h-3 mr-3 rounded-full "></div>

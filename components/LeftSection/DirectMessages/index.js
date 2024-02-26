@@ -5,8 +5,17 @@ import { PiSpeakerSimpleXLight } from "react-icons/pi";
 import { MdCheck } from "react-icons/md";
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
 
-function DirectMessages({ filteredUser }) {
+function DirectMessages({ filteredUser, filterType  }) {
   const { handleUserSelect } = useContext(PhoneBookContext);
+
+  const filterMessages = (person) => {
+    if (filterType === 'unread') {
+      // Sadece okunmamış mesajları olan kişileri filtrele
+      return person.unreadMessages > 0;
+    }
+    // Varsayılan olarak tüm kişileri göster
+    return true;
+  };
 
   return (
     <div className="mt[340px] md:mt-[390px]" >
@@ -19,7 +28,7 @@ function DirectMessages({ filteredUser }) {
         
       </div>
       <div className=" mt-5">
-        {filteredUser.map((person) => (
+        {filteredUser.filter(filterMessages).map((person) => (
           <>
            <div
             key={person.id}
@@ -48,13 +57,14 @@ function DirectMessages({ filteredUser }) {
                 )}
               </div>
             </div>
-            {person.unreadMessage && (
-              <div className="w-5 h-5 bg-messageCountBg text-xs text-messageCountTxt font-bold flex items-center rounded-md p-3  justify-center">
-                <span>{person.unreadMessage}</span>
-              </div>
-            )}
+            
 
             <div className="text-muted flex items-center space-x-2">
+            {person.unreadMessages > 0  && (
+              <div className="w-5 h-5 bg-messageCountBg text-xs text-messageCountTxt font-bold flex items-center rounded-md p-3  justify-center">
+                <span>{person.unreadMessages}</span>
+              </div>
+            )}
               {person.isMuted && (
                 <div className="text-muted">
                   <span>

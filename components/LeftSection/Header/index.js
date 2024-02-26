@@ -7,10 +7,12 @@ import DirectModal from "../DirectMessages/DirectModal";
 import { useContext } from "react";
 import PhoneBookContext from "@/context/PhoneBookContext";
 
-function Header({ onSearch }) {
+function Header({ onSearch, onFilterChange  }) {
   const [selectOption, setSelectOption] = useState("inbox");
+  
   const handleClickOption = (option) => {
     setSelectOption(option);
+    onFilterChange(option); // Seçilen filtre tipini ilet
   };
 
   const handleInputChange = (e) => {
