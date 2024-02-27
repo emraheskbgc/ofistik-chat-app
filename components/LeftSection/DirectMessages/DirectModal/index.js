@@ -41,13 +41,13 @@ function DirectModal({ isOpenModal, setIsOpenModal }) {
         }`}
       >
         <div className="bg-modalBg rounded-t rounded-b shadow-md md:w-[40%] w-[80%] flex flex-col">
-          <div className="bg-inputbg p-2   text-plusTxt  shadow-md  w-[100%] flex justify-between">
+          <div className="bg-personMesTxt p-2     shadow-md  w-[100%] flex justify-between">
           <div className="flex">
-          <div className="bg-inputMoreBg p-2 rounded-full cursor-pointer ">
-              New Message
+          <div className="bg-inputMoreBg text-personMesTxt p-2 rounded-full cursor-pointer ">
+              Yeni Mesaj
             </div>
-            <div className="p-2 cursor-pointer" onClick={handleClickOpenModal}>
-              New Mass Message
+            <div className="p-2 cursor-pointer text-plusTxt" onClick={handleClickOpenModal}>
+              Yeni Toplu Mesaj
             </div>
           </div>
           <div >
@@ -58,7 +58,7 @@ function DirectModal({ isOpenModal, setIsOpenModal }) {
             
           </div>
           <div className="bg-inputbg  flex justify-between items-center  pl-3 py-5 top-0 w-full">
-            <div className="text-plusTxt font-bold text-md">Contacts</div>
+            <div className="text-personMesTxt font-bold text-md">Rehber</div>
             
           </div>
           <div className="flex  w-[100%] bg-messageBodyBg py-5 px-4 ">
@@ -68,13 +68,13 @@ function DirectModal({ isOpenModal, setIsOpenModal }) {
               className=" border border-modalInputBorder border-opacity-45 placeholder:italic focus-within:outline bg-inputbg text-sm text-gray-700 px-2 rounded py-3  w-full  "
               type="text"
               id="searchUser"
-              placeholder="Search here.."
+              placeholder="Kişi Ara.."
             />
          
           </div>
           <div className={styles.contactsContainer}>
             <h2 className="ml-11 font-[600] text-sm text-modalContactTxt">
-              Contacts
+              Rehber
             </h2>
             <PhoneBook
               showAvatar={showAvatar}
@@ -84,12 +84,12 @@ function DirectModal({ isOpenModal, setIsOpenModal }) {
             />
           </div>
          
-          <div className="flex justify-end bg-messageBodyBg items-center pr-8 py-5   w-full rounded-b">
+          <div className="flex justify-end  items-center pr-8 py-5   w-full rounded-b">
             <div
               className="flex justify-center items-center mr-5 text-modalCloseTxt font-[600] cursor-pointer"
               onClick={() => setIsOpenModal(false)}
             >
-              <IoCloseOutline className="text-xl" /> <span>Cancel</span>
+              <IoCloseOutline className="text-xl text-favTxt" /> <span className="text-favTxt ">Kapat</span>
             </div>
             <div className="border py-4 px-5 cursor-pointer bg-modalSendBtn text-modalSendTxt rounded">
               <IoSend />

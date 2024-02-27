@@ -38,49 +38,49 @@ function ChannelsModal({
 
 
 
-          <div className="bg-inputbg p-2   text-plusTxt  shadow-md  w-[100%] flex justify-between">
+          <div className="bg-personMesTxt p-2    shadow-md  w-[100%] flex justify-between">
           <div className="flex">
-          <div className="p-2 cursor-pointer" onClick={handleClickOpenNewMessageModal} >
-              New Message
+          <div className="p-2 cursor-pointer text-plusTxt " onClick={handleClickOpenNewMessageModal} >
+              Yeni Mesaj
             </div>
-            <div className="bg-inputMoreBg p-2 rounded-full cursor-pointer ">
-              New Mass Message
+            <div className="bg-inputMoreBg text-personMesTxt p-2 rounded-full cursor-pointer ">
+              Yeni Toplu Mesaj
             </div>
           </div>
           <div >
-          <div className="pr-3 pt-3 text-xl text-modalCloseIcon cursor-pointer">
-              <IoCloseOutline onClick={() => setIsOpenModal(false)} />
+          <div className="pr-3 pt-3 text-xl text-plusTxt cursor-pointer">
+              <IoCloseOutline onClick={()=> setChannelOpenModal(false)} />
             </div>
           </div>
             
           </div>
           <div className="bg-inputbg rounded-tr flex justify-between items-center  pl-3 py-5 top-0 w-full">
-            <div className="text-plusTxt font-bold text-md">
-              Create New Group
+            <div className="text-personMesTxt font-bold text-md">
+              Yeni Toplu Mesaj Oluştur
             </div>
             
           </div>
-          <div className="flex flex-col bg-messageBodyBg text-plusTxt  w-[100%]  py-5 px-4 ">
-            <h2 className="font-semibold mb-3">Group Name</h2>
+          <div className="flex flex-col bg-messageBodyBg text-personMesTxt  w-[100%]  py-5 px-4 ">
+            
             users
           </div>
-          <div className="flex  flex-col bg-messageBodyBg text-plusTxt  w-[100%]   px-4 ">
-            <h2 className="font-semibold mb-1">Select Members</h2>
+          <div className="flex  flex-col bg-messageBodyBg text-personMesTxt  w-[100%]   px-4 ">
+            <h2 className="font-semibold mb-1">Kişi Seç</h2>
           </div>
 
           <div className={`${styles.contactsContainer} border md:ml-10 ml-8 `}>
             <h2 className=" font-[600] text-sm text-modalOutBg bg-inputbg p-2  w-full">
-              Contacts
+              Rehber
             </h2>
             <PhoneBook showAvatar={false} showCheckBox={showCheckBox} />
           </div>
 
           <div className="flex rounded flex-col bg-messageBodyBg    w-[90%] md:ml-7 ml-4    my-4 px-4 ">
-            <h2 className="font-semibold mb-3">Message</h2>
+            <h2 className="font-semibold mb-3">Mesaj</h2>
             <textarea
               cols="2"
               rows="2"
-              placeholder="Enter Message"
+              placeholder="Mesaj Yazınız..."
               className="p-3 placeholder:italic focus-within::outline border-modalInputBorder bg-inputbg border-opacity-45"
             ></textarea>
           </div>
@@ -91,10 +91,10 @@ function ChannelsModal({
               className="flex justify-center items-center mr-5 text-channelModalCloseTxt font-[600] cursor-pointer"
               onClick={() => setChannelOpenModal(false)}
             >
-              <IoCloseOutline className="text-xl" /> <span>Cancel</span>
+              <IoCloseOutline className="text-xl" /> <span>Kapat</span>
             </div>
             <div className=" py-4 px-5 cursor-pointer bg-modalSendBtn text-modalSendTxt rounded">
-              Create Groups
+             Toplu Mesaj Gönder
             </div>
           </div>
         </div>
