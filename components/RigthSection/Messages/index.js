@@ -83,12 +83,14 @@ function Messages() {
   };
   const sendImage = (image) => {
     if (image) {
+      const currentTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
       setMessages([
         ...messages,
-        { image: image, sender: "me", download: true },
+        { image: image, sender: "me", download: true, hour: currentTime, sent: true },
       ]);
     }
   };
+  
   const sendDocument = (document) => {
     if (document) {
       setMessages([...messages, { document: document, sender: "me" }]);
@@ -146,9 +148,14 @@ function Messages() {
                           <IoMdDownload />
                         </a>
                       )}
+                      <div className={`absolute bottom-1 right-1 flex items-center space-x-2 text-xs opacity-70`}>
+            <div className="text-plusTxt">{message.hour}</div>
+            {message.sent && <IoCheckmarkDoneSharp className="text-dotBg" />}
+          </div>
                     </div>
                   </div>
                 ))}
+                
                 <div
                   className={`${
                     message.sender === "me"
@@ -157,6 +164,10 @@ function Messages() {
                   } flex flex-col `}
                 >
                   <div> {message.image.image.message}</div>
+                  <div className=" flex  justify-end items-center space-x-2 text-xs mt-1 opacity-70">
+  <div>{message.hour}</div>
+  {message.sent && <IoCheckmarkDoneSharp className="text-dotBg" />}
+</div>
                 </div>
               </div>
             ) : (
