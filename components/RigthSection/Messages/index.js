@@ -76,28 +76,47 @@ function Messages() {
 
   const sendMessage = () => {
     if (inputValue.trim() !== "") {
-      const currentTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-      setMessages([...messages, { text: inputValue, sender: "me", hour: currentTime, sent: true }]);
+      const currentTime = new Date().toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+      setMessages([
+        ...messages,
+        { text: inputValue, sender: "me", hour: currentTime, sent: true },
+      ]);
       setInputValue(""); // Input değerini sıfırla
     }
   };
   const sendImage = (image) => {
     if (image) {
-      const currentTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+      const currentTime = new Date().toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
       setMessages([
         ...messages,
-        { image: image, sender: "me", download: true, hour: currentTime, sent: true },
+        {
+          image: image,
+          sender: "me",
+          download: true,
+          hour: currentTime,
+          sent: true,
+        },
       ]);
     }
   };
-  
+
   const sendDocument = (document) => {
     if (document) {
       setMessages([...messages, { document: document, sender: "me" }]);
     }
   };
+
+  console.log(messages);
   return (
-    <div className={`${styles.messagesContainer} ${styles.scrollStyles}  md:h-[83vh]  h-[87vh]`}>
+    <div
+      className={`${styles.messagesContainer} ${styles.scrollStyles}  md:h-[83vh]  h-[87vh]`}
+    >
       {/* Mesajlaşma alanı */}
       <div className={`${styles.messageArea} `}>
         {messages.map((message, index) => (
@@ -148,27 +167,39 @@ function Messages() {
                           <IoMdDownload />
                         </a>
                       )}
-                      <div className={`absolute bottom-1 right-1 flex items-center space-x-2 text-xs opacity-70`}>
-            <div className="text-plusTxt">{message.hour}</div>
-            {message.sent && <IoCheckmarkDoneSharp className="text-dotBg" />}
-          </div>
+                      <div
+                        className={`absolute bottom-1 right-1 flex items-center space-x-2 text-xs opacity-70`}
+                      >
+                        <div className="text-plusTxt">{message.hour}</div>
+                        {message.sent && (
+                          <IoCheckmarkDoneSharp className="text-dotBg" />
+                        )}
+                      </div>
                     </div>
                   </div>
                 ))}
-                
-                <div
-                  className={`${
-                    message.sender === "me"
-                      ? styles.myMessageText
-                      : styles.messageText
-                  } flex flex-col `}
-                >
-                  <div> {message.image.image.message}</div>
-                  <div className=" flex  justify-end items-center space-x-2 text-xs mt-1 opacity-70">
-  <div>{message.hour}</div>
-  {message.sent && <IoCheckmarkDoneSharp className="text-dotBg" />}
-</div>
-                </div>
+
+             {message.image.image.message !== "" &&    <div
+             className={`${
+               message.sender === "me"
+                 ? styles.myMessageText
+                 : styles.messageText
+             } flex flex-col `}
+           >
+            
+
+             
+             <div> {message.image.image.message}</div>
+             <div className=" flex  justify-end items-center space-x-2 text-xs mt-1 opacity-70">
+               <div>{message.hour}</div>
+               {message.sent && (
+                 <IoCheckmarkDoneSharp className="text-dotBg" />
+               )}
+             </div>
+             
+
+            
+           </div>}
               </div>
             ) : (
               <div
@@ -181,7 +212,9 @@ function Messages() {
                 <div> {message.text}</div>
                 <div className=" flex  justify-end items-center space-x-2 text-xs mt-1 opacity-70">
                   <div>{message.hour}</div>
-                  {message.sent && <IoCheckmarkDoneSharp className="text-dotBg" />}
+                  {message.sent && (
+                    <IoCheckmarkDoneSharp className="text-dotBg" />
+                  )}
                   <div>
                     {message.sendMessage && (
                       <IoCheckmarkDoneSharp className="text-favTxt" />
