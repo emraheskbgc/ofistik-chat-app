@@ -44,7 +44,7 @@ function DirectModal({ isOpenModal, setIsOpenModal }) {
           <div className="bg-personMesTxt p-2     shadow-md  w-[100%] flex justify-between">
           <div className="flex">
           <div className="bg-inputMoreBg text-personMesTxt p-2 rounded-full cursor-pointer ">
-              Yeni Mesaj
+              Yeni Sohbet
             </div>
             <div className="p-2 cursor-pointer text-plusTxt" onClick={handleClickOpenModal}>
               Yeni Toplu Mesaj
