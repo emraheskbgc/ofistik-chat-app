@@ -2,7 +2,8 @@
 import React, { useRef, useState } from 'react';
 import styles from "./styles.module.css";
 import { MdCloudUpload } from "react-icons/md";
-import { IoSend } from "react-icons/io5";
+import { IoSend, IoAddCircle } from "react-icons/io5"; // Ekledim: IoAddCircle
+
 
 import useClickOutside from '@/hook/useClickOutside';
 
@@ -15,6 +16,7 @@ function DocumentUpload({ documentOpenModal, setIsDocumentModal, onSendClick }) 
 
   const [uploadedFile, setUploadedFile] = useState(null);
   const [blobUrl, setBlobUrl]= useState(null)
+  const [message, setMessage] = useState("");
 
   // Dosya seçildiğinde çağrılacak olan fonksiyon
   const handleFileChange = (event) => {
@@ -34,10 +36,13 @@ function DocumentUpload({ documentOpenModal, setIsDocumentModal, onSendClick }) 
     }
   };
 
+  const handleMessageChange = (event) => { // Yeni: Mesaj değişikliğini izleyen fonksiyon
+    setMessage(event.target.value);
+  };
       // Dosyayı gönderme işlemini gerçekleştiren fonksiyon
   const handleSendClick = () => {
     if (uploadedFile) {
-      onSendClick(uploadedFile,blobUrl); // Gönderme işlemini gerçekleştir
+      onSendClick(uploadedFile,blobUrl,message); // Gönderme işlemini gerçekleştir
       setUploadedFile(null); // Dosyayı temizle
       setIsDocumentModal(false)
     }
@@ -53,18 +58,18 @@ function DocumentUpload({ documentOpenModal, setIsDocumentModal, onSendClick }) 
             <div className={styles.wrapper}>
               <div className={styles.box}>
                 <div className={styles.inputBox}>
-                  <h2 className={styles.uploadAreatitle}>Upload Document</h2>
+                  
                   <form>
                     {/* Dosya seçme inputu */}
                     <input type="file" id="upload" accept=".doc, .docx,.pdf" hidden onChange={handleFileChange} />
                     <label htmlFor="upload" className={styles.uploadLabel}>
                       <MdCloudUpload className={styles.uploadIcon} />
-                      <p className={styles.text}>Click to upload</p>
+                      <p className="text-messageBg">Dosya Seç</p>
                     </label>
                   </form>
                 </div>
                 <div id='filewrapper'>
-                  <h3 className={styles.uploaded}> Uploaded Document</h3>
+                  <h3 className={styles.uploaded}> Seçilen Dosyalar</h3>
                   {/* Seçilen dosyanın bilgilerini gösterme */}
                   {uploadedFile && (
                     <div className={styles.showFileBox}>
@@ -74,19 +79,41 @@ function DocumentUpload({ documentOpenModal, setIsDocumentModal, onSendClick }) 
                       </div>
                       <div className={styles.right}>
                         <span className={styles.rightSpan} onClick={() => setUploadedFile(null)}>×</span>
-                        <div
-                        className="border p-1 cursor-pointer bg-modalSendBtn text-modalSendTxt rounded ml-2"
-                        onClick={handleSendClick}
-                    
-                      >
-                        <IoSend />
-                      </div>
+                        
                       </div>
                     </div>
                   )}
-                  <div>
-                    <input type="text" placeholder='enter message' className='w-full bg-messageBodyBg py-2 px-3 rounded-3xl mt-3' />
+                  <section className="flex w-full space-x-2 mx-2 my-2 justify-between items-center px-5 py-4 rounded-sm bg-inputbg text-messageBg">
+                  <div className="w-full">
+                    <input
+                      placeholder="Mesaj yazınız..."
+                      type="text"
+                      className="w-full bg-messageBodyBg text-sm py-2 px-3 rounded-3xl"
+                      onChange={handleMessageChange}
+                      value={message}
+                    />
                   </div>
+                  <div className="flex items-center">
+                    <div
+                      className="p-1 cursor-pointer bg-modalSendBtn text-modalSendTxt rounded mr-2"
+                      onClick={handleSendClick}
+                    >
+                      <IoSend />
+                    </div>
+                    <label
+                      htmlFor="upload"
+                      className="p-1 cursor-pointer bg-modalSendBtn text-modalSendTxt rounded"
+                    >
+                      <IoAddCircle />
+                    </label>
+                    <input
+                      id="upload"
+                      type="file"
+                      accept=" .pdf"
+                      className="hidden"
+                    />
+                  </div>
+                </section>
                 </div>
               </div>
             </div>

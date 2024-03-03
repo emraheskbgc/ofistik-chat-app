@@ -2,7 +2,8 @@
 import React,{useState, useRef} from "react";
 import { IoSend } from "react-icons/io5";
 import { HiOutlineEmojiHappy } from "react-icons/hi";
-import { BsThreeDotsVertical } from "react-icons/bs";
+import { HiOutlinePaperClip } from "react-icons/hi2";
+
 
 
 import styles from "./styles.module.css";
@@ -68,8 +69,8 @@ function Input({ inputValue, sendMessage, handleInputChange, sendImage, sendDocu
       image:image
     })
   }
-  const handleSendDocument = (document,blobUrl) => {
-    sendDocument({document:document,blobUrl:blobUrl})
+  const handleSendDocument = (document,blobUrl,message) => {
+    sendDocument({document:document,blobUrl:blobUrl, message:message})
   }
  
 
@@ -81,7 +82,7 @@ function Input({ inputValue, sendMessage, handleInputChange, sendImage, sendDocu
       
        <Tooltip hasArrow label='More'  placement='top' fontSize='sm' >
         <div className="text-2xl cursor-pointer" >
-        <BsThreeDotsVertical onClick={handleShowMoreMenu}/>
+        <HiOutlinePaperClip onClick={handleShowMoreMenu}/>
        
          
         </div>

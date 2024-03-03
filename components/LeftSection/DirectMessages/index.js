@@ -30,7 +30,8 @@ function DirectMessages({ filteredUser, filterType  }) {
       <div className=" mt-5">
         {filteredUser.filter(filterMessages).map((person) => (
           <>
-           <div
+          
+            <div
             key={person.id}
             className="flex justify-between items-center hover:bg-inputbg pr-8 pl-10 py-3  cursor-pointer"
             onClick={() => handleUserSelect(person)}
@@ -55,16 +56,13 @@ function DirectMessages({ filteredUser, filterType  }) {
                     </span>
                   </div>
                 )}
+                
               </div>
             </div>
             
-
-            <div className="text-muted flex items-center space-x-2">
-            {person.unreadMessages > 0  && (
-              <div className="w-5 h-5 bg-messageCountBg text-xs text-messageCountTxt font-bold flex items-center rounded-md p-3  justify-center">
-                <span>{person.unreadMessages}</span>
-              </div>
-            )}
+            <div className="flex flex-col  items-end">
+             <div className="text-muted flex items-center space-x-2">
+           
               {person.isMuted && (
                 <div className="text-muted">
                   <span>
@@ -81,10 +79,19 @@ function DirectMessages({ filteredUser, filterType  }) {
               {person.readMessage && <IoCheckmarkDoneSharp className="text-dotBg" />}
             </div>
             </div>
+            <div>
+             {person.unreadMessages > 0  && (
+              <div className="w-5 h-5 bg-messageCountBg text-xs text-dotBg font-bold flex items-center rounded-full p-3  justify-center">
+                <span>{person.unreadMessages}</span>
+              </div>
+            )}
+            </div>
+            </div>
+           
           </div>
-          <div className="flex justify-center">
-          <div className="opacity-10 w-[90%] border border-messageBg" />
-          </div>
+          <div className="border-b w-[75%] ml-10"/> 
+         
+          
           </>
          
         ))}

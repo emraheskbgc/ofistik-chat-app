@@ -50,7 +50,7 @@
     "messages": [
       { "message": "Merhaba Nasılsın", "time": "02/02/24","hour":"10:22" },
       { "message": "Merhaba ", "time": "03/02/24","hour":"10:22" },
-      { "message": " Nasılsın", "time": "04/02/24","hour":"10:22" }
+      { "message": " Nasılsın", "time": "04/02/24","hour":"Dün" }
     ],
     "unreadMessages": 0,
     "stuation": "Online",
@@ -71,7 +71,7 @@
     "messages": [
       { "message": "Merhaba Nasılsın", "time": "02/02/24","hour":"10:22" },
       { "message": "Merhaba ", "time": "03/02/24","hour":"10:22"},
-      { "message": " Nasılsın", "time": "04/02/24","hour":"10:22" }
+      { "message": " Nasılsın", "time": "04/02/24","hour":"Dün" }
     ],
     "unreadMessages": 0,
     "stuation": "Online",
@@ -92,7 +92,7 @@
     "messages": [
       { "message": "Merhaba Nasılsın", "time": "02/02/24","hour":"10:22" },
       { "message": "Merhaba ", "time": "03/02/24","hour":"10:22" },
-      { "message": " Nasılsın", "time": "04/02/24","hour":"10:22" }
+      { "message": " Nasılsın", "time": "04/02/24","hour":"Pazartesi" }
     ],
     "unreadMessages": 0,
     "stuation": "Online",
@@ -113,7 +113,7 @@
     "messages": [
       { "message": "Merhaba Nasılsın", "time": "02/02/24","hour":"10:22" },
       { "message": "Merhaba ", "time": "03/02/24","hour":"10:22" },
-      { "message": " Nasılsın", "time": "04/02/24","hour":"10:22" }
+      { "message": " Nasılsın", "time": "04/02/24","hour":"Salı" }
     ],
     "unreadMessages": 9,
     "stuation": "Online",

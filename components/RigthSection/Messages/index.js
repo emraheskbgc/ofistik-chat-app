@@ -108,7 +108,14 @@ function Messages() {
 
   const sendDocument = (document) => {
     if (document) {
-      setMessages([...messages, { document: document, sender: "me" }]);
+      const currentTime = new Date().toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+      setMessages([
+        ...messages,
+        { document: document, sender: "me", hour: currentTime, sent: true },
+      ]);
     }
   };
 
@@ -137,21 +144,51 @@ function Messages() {
             )}
 
             {message.document ? (
-              <a
-                href={message.document.blobUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.documentLink}
-              >
-                {message.document.document.name.endsWith(".pdf") ? (
-                  <BsFiletypePdf className="mr-3 text-3xl text-pdfBg" />
-                ) : message.document.document.name.endsWith(".docx") ? (
-                  <BsFiletypeDocx className="mr-3 text-3xl text-docxBg" />
-                ) : (
-                  <BsFiletypeDoc className="mr-3 text-3xl text-docBg" />
+              <div>
+                <a
+                  href={message.document.blobUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.documentLink}
+                >
+                  <div className="flex ">
+                    {message.document.document.name.endsWith(".pdf") ? (
+                      <BsFiletypePdf className="mr-3 text-3xl text-pdfBg" />
+                    ) : message.document.document.name.endsWith(".docx") ? (
+                      <BsFiletypeDocx className="mr-3 text-3xl text-docxBg" />
+                    ) : (
+                      <BsFiletypeDoc className="mr-3 text-3xl text-docBg" />
+                    )}
+                    <h2>{message.document.document.name}</h2>
+                  </div>
+
+                  <div
+                    className={`  flex items-end justify-end space-x-2 text-xs opacity-70`}
+                  >
+                    <div>{message.hour}</div>
+                    {message.sent && (
+                      <IoCheckmarkDoneSharp className="text-dotBg" />
+                    )}
+                  </div>
+                </a>
+                {message.document.message !== "" && (
+                  <div
+                    className={`${
+                      message.sender === "me"
+                        ? styles.myMessageText
+                        : styles.messageText
+                    } flex flex-col mt-2`}
+                  >
+                    <div> {message.document.message}</div>
+                    <div className=" flex  justify-end items-center space-x-2 text-xs mt-1 opacity-70">
+                      <div>{message.hour}</div>
+                      {message.sent && (
+                        <IoCheckmarkDoneSharp className="text-dotBg" />
+                      )}
+                    </div>
+                  </div>
                 )}
-                <h2>{message.document.document.name}</h2>
-              </a>
+              </div>
             ) : message.image ? (
               <div className="flex flex-col">
                 {message.image.image.files.map((img, index) => (
@@ -179,27 +216,23 @@ function Messages() {
                   </div>
                 ))}
 
-             {message.image.image.message !== "" &&    <div
-             className={`${
-               message.sender === "me"
-                 ? styles.myMessageText
-                 : styles.messageText
-             } flex flex-col `}
-           >
-            
-
-             
-             <div> {message.image.image.message}</div>
-             <div className=" flex  justify-end items-center space-x-2 text-xs mt-1 opacity-70">
-               <div>{message.hour}</div>
-               {message.sent && (
-                 <IoCheckmarkDoneSharp className="text-dotBg" />
-               )}
-             </div>
-             
-
-            
-           </div>}
+                {message.image.image.message !== "" && (
+                  <div
+                    className={`${
+                      message.sender === "me"
+                        ? styles.myMessageText
+                        : styles.messageText
+                    } flex flex-col `}
+                  >
+                    <div> {message.image.image.message}</div>
+                    <div className=" flex  justify-end items-center space-x-2 text-xs mt-1 opacity-70">
+                      <div>{message.hour}</div>
+                      {message.sent && (
+                        <IoCheckmarkDoneSharp className="text-dotBg" />
+                      )}
+                    </div>
+                  </div>
+                )}
               </div>
             ) : (
               <div

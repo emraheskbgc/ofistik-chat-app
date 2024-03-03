@@ -24,7 +24,7 @@ module.exports = {
       personBg:"#e9e9f3",
       personMesTxt:"#7d7d81",
       dotBg:"#06d6a0",
-      messageCountBg:"#eaccdb",
+      messageCountBg:"#bbf7d0",
       messageCountTxt:"#ed7b9a",
       plusBtn:"#0dd6a6",
       plusTxt:"#fff",

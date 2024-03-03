@@ -72,15 +72,16 @@
 }
 .documentLink{
   padding: 10px;
-  background-color: #e0e0e0;
+  background-color: #005246;
+  color: #dbe4e3;
   border-radius: 15px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 0;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  
+  flex-direction: column;
 }
 .imageWithDownload {
   position: relative; 
