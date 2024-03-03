@@ -9,6 +9,8 @@ import { BsFiletypeDoc } from "react-icons/bs";
 import { MdCheck } from "react-icons/md";
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
 
+import ImageModal from "./ImageModal";
+
 import { useContext } from "react";
 import PhoneBookContext from "@/context/PhoneBookContext";
 
@@ -119,6 +121,16 @@ function Messages() {
     }
   };
 
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleImageClick = (imageUrl) => {
+    setSelectedImage(imageUrl);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedImage(null);
+  };
+
   console.log(messages);
   return (
     <div
@@ -192,9 +204,9 @@ function Messages() {
             ) : message.image ? (
               <div className="flex flex-col">
                 {message.image.image.files.map((img, index) => (
-                  <div key={index} className="mx-1">
+                  <div key={index} className="mx-1" >
                     <div className={styles.imageWithDownload}>
-                      <img src={img} alt="Sent" className={styles.sentImage} />
+                      <img src={img} alt="Sent" className={styles.sentImage} onClick={()=> {handleImageClick(img)}} />
                       {message.download && (
                         <a
                           href={message.image.image}
@@ -273,6 +285,9 @@ function Messages() {
         sendImage={sendImage}
         sendDocument={sendDocument}
       />
+      {selectedImage && (
+        <ImageModal imageUrl={selectedImage} onClose={handleCloseModal} />
+      )}
     </div>
   );
 }
