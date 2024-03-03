@@ -3,6 +3,8 @@ import styles from "./styles.module.css";
 import { MdCloudUpload } from "react-icons/md";
 import { IoSend, IoAddCircle } from "react-icons/io5";
 import useClickOutside from "@/hook/useClickOutside";
+import { FaTrash } from "react-icons/fa";
+
 
 function File({ fileOpenModal, setFileOpenModal, onSendClick }) {
   const fileRef = useRef();
@@ -81,12 +83,12 @@ function File({ fileOpenModal, setFileOpenModal, onSendClick }) {
                     alt={file.name}
                     className="w-20 h-20"
                   />
-                  <button
-                    className="absolute top-0 right-0 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center"
+                  <div
+                    className={styles.delete}
                     onClick={() => removeFile(index)}
                   >
-                    sil
-                  </button>
+                    <FaTrash/>
+                  </div>
                 </div>
               ))}
             </div>

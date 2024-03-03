@@ -8,3 +8,24 @@
     cursor: pointer;
     border-radius: 5px;
 }
+.delete {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+  }
+  
+ 
+  
+  .delete:hover {
+    z-index: 1;
+    color:red;
+    opacity: 1;
+   
+  }
+
