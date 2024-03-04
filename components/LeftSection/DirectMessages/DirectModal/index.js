@@ -3,7 +3,8 @@ import React, { useState, useRef } from "react";
 import styles from "./styles.module.css";
 
 import { IoCloseOutline } from "react-icons/io5";
-import { RiUserSearchLine } from "react-icons/ri";
+import { IoClose } from 'react-icons/io5';
+import { GoDash } from 'react-icons/go';
 import { IoSend } from "react-icons/io5";
 import PhoneBook from "@/components/PhoneBook";
 import users from "@/public/assets/data/users.json";
@@ -51,9 +52,21 @@ function DirectModal({ isOpenModal, setIsOpenModal }) {
             </div>
           </div>
           <div >
-          <div className="pr-3 pt-3 text-xl text-modalCloseIcon cursor-pointer">
-              <IoCloseOutline onClick={() => setIsOpenModal(false)} />
-            </div>
+          <div className='flex flex-row justify-between items-center'>
+               
+                <div onClick={()=> setIsOpenModal(false)}>
+                  <div className='w-10 h-10 rounded-md p-4 cursor-pointer transition-all duration-700 relative  bg-gray-200/50 hover:bg-red-500 group'>
+                    <IoClose
+                      size={30}
+                      className='text-red-500 transition-all duration-700 rotate-180 flex absolute group-hover:opacity-0 group-hover:rotate-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
+                    />
+                    <GoDash
+                      size={30}
+                      className='text-white rotate-0 transition-all duration-700 opacity-0 group-hover:block group-hover:rotate-180 group-hover:opacity-100 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
+                    />
+                  </div>
+                </div>
+              </div>
           </div>
             
           </div>
