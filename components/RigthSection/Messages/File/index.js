@@ -4,6 +4,8 @@ import { MdCloudUpload } from "react-icons/md";
 import { IoSend, IoAddCircle } from "react-icons/io5";
 import useClickOutside from "@/hook/useClickOutside";
 import { FaTrash } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
+import { GoDash } from "react-icons/go";
 
 
 function File({ fileOpenModal, setFileOpenModal, onSendClick }) {
@@ -66,13 +68,41 @@ function File({ fileOpenModal, setFileOpenModal, onSendClick }) {
             onClick={() => setFileOpenModal(false)}
             className="flex cursor-pointer justify-end mb-2 font-semibold w-full pr-5 text-messageBg"
           >
-            X
+          <div className="flex justify-end items-end">
+          <div onClick={() => setFileOpenModal(false)}>
+           <div className="w-6 h-6 rounded-md p-4 cursor-pointer transition-all duration-700 relative  bg-closeBtnBg bg-opacity-50 hover:bg-closeHoverBtnBg group">
+             <IoClose
+               size={20}
+               className="text-red-500 transition-all duration-700 rotate-180 flex absolute group-hover:opacity-0 group-hover:rotate-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+             />
+             <GoDash
+               size={20}
+               className="text-white rotate-0 transition-all duration-700 opacity-0 group-hover:block group-hover:rotate-180 group-hover:opacity-100 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+             />
+           </div>
+         </div>
+         </div>
+        
           </div>
           <form
             className={`${styles.form} md:w-[450px] w-[300px]  `}
+            onClick={() => {
+              if (files.length === 0) {
+                document.querySelector(".input-field").click();
+              }
+            }}
           
           >
-            
+         {
+          files.length  === 0 &&  <input
+          
+          type="file"
+          accept="image/*"
+          className="input-field"
+          hidden
+          onChange={handleFileChange}
+        />
+         }
             <div className="flex flex-wrap justify-center">
               {files.map((file, index) => (
                 <div  key={index} className="m-1 relative">
@@ -94,6 +124,7 @@ function File({ fileOpenModal, setFileOpenModal, onSendClick }) {
             </div>
             {files.length === 0 && (
               <>
+              
                 <MdCloudUpload color="#005246" size={60} />
                 <p className="text-messageBg">Fotoğraf seçiniz..</p>
                 <p className="opacity-30 text-xs">(Fotoğraf seçmek için artı butonuna basınız)</p>

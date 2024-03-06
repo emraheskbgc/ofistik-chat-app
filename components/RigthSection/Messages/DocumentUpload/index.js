@@ -2,7 +2,9 @@
 import React, { useRef, useState } from 'react';
 import styles from "./styles.module.css";
 import { MdCloudUpload } from "react-icons/md";
-import { IoSend, IoAddCircle } from "react-icons/io5"; // Ekledim: IoAddCircle
+import { IoSend, IoAddCircle } from "react-icons/io5"; 
+import { IoClose } from "react-icons/io5";
+import { GoDash } from "react-icons/go";
 
 
 import useClickOutside from '@/hook/useClickOutside';
@@ -53,7 +55,16 @@ function DocumentUpload({ documentOpenModal, setIsDocumentModal, onSendClick }) 
         <div   className="fixed z-50 left-0 top-0 bg-modalOutBg bg-opacity-50 w-screen h-screen justify-center items-center flex">
           <div ref={docRef} className="bg-inputbg rounded-t p-2 rounded-b shadow-md md:w-[500px] w-[300px] flex flex-col justify-center items-center">
             <div onClick={() => setIsDocumentModal(false)} className="flex text-messageBg cursor-pointer justify-end mb-2 font-semibold w-full pr-5">
-              X
+            <div className="w-6 h-6 rounded-md p-4 cursor-pointer transition-all duration-700 relative  bg-closeBtnBg bg-opacity-50 hover:bg-closeHoverBtnBg group">
+            <IoClose
+              size={20}
+              className="text-red-500 transition-all duration-700 rotate-180 flex absolute group-hover:opacity-0 group-hover:rotate-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+            />
+            <GoDash
+              size={20}
+              className="text-white rotate-0 transition-all duration-700 opacity-0 group-hover:block group-hover:rotate-180 group-hover:opacity-100 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+            />
+          </div>
             </div>
             <div className={styles.wrapper}>
               <div className={styles.box}>

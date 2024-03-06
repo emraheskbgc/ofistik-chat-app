@@ -17,15 +17,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0.5;
+  }
+  .delete:hover{
+    color :red;
   }
   
  
   
-  .delete:hover {
-    z-index: 1;
-    color:red;
-    opacity: 1;
-   
-  }
 

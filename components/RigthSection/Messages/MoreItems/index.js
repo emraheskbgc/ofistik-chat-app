@@ -12,14 +12,14 @@ function MoreItems({ showMoreMenu, setShowMoreMenu, handleFileClick, handleDocum
   });
 
   return (
-    <div ref={moreRef} className={` ${styles.animate} z-10 rounded-md flex flex-col   absolute md:left-[-40px] left-[-12px]  top-[-120px] border border-inputbg p-5 bg-inputMoreBg md:w-[20%] w-[40%]  `}>
+    <div ref={moreRef} className={` ${styles.animate} z-10 rounded-md flex flex-col   absolute md:left-[-40px] left-[-12px]  top-[-120px] border border-inputbg p-5 bg-inputMoreBg md:w-[26%] w-[40%]  `}>
       <div className="flex flex-row space-x-5  items-center cursor-pointer" onClick={handleFileClick}>
        
           <span>
           <GrGallery className='text-2xl'  />
           </span>
         
-        <p className="uppercase text-sm font-[600] mt-2">Fotoğraflar</p>
+        <p className="uppercase text-sm font-[600] mt-2">Fotoğraflar ve Videolar</p>
       </div>
       
 

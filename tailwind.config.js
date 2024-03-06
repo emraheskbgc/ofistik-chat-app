@@ -78,7 +78,10 @@ module.exports = {
       pdfBg:"#ef4444",
       docxBg:"#2563eb",
       muted:"#7d7d81",
-      checktxt:"#9ca3af"
+      checktxt:"#9ca3af",
+      premiumOrange:"hsl(7, 90%, 64%)",
+      closeBtnBg:"#e5e7eb",
+      closeHoverBtnBg:"#ef4444"
 
 
     },
