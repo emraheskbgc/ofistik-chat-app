@@ -1,4 +1,5 @@
 // useClickOutside.js
+// dışarı tıklandığında açık olan kısmı kapatmak için kullanılan bir fonksiyon
 
 import { useEffect } from "react";
 

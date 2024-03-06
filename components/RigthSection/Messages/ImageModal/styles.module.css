@@ -10,7 +10,8 @@
     cursor: pointer;
   }
   .downloadLink:hover{
-    color:#000 ;
+    color:#dc2626 ;
+    opacity: 0.9;
   }
 .closeImage{
     position: absolute; 

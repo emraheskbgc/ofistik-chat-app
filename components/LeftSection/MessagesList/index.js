@@ -1,7 +1,6 @@
 
 import React,{useState} from 'react'
 import Header from '../Header'
-import Favourites from '../Favourites'
 import DirectMessages from '../DirectMessages'
 import Channels from '../Channels'
 import styles from "./styles.module.css"
