@@ -17,10 +17,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    color: red;
   }
-  .delete:hover{
-    color :red;
-  }
+  
   
  
   

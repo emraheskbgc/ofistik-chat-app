@@ -1,4 +1,4 @@
-import React,{useRef,useEffect} from 'react'
+import React,{useRef} from 'react'
 import { IoSearch } from "react-icons/io5";
 import useClickOutside from '@/hook/useClickOutside';
 

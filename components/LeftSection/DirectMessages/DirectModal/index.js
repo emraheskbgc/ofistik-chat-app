@@ -7,9 +7,8 @@ import { GoDash } from "react-icons/go";
 import { IoSend } from "react-icons/io5";
 import PhoneBook from "@/components/PhoneBook";
 import users from "@/public/assets/data/users.json";
-import ChannelsModal from "../../Channels/ChannelsModal";
+import ChannelsModal from "../../ChannelsModal";
 
-import useClickOutside from "@/hook/useClickOutside";
 
 import { useContext } from "react";
 import PhoneBookContext from "@/context/PhoneBookContext";
@@ -24,7 +23,6 @@ function DirectModal({ isOpenModal, setIsOpenModal }) {
     user.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const directRef = useRef();
 
   const [channelOpenModal, setChannelOpenModal] = useState(false);
 

@@ -1,6 +1,5 @@
 "use client";
-import React, { useState, useRef } from "react";
-import { IoCloseOutline } from "react-icons/io5";
+import React, {useRef } from "react";
 import { IoClose } from 'react-icons/io5';
 import { GoDash } from 'react-icons/go';
 import styles from "./styles.module.css";

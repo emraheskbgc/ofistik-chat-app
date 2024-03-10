@@ -111,7 +111,7 @@ function File({ fileOpenModal, setFileOpenModal, onSendClick }) {
                     width={100}
                     height={100}
                     alt={file.name}
-                    className="w-20 h-20"
+                    className="w-35 h-35"
                   />
                   <div
                     className={styles.delete}

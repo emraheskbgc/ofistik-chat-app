@@ -4,8 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 
 
 
-import PhoneCallModal from "./PhoneCallModal";
-import VideoCallModal from "./VideoCallModal";
+
 import Info from "./Info";
 import { useContext } from "react";
 import PhoneBookContext from "@/context/PhoneBookContext";
@@ -13,7 +12,6 @@ import { MdKeyboardArrowLeft } from "react-icons/md";
 
 
 
-import useClickOutside from "@/hook/useClickOutside";
 import SearchBar from "./SearchBar";
 import DropMenu from "./DrowMenu";
 
@@ -114,17 +112,7 @@ function ChatHeader() {
         </div>
       </div>
 
-      <PhoneCallModal
-        isOpenPhoneModal={isOpenPhoneModal}
-        setIsOpenPhoneModal={setIsOpenPhoneModal}
-        selectedUser={selectedUser}
-       
-      />
-      <VideoCallModal
-        isOpenVideoCallModal={isOpenVideoCallModal}
-        setIsOpenVideoCallModal={setIsOpenVideoCallModal}
-       
-      />
+     
       <Info
         isInfoPanelOpen={isInfoPanelOpen}
         setIsInfoPanelOpen={setIsInfoPanelOpen}

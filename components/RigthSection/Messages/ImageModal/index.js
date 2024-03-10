@@ -10,7 +10,7 @@ function ImageModal({ imageUrl, onClose }) {
     <div className="fixed z-50 left-0 top-0 bg-modalOutBg bg-opacity-50 w-screen h-screen flex justify-center items-center" onClick={onClose}>
     <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50">
       <div className="bg-messageBodyBg bg-opacity-50 p-6 rounded-lg relative">
-        <img src={imageUrl} alt="Modal" className="w-[400px] h-[550px]" />
+        <img src={imageUrl} alt="Modal" className="w-[400px] h-[580px]" />
         <span
           className={styles.closeImage}
           onClick={onClose}
