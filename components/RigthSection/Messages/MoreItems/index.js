@@ -19,7 +19,7 @@ function MoreItems({ showMoreMenu, setShowMoreMenu, handleFileClick, handleDocum
           <GrGallery className='text-2xl'  />
           </span>
         
-        <p className="uppercase text-sm font-[600] mt-2">Fotoğraflar ve Videolar</p>
+        <p className="uppercase md:text-sm text-xs font-[600] mt-2">Fotoğraflar ve Videolar</p>
       </div>
       
 
