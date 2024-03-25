@@ -69,14 +69,14 @@ function DirectModal({ isOpenModal, setIsOpenModal }) {
               </div>
             </div>
           </div>
-          <div className="bg-inputbg  flex justify-between items-center  pl-3 py-5 top-0 w-full">
-            <div className="text-personMesTxt font-bold text-md">Rehber</div>
+          <div className="bg-premiumOrange  flex justify-between items-center  pl-3 py-5 top-0 w-full">
+            <div className="text-plusTxt font-bold text-md">Rehber</div>
           </div>
           <div className="flex  w-[100%] bg-messageBodyBg py-5 px-4 ">
             <input
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className=" border border-modalInputBorder border-opacity-45 placeholder:italic focus-within:outline bg-inputbg text-sm text-gray-700 px-2 rounded py-3  w-full  "
+              className=" border border-modalInputBorder border-opacity-45 placeholder:italic focus-within:outline bg-plusTxt text-sm text-gray-700 px-2 rounded py-3  w-full  "
               type="text"
               id="searchUser"
               placeholder="Kişi Ara.."
@@ -95,7 +95,7 @@ function DirectModal({ isOpenModal, setIsOpenModal }) {
           </div>
 
           <div className="flex justify-end  items-center pr-8 py-5   w-full rounded-b">
-            <div className="border py-4 px-5 cursor-pointer bg-modalSendBtn text-modalSendTxt rounded">
+            <div className="border py-4 px-5 cursor-pointer bg-premiumOrange text-plusTxt rounded">
               <IoSend />
             </div>
           </div>

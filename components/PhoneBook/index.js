@@ -40,7 +40,7 @@ function PhoneBook({ showAvatar, showCheckBox,filteredUsers, setIsOpenModal }) {
       {Object.keys(groupedUsers).map((letter) => (
         <div key={letter}>
           <div
-            className={`${styles.letterHeader} text-modalSendBtn flex justify-center items-center`}
+            className={`${styles.letterHeader} text-premiumOrange flex justify-center items-center`}
           >
             {letter} <div className="w-[80%] ml-4 h-0 opacity-15 border"></div>
           </div>
@@ -56,10 +56,10 @@ function PhoneBook({ showAvatar, showCheckBox,filteredUsers, setIsOpenModal }) {
               {showCheckBox && (
                 <input
                   type="checkbox"
-                  className="mr-3 accent-channelModalCheckBoxBg "
+                  className="mr-3 accent-premiumOrange "
                 />
               )}
-              <span className="text-personMesTxt hover:text-plusTxt font-[600] text-sm">
+              <span className=" hover:text-premiumOrange font-[600] text-sm">
                 {user.name}
               </span>
             </div>

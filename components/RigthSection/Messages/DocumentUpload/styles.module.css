@@ -32,12 +32,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 3px dashed #020617;
+    border: 3px dashed hsl(7, 90%, 64%);
     cursor: pointer;
 }
 .uploadIcon{
     font-size: 70px;
-    color: #005246;
+    color: hsl(7, 90%, 64%);
 }
 
 .uploaded{
@@ -80,7 +80,7 @@
     margin: 0;
 }
 .rightSpan{
-    background: #005246;
+    background: hsl(7, 90%, 64%);
     color: #fff;
     width: 25px;
     height: 25px;

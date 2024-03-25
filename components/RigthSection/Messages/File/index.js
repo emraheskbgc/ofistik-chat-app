@@ -125,7 +125,7 @@ function File({ fileOpenModal, setFileOpenModal, onSendClick }) {
             {files.length === 0 && (
               <>
               
-                <MdCloudUpload color="#005246" size={60} />
+                <MdCloudUpload color="hsl(7, 90%, 64%)" size={60} />
                 <p className="text-messageBg">Fotoğraf seçiniz..</p>
                 <p className="opacity-30 text-xs">(Fotoğraf seçmek için artı butonuna basınız)</p>
               </>
@@ -144,14 +144,14 @@ function File({ fileOpenModal, setFileOpenModal, onSendClick }) {
             </div>
             <div className="flex items-center">
               <div
-                className="p-1 cursor-pointer bg-modalSendBtn text-modalSendTxt rounded mr-2"
+                className="p-1 cursor-pointer bg-premiumOrange text-modalSendTxt rounded mr-2"
                 onClick={handleSendClick}
               >
                 <IoSend />
               </div>
               <label
                 htmlFor="file-upload"
-                className="p-1 cursor-pointer bg-modalSendBtn text-modalSendTxt rounded"
+                className="p-1 cursor-pointer bg-premiumOrange text-modalSendTxt rounded"
               >
                 <IoAddCircle />
               </label>

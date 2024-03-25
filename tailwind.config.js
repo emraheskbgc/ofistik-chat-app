@@ -70,7 +70,8 @@ module.exports = {
       checktxt:"#9ca3af",
       premiumOrange:"hsl(7, 90%, 64%)",
       closeBtnBg:"#e5e7eb",
-      closeHoverBtnBg:"#ef4444"
+      closeHoverBtnBg:"#ef4444",
+
 
 
     },

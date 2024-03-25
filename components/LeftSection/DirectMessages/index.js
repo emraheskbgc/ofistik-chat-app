@@ -81,7 +81,7 @@ function DirectMessages({ filteredUser, filterType  }) {
             </div>
             <div>
              {person.unreadMessages > 0  && (
-              <div className="w-5 h-5 bg-messageCountBg text-xs text-dotBg font-bold flex items-center rounded-full p-3  justify-center">
+              <div className="w-5 h-5 bg-premiumOrange text-xs text-plusTxt font-bold flex items-center rounded-full p-3  justify-center">
                 <span>{person.unreadMessages}</span>
               </div>
             )}

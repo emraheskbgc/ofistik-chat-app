@@ -106,14 +106,14 @@ function DocumentUpload({ documentOpenModal, setIsDocumentModal, onSendClick }) 
                   </div>
                   <div className="flex items-center">
                     <div
-                      className="p-1 cursor-pointer bg-modalSendBtn text-modalSendTxt rounded mr-2"
+                      className="p-1 cursor-pointer bg-premiumOrange text-modalSendTxt rounded mr-2"
                       onClick={handleSendClick}
                     >
                       <IoSend />
                     </div>
                     <label
                       htmlFor="upload"
-                      className="p-1 cursor-pointer bg-modalSendBtn text-modalSendTxt rounded"
+                      className="p-1 cursor-pointer bg-premiumOrange text-modalSendTxt rounded"
                     >
                       <IoAddCircle />
                     </label>

@@ -121,7 +121,7 @@ function Input({ inputValue, sendMessage, handleInputChange, sendImage, sendDocu
        
         <div >
           <button  onClick={handleSendClick}>
-            <div className=" py-4 px-5 cursor-pointer bg-modalSendBtn text-modalSendTxt rounded">
+            <div className=" py-4 px-5 cursor-pointer bg-premiumOrange text-modalSendTxt rounded">
            <IoSend />
             </div>
           </button>

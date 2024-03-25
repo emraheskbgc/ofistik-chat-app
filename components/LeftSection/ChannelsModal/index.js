@@ -73,8 +73,8 @@ function ChannelsModal({
         </div>
             
           </div>
-          <div className="bg-inputbg rounded-tr flex justify-between items-center  pl-3 py-5 top-0 w-full">
-            <div className="text-personMesTxt font-bold text-md">
+          <div className="bg-premiumOrange rounded-tr flex justify-between items-center  pl-3 py-5 top-0 w-full">
+            <div className="text-plusTxt font-bold text-md">
               Yeni Toplu Mesaj Oluştur
             </div>
             
@@ -107,7 +107,7 @@ function ChannelsModal({
        
           <div className="flex justify-end items-center pr-8 py-5  w-full rounded-b">
            
-            <div className=" py-4 px-5 cursor-pointer bg-modalSendBtn text-modalSendTxt rounded">
+            <div className=" py-4 px-5 cursor-pointer bg-premiumOrange text-modalSendTxt rounded">
              Toplu Mesaj Gönder
             </div>
           </div>

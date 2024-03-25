@@ -7,13 +7,14 @@ import DirectModal from "../DirectMessages/DirectModal";
 import { useContext } from "react";
 import PhoneBookContext from "@/context/PhoneBookContext";
 
-function Header({ onSearch, onFilterChange  }) {
+function Header({ onSearch, onFilterChange, filteredUser }) {
   const [selectOption, setSelectOption] = useState("inbox");
   
   const handleClickOption = (option) => {
     setSelectOption(option);
     onFilterChange(option); // Seçilen filtre tipini ilet
   };
+
 
   const handleInputChange = (e) => {
     onSearch(e.target.value);
@@ -38,13 +39,13 @@ function Header({ onSearch, onFilterChange  }) {
       <div className="flex text-3xl text-messageBg space-x-3 justify-end mr-5 mt-2 opacity-80">
         <Tooltip hasArrow label="Support" placement="bottom" fontSize="sm">
           <div className="cursor-pointer " onClick={handleSupportOfistik}>
-            <BiSupport className="hover:text-dotBg duration-300" />
+            <BiSupport className="hover:text-premiumOrange duration-300" />
           </div>
         </Tooltip>
         <Tooltip hasArrow label="New Message" placement="bottom" fontSize="sm">
           <div className="cursor-pointer">
             <RiContactsBookFill
-              className="hover:text-dotBg duration-300"
+              className="hover:text-premiumOrange duration-300"
               onClick={handleClickOpenModal}
             />
           </div>
@@ -52,7 +53,7 @@ function Header({ onSearch, onFilterChange  }) {
       </div>
       <DirectModal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />
       <h2 className="text-xl ml-10 mt-6 mb-4 font-[500] text-messageBg ">
-        Mesajlar <span className="text-messageBg text-sm ">(128)</span>
+        Mesajlar <span className="text-premiumOrange text-sm ">({filteredUser.length})</span>
       </h2>
 
       <div className="flex  items-center w-[80%] h-12 rounded-sm focus-within:shadow-lg focus-within:outline container bg-inputbg">

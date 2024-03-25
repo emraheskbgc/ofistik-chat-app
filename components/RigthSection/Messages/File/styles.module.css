@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px dashed #005246;
+    border: 2px dashed hsl(7, 90%, 64%);
     height: 300px;
     cursor: pointer;
     border-radius: 5px;
