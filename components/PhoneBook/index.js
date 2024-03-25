@@ -1,26 +1,29 @@
-
 import React from "react";
 import styles from "./styles.module.css";
 import users from "@/public/assets/data/users.json";
 
-
 import { useContext } from "react";
-import PhoneBookContext  from "@/context/PhoneBookContext"
+import PhoneBookContext from "@/context/PhoneBookContext";
 
-function PhoneBook({ showAvatar, showCheckBox,filteredUsers, setIsOpenModal }) {
-
-  const {handleUserSelect} = useContext(PhoneBookContext)
+function PhoneBook({
+  showAvatar,
+  showCheckBox,
+  filteredUsers,
+  setIsOpenModal,
+}) {
+  const { handleUserSelect } = useContext(PhoneBookContext);
 
   const handleSelectPerson = (person) => {
-    handleUserSelect(person)
-    setIsOpenModal(false)
-  }
-
+    handleUserSelect(person);
+    setIsOpenModal(false);
+  };
 
   const usersToDisplay = filteredUsers || users;
 
   // kullanıcıları alfabetik sıralama
-  const sortedUsers = usersToDisplay.sort((a, b) => a.name.localeCompare(b.name));
+  const sortedUsers = usersToDisplay.sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
 
   //alfabetik sıralamaya göre kullanıcıları harf başlıklarıyla gruplayalım:
 
@@ -34,7 +37,6 @@ function PhoneBook({ showAvatar, showCheckBox,filteredUsers, setIsOpenModal }) {
     groupedUsers[firstLetter].push(user);
   });
 
-
   return (
     <div>
       {Object.keys(groupedUsers).map((letter) => (
@@ -45,23 +47,31 @@ function PhoneBook({ showAvatar, showCheckBox,filteredUsers, setIsOpenModal }) {
             {letter} <div className="w-[80%] ml-4 h-0 opacity-15 border"></div>
           </div>
           {groupedUsers[letter].map((user) => (
-            <div onClick={()=>handleSelectPerson(user)} key={user.id} className={styles.userItem}>
+            <div key={user.id} className={styles.userItem}>
               {showAvatar && (
-                <img
-                  src={user.avatar}
-                  alt={user.name}
-                  className={styles.avatar}
-                />
+                <div
+                  className="flex items-center"
+                  onClick={() => handleSelectPerson(user)}
+                >
+                  <img
+                    src={user.avatar}
+                    alt={user.name}
+                    className={styles.avatar}
+                  />
+                  <span className=" hover:text-premiumOrange font-[600] text-sm">
+                    {user.name}
+                  </span>
+                </div>
               )}
               {showCheckBox && (
-                <input
-                  type="checkbox"
-                  className="mr-3 accent-premiumOrange "
-                />
+                <div className="flex items-center">
+                 <input type="checkbox" className="mr-3 accent-premiumOrange " />
+                 <span className=" hover:text-premiumOrange font-[600] text-sm">
+                 {user.name}
+               </span>
+                </div>
+               
               )}
-              <span className=" hover:text-premiumOrange font-[600] text-sm">
-                {user.name}
-              </span>
             </div>
           ))}
         </div>
