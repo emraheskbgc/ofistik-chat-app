@@ -55,8 +55,8 @@
   }
   .myMessageText{
     padding: 10px;
-    background-color: #005246;
-    color: #dbe4e3;
+    background-color: hsl(7, 90%, 64%, 0.5);
+    color: #000;
     border-radius: 15px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 0;
