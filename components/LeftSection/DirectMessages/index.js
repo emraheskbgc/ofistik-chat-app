@@ -76,7 +76,7 @@ function DirectMessages({ filteredUser, filterType  }) {
                 <IoCheckmarkDoneSharp className="text-checktxt" />
               )}
               {person.unsendMessage && <MdCheck />}
-              {person.readMessage && <IoCheckmarkDoneSharp className="text-dotBg" />}
+              {person.readMessage && <IoCheckmarkDoneSharp className="text-premiumOrange" />}
             </div>
             </div>
             <div>

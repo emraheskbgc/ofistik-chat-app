@@ -179,7 +179,7 @@ function Messages() {
                   >
                     <div>{message.hour}</div>
                     {message.sent && (
-                      <IoCheckmarkDoneSharp className="text-dotBg" />
+                      <IoCheckmarkDoneSharp className="text-premiumOrange" />
                     )}
                   </div>
                 </a>
@@ -195,7 +195,7 @@ function Messages() {
                     <div className=" flex  justify-end items-center space-x-2 text-xs mt-1 opacity-70">
                       <div>{message.hour}</div>
                       {message.sent && (
-                        <IoCheckmarkDoneSharp className="text-dotBg" />
+                        <IoCheckmarkDoneSharp className="text-premiumOrange" />
                       )}
                     </div>
                   </div>
@@ -221,7 +221,7 @@ function Messages() {
                       >
                         <div className="text-plusTxt">{message.hour}</div>
                         {message.sent && (
-                          <IoCheckmarkDoneSharp className="text-dotBg" />
+                          <IoCheckmarkDoneSharp className="text-premiumOrange" />
                         )}
                       </div>
                     </div>
@@ -240,7 +240,7 @@ function Messages() {
                     <div className=" flex  justify-end items-center space-x-2 text-xs mt-1 opacity-70">
                       <div>{message.hour}</div>
                       {message.sent && (
-                        <IoCheckmarkDoneSharp className="text-dotBg" />
+                        <IoCheckmarkDoneSharp className="text-premiumOrange" />
                       )}
                     </div>
                   </div>
@@ -258,7 +258,7 @@ function Messages() {
                 <div className=" flex  justify-end items-center space-x-2 text-xs mt-1 opacity-70">
                   <div>{message.hour}</div>
                   {message.sent && (
-                    <IoCheckmarkDoneSharp className="text-dotBg" />
+                    <IoCheckmarkDoneSharp className="text-premiumOrange" />
                   )}
                   <div>
                     {message.sendMessage && (
@@ -266,7 +266,7 @@ function Messages() {
                     )}
                     {message.unsendMessage && <MdCheck />}
                     {message.readMessage && (
-                      <IoCheckmarkDoneSharp className="text-dotBg" />
+                      <IoCheckmarkDoneSharp className="text-premiumOrange" />
                     )}
                   </div>
                 </div>
