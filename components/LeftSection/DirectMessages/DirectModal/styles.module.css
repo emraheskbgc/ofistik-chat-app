@@ -36,9 +36,10 @@
   }
 
   .contactsContainer {
-    max-height: 400px;
+    max-height: 600px;
     overflow-y: auto;
     background-color: #e5e7eb;
+    padding-top: 20px;
     
   }
   

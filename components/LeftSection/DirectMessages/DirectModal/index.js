@@ -38,7 +38,7 @@ function DirectModal({ isOpenModal, setIsOpenModal }) {
           isOpenModal ? "flex flex-col" : "hidden"
         }`}
       >
-        <div className="bg-modalBg rounded-t rounded-b shadow-md md:w-[40%] w-[80%] flex flex-col">
+        <div className="bg-modalBg rounded-t rounded-b shadow-md md:w-[40%] w-[80%] h-full   flex flex-col">
           <div className="bg-modalBg p-2     shadow-md  w-[100%] flex justify-between">
             <div className="flex justify-center my-5 flex-wrap text-sm md:text-[1.2vw] lg:text-[1.1vw] xl:text-[1vw]">
               <button
@@ -72,7 +72,7 @@ function DirectModal({ isOpenModal, setIsOpenModal }) {
           <div className="bg-premiumOrange  flex justify-between items-center  pl-3 py-5 top-0 w-full">
             <div className="text-plusTxt font-bold text-md">Rehber</div>
           </div>
-          <div className="flex  w-[100%] bg-messageBodyBg py-5 px-4 ">
+          <div className="flex  w-[100%] bg-messageBodyBg py-5 px-4  ">
             <input
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -94,7 +94,7 @@ function DirectModal({ isOpenModal, setIsOpenModal }) {
             />
           </div>
 
-          <div className="flex justify-end  items-center pr-8 py-5   w-full rounded-b">
+          <div className="flex justify-end  items-center pr-8 py-10  w-full rounded-b">
             <div className="border py-4 px-5 cursor-pointer bg-premiumOrange text-plusTxt rounded">
               <IoSend />
             </div>

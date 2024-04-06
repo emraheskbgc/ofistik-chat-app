@@ -1,5 +1,5 @@
 "use client";
-import React, {useRef } from "react";
+import React, {useRef, useState } from "react";
 import { IoClose } from 'react-icons/io5';
 import { GoDash } from 'react-icons/go';
 import styles from "./styles.module.css";
@@ -27,7 +27,7 @@ function ChannelsModal({
     setIsOpenModal(!isOpenModal);
     setChannelOpenModal(false);
   };
-
+  const [userBg, setUserBg] = useState([])
   return (
     <>
       <div
@@ -35,7 +35,7 @@ function ChannelsModal({
           channelOpenModal ? "flex flex-col" : "hidden"
         }`}
       >
-        <div className="bg-messageBodyBg rounded-t rounded-b shadow-md md:w-[40%] w-[80%] flex flex-col">
+        <div className="bg-messageBodyBg rounded-t rounded-b shadow-md md:w-[40%] w-[80%] flex flex-col justify-center border items-center">
       
 
 
@@ -73,29 +73,27 @@ function ChannelsModal({
         </div>
             
           </div>
-          <div className="bg-premiumOrange rounded-tr flex justify-between items-center  pl-3 py-5 top-0 w-full">
-            <div className="text-plusTxt font-bold text-md">
+          <div className="bg-premiumOrange rounded-tr flex justify-between items-center  pl-3 py-2 top-0 w-full">
+            <div className="text-plusTxt font-bold text-sm">
               Yeni Toplu Mesaj Oluştur
             </div>
             
           </div>
-          <div className="flex flex-col bg-messageBodyBg text-personMesTxt  w-[100%]  py-5 px-4 ">
-            
-            users
+          <div className="flex  bg-messageBodyBg space-x-1 text-personMesTxt  w-[100%]  py-5 px-4 ">
+            {userBg.length === 0 && <h2 className="font-semibold mb-1">Kişi Seç</h2>}
+            {userBg.slice(0,5).map((user,index)=> (<span key={index} className="font-semibold">{user.name}</span>))}{userBg.length > 5 &&"..."}
           </div>
-          <div className="flex  flex-col bg-messageBodyBg text-personMesTxt  w-[100%]   px-4 ">
-            <h2 className="font-semibold mb-1">Kişi Seç</h2>
-          </div>
+         
 
-          <div className={`${styles.contactsContainer} border md:ml-10 ml-8 `}>
+          <div className={`${styles.contactsContainer}    `}>
             <h2 className=" font-[600] text-sm text-modalOutBg bg-inputbg p-2  w-full">
               Rehber
             </h2>
-            <PhoneBook showAvatar={false} showCheckBox={showCheckBox} />
+            <PhoneBook showAvatar={false} showCheckBox={showCheckBox} setUserBg={setUserBg} />
           </div>
 
-          <div className="flex rounded flex-col bg-messageBodyBg    w-[90%] md:ml-7 ml-4    my-4 px-4 ">
-            <h2 className="font-semibold mb-3">Mesaj</h2>
+          <div className="flex rounded flex-col bg-messageBodyBg    w-[85%] py-2   my-4 px-4 ">
+           
             <textarea
               cols="2"
               rows="2"
@@ -105,9 +103,9 @@ function ChannelsModal({
           </div>
 
        
-          <div className="flex justify-end items-center pr-8 py-5  w-full rounded-b">
+          <div className="flex justify-end items-center  pb-5  w-[80%] rounded-b">
            
-            <div className=" py-4 px-5 cursor-pointer bg-premiumOrange text-modalSendTxt rounded">
+            <div className=" py-2 px-4 cursor-pointer bg-premiumOrange text-modalSendTxt rounded text-sm font-[500]" >
              Toplu Mesaj Gönder
             </div>
           </div>

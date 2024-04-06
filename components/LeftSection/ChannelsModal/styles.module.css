@@ -35,7 +35,7 @@
     transition: transform 300ms ease-in;
   }
   .contactsContainer {
-    max-height: 200px;
+    max-height: 600px;
     overflow-y: auto;
     width: 80%; 
     background-color: #e5e7eb;

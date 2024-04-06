@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./styles.module.css";
 import users from "@/public/assets/data/users.json";
 
@@ -10,12 +10,25 @@ function PhoneBook({
   showCheckBox,
   filteredUsers,
   setIsOpenModal,
+  setUserBg
 }) {
   const { handleUserSelect } = useContext(PhoneBookContext);
 
   const handleSelectPerson = (person) => {
+   
     handleUserSelect(person);
     setIsOpenModal(false);
+  };
+
+  
+  const handleToggleSelect = (person) => {
+    setUserBg((prevSelectedUsers) => {
+      const isSelected = prevSelectedUsers.includes(person);
+      return isSelected
+        ? prevSelectedUsers.filter((user) => user !== person)
+        : [...prevSelectedUsers, person];
+    });
+    person.isSelected = !person.isSelected
   };
 
   const usersToDisplay = filteredUsers || users;
@@ -64,11 +77,20 @@ function PhoneBook({
                 </div>
               )}
               {showCheckBox && (
-                <div className="flex items-center">
-                 <input type="checkbox" className="mr-3 accent-premiumOrange " />
-                 <span className=" hover:text-premiumOrange font-[600] text-sm">
-                 {user.name}
-               </span>
+                <div className="flex pb-1 items-center space-x-2" onClick={() => handleToggleSelect(user)}>
+                <div className={`${styles.checkbox} ${user.isSelected ? "bg-premiumOrange" : ''} `}></div>
+                <div
+                  className="flex items-center"
+                >
+                  <img
+                    src={user.avatar}
+                    alt={user.name}
+                    className={styles.avatar}
+                  />
+                  <span className=" hover:text-premiumOrange font-[600] text-sm">
+                    {user.name}
+                  </span>
+                </div>
                 </div>
                
               )}

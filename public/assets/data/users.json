@@ -5,6 +5,7 @@
     "email": "ahmet@ahmet.com",
     "phone": "05385186969",
     "avatar": "/assets/images/avatar.jpeg ",
+     "isSelected": false,
     "messages": [
       { "message": "Merhaba Nasılsın", "time": "02/02/24","hour":"10:22" },
       { "message": "Merhaba ", "time": "03/02/24","hour":"10:22" },
@@ -26,6 +27,7 @@
     "email": "ayse@ayse.com",
     "phone": "053495216969",
     "avatar": "/assets/images/avatar2.jpeg",
+    "isSelected": false,
     "messages": [
       { "message": "Merhaba Nasılsın", "time": "02/02/24","hour":"10:22" },
       { "message": "Merhaba ", "time": "03/02/24","hour":"10:22" },
@@ -47,6 +49,7 @@
     "email": "berk@berk.com",
     "phone": "053497865879",
     "avatar": "/assets/images/avatar.jpeg ",
+    "isSelected": false,
     "messages": [
       { "message": "Merhaba Nasılsın", "time": "02/02/24","hour":"10:22" },
       { "message": "Merhaba ", "time": "03/02/24","hour":"10:22" },
@@ -68,6 +71,7 @@
     "email": "buse@buse.com",
     "phone": "05349786989",
     "avatar": "/assets/images/icon.jpeg",
+    "isSelected": false,
     "messages": [
       { "message": "Merhaba Nasılsın", "time": "02/02/24","hour":"10:22" },
       { "message": "Merhaba ", "time": "03/02/24","hour":"10:22"},
@@ -89,6 +93,7 @@
     "email": "emrah@emrah.com",
     "phone": "05349786969",
     "avatar": "/assets/images/emrah.jpg ",
+    "isSelected": false,
     "messages": [
       { "message": "Merhaba Nasılsın", "time": "02/02/24","hour":"10:22" },
       { "message": "Merhaba ", "time": "03/02/24","hour":"10:22" },
@@ -110,6 +115,7 @@
     "email": "zeliha@zeliha.com",
     "phone": "05345686969",
     "avatar": "/assets/images/avatar2.jpeg",
+    "isSelected": false,
     "messages": [
       { "message": "Merhaba Nasılsın", "time": "02/02/24","hour":"10:22" },
       { "message": "Merhaba ", "time": "03/02/24","hour":"10:22" },
