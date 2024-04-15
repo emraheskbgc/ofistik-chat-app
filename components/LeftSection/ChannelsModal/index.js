@@ -35,7 +35,7 @@ function ChannelsModal({
           channelOpenModal ? "flex flex-col" : "hidden"
         }`}
       >
-        <div className="bg-messageBodyBg -mt-48 md:-mt-0 rounded-t rounded-b shadow-md md:w-[40%] w-[80%] flex flex-col justify-center border items-center">
+        <div className="bg-messageBodyBg -mt-28 md:-mt-0 rounded-t rounded-b shadow-md md:w-[40%] w-[80%] flex flex-col justify-center border items-center">
       
 
 
