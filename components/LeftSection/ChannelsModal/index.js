@@ -35,7 +35,7 @@ function ChannelsModal({
           channelOpenModal ? "flex flex-col" : "hidden"
         }`}
       >
-        <div className="bg-messageBodyBg rounded-t rounded-b shadow-md md:w-[40%] w-[80%] flex flex-col justify-center border items-center">
+        <div className="bg-messageBodyBg -mt-48 md:-mt-0 rounded-t rounded-b shadow-md md:w-[40%] w-[80%] flex flex-col justify-center border items-center">
       
 
 
@@ -73,7 +73,7 @@ function ChannelsModal({
         </div>
             
           </div>
-          <div className="bg-premiumOrange rounded-tr flex justify-between items-center  pl-3 py-2 top-0 w-full">
+          <div className="bg-premiumOrange  rounded-tr flex justify-between items-center  pl-3 py-2 top-0 w-full">
             <div className="text-plusTxt font-bold text-sm">
               Yeni Toplu Mesaj Oluştur
             </div>
@@ -85,7 +85,7 @@ function ChannelsModal({
           </div>
          
 
-          <div className={`${styles.contactsContainer}    `}>
+          <div className={`${styles.contactsContainer}  md:max-h-[600px]  max-h-[300px]`}>
             <h2 className=" font-[600] text-sm text-modalOutBg bg-inputbg p-2  w-full">
               Rehber
             </h2>

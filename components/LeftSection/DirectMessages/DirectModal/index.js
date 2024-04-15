@@ -38,7 +38,7 @@ function DirectModal({ isOpenModal, setIsOpenModal }) {
           isOpenModal ? "flex flex-col" : "hidden"
         }`}
       >
-        <div className="bg-modalBg rounded-t rounded-b shadow-md md:w-[40%] w-[80%] h-full   flex flex-col">
+        <div className="bg-modalBg rounded-t rounded-b shadow-md md:w-[40%] w-[80%] md:h-full -mt-48 md:-mt-0  flex flex-col">
           <div className="bg-modalBg p-2     shadow-md  w-[100%] flex justify-between">
             <div className="flex justify-center my-5 flex-wrap text-sm md:text-[1.2vw] lg:text-[1.1vw] xl:text-[1vw]">
               <button
@@ -82,7 +82,7 @@ function DirectModal({ isOpenModal, setIsOpenModal }) {
               placeholder="Kişi Ara.."
             />
           </div>
-          <div className={styles.contactsContainer}>
+          <div className={`${styles.contactsContainer} md:max-h-[600px] max-h-[300px]`}>
             <h2 className="ml-11 font-[600] text-sm text-modalContactTxt">
               Rehber
             </h2>
